@@ -1,0 +1,52 @@
+// Container & Breakpoints
+@use 'sass:math';
+$containerWidth: 1680;
+$containerPadding: 72;
+$containerSidePadding: math.div($containerPadding, 2);
+$breakpoint1650: 1649.98+px;
+$breakpoint1450: 1449.98+px;
+$breakpoint992: 991.98+px;
+$breakpoint768: 767.98+px;
+$breakpoint580: 579.98+px;
+$breakpoint359: 359+px;
+
+// Burger Menu
+$burgerBreakpoint: $breakpoint992;
+$burgerColor: 'black';
+$burgerActiveColor: 'white';
+
+:root {
+  //fonts
+  --font-family: "Manrope", sans-serif;
+  --second-family: "Heuristica", sans-serif;
+  --third-family: "LT Remark", sans-serif;
+
+  // colors
+
+  --foundation-darkblue-darkblue-1: #fff;
+  --foundation-darkblue-darkblue-2: #fdfdfd;
+  --foundation-darkblue-darkblue-3: #f6f6f7;
+  --foundation-darkblue-darkblue-4: #f2f2f3;
+  --foundation-darkblue-darkblue-5: #dedee2;
+  --foundation-darkblue-darkblue-6: #c8c9cf;
+  --foundation-darkblue-darkblue-7: #9c9da8;
+  --foundation-darkblue-darkblue-8: #707182;
+  --foundation-darkblue-darkblue-9: #5e6072;
+  --foundation-darkblue-darkblue-10: #44465b;
+  --foundation-darkblue-darkblue-11: #3d3f55;
+  --foundation-darkblue-darkblue-12: #35364d;
+  --foundation-darkblue-darkblue-13: #23253e;
+  --geekblue-1: #f0f5ff;
+  --geekblue-2: #d6e4ff;
+  --geekblue-3: #adc6ff;
+  --geekblue-4: #85a5ff;
+  --geekblue-5: #597ef7;
+  --geekblue-6: #2f54eb;
+  --geekblue-7: #1d39c4;
+  --geekblue-8: #10239e;
+  --geekblue-9: #061178;
+  --geekblue-10: #030852;
+  --black-10: #222;
+  --white-10: #fff;
+  --yellow-1: #fffcf4;
+}

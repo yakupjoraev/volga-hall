@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.section-titles {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.section-circkle {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  background-color: var(--foundation-darkblue-darkblue-1);
+}
+
+.section-title {
+  font-size: 16px;
+  line-height: 120%;
+  color: var(--foundation-darkblue-darkblue-1);
+
+  @media (max-width: $breakpoint992) {
+    font-size: 14px;
+  }
+}
+
+.section-line {
+  width: 100%;
+  height: 1px;
+  background: var(--geekblue-5);
+}
