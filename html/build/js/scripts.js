@@ -4,7 +4,7 @@
 // Мобильное меню бургер
 function burgerMenu() {
   const burger = document.querySelector('.burger')
-  const menu = document.querySelector('.menu')
+  const menu = document.querySelector('.nav-menu')
   const body = document.querySelector('body')
   burger.addEventListener('click', () => {
     if (!menu.classList.contains('active')) {
@@ -18,7 +18,7 @@ function burgerMenu() {
     }
   })
   //снять классы при клике на элементы меню
-  const menuItems = document.querySelectorAll('.menu__item')
+  const menuItems = document.querySelectorAll('.nav-menu *')
 
   menuItems.forEach(item => {
     item.addEventListener('click', function () {
@@ -28,14 +28,14 @@ function burgerMenu() {
     })
   });
 
-  // Вот тут мы ставим брейкпоинт навбара
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 991.98) {
-      menu.classList.remove('active')
-      burger.classList.remove('active-burger')
-      body.classList.remove('locked')
-    }
-  })
+  // // Вот тут мы ставим брейкпоинт навбара
+  // window.addEventListener('resize', () => {
+  //   if (window.innerWidth > 991.98) {
+  //     menu.classList.remove('active')
+  //     burger.classList.remove('active-burger')
+  //     body.classList.remove('locked')
+  //   }
+  // })
 }
 burgerMenu()
 

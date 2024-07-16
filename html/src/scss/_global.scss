@@ -29,8 +29,15 @@
   @media (max-width: $breakpoint359) {}
 }
 
+html {
+  scroll-behavior: smooth;
+  background-color: var(--black-10);
+  scrollbar-gutter: stable;
+}
+
 // Body Locked
 body {
+  background-color: var(--black-10);
   font-family: var(--font-family);
 
   &.locked {
