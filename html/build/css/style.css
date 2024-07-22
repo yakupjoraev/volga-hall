@@ -604,8 +604,37 @@ body.locked {
   height: fit-content;
   padding-right: 24px;
   padding-bottom: 32px;
+  margin-top: -1px;
   border-radius: 0 0 60px 0;
   background-color: var(--black-10);
+}
+
+.prices__info::before {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 90px;
+  top: 0px;
+  right: -90px;
+  border-radius: 0 60px 0 0;
+  -moz-border-radius: 0 60px 0 0;
+  -webkit-border-radius: 60px 0px 0px 0px;
+  -webkit-box-shadow: -35px -6px 0 0 var(--black-10);
+  box-shadow: -35px -6px 0 0 var(--black-10);
+}
+
+.prices__info::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 90px;
+  bottom: -100px;
+  left: 0;
+  border-radius: 0 60px 0 0;
+  -moz-border-radius: 0 60px 0 0;
+  -webkit-border-radius: 60px 0px 0px 0px;
+  -webkit-box-shadow: -35px -6px 0 0 var(--black-10);
+  box-shadow: -35px -6px 0 0 var(--black-10);
 }
 
 .prices__text {
@@ -662,6 +691,8 @@ body.locked {
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
+  -o-object-position: 0 -2px;
+     object-position: 0 -2px;
 }
 
 .hall-layout {
@@ -1635,6 +1666,11 @@ body.locked {
     min-height: -moz-fit-content;
     min-height: fit-content;
     padding: 0 0 12px 0;
+  }
+
+  .prices__info::before,
+  .prices__info::after {
+    content: none;
   }
 
   .prices__text {

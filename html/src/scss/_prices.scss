@@ -50,25 +50,44 @@
     height: fit-content;
     padding-right: 24px;
     padding-bottom: 32px;
+    margin-top: -1px;
 
     border-radius: 0 0 60px 0;
     background-color: var(--black-10);
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   right: -120px;
-    //   top: 0;
-    //   width: 100px;
-    //   height: 100px;
-    //   background-color: #3498db;
-    //   border-radius: 0 0 100px 0;
-    //   transform: rotate(180deg);
-    // }
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 90px;
+      top: 0px;
+      right: -90px;
+      border-radius: 0 60px 0 0;
+      -moz-border-radius: 0 60px 0 0;
+      -webkit-border-radius: 60px 0px 0px 0px;
+      -webkit-box-shadow: -35px -6px 0 0 var(--black-10);
+      box-shadow: -35px -6px 0 0 var(--black-10);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 90px;
+      bottom: -100px;
+      left: 0;
+      border-radius: 0 60px 0 0;
+      -moz-border-radius: 0 60px 0 0;
+      -webkit-border-radius: 60px 0px 0px 0px;
+      -webkit-box-shadow: -35px -6px 0 0 var(--black-10);
+      box-shadow: -35px -6px 0 0 var(--black-10);
+    }
 
     @media (max-width: 1200px) {
       align-items: center;
       width: 886px;
+
+      &::before {}
     }
 
     @media (max-width: $breakpoint992) {
@@ -77,6 +96,11 @@
       align-items: flex-end;
       min-height: fit-content;
       padding: 0 0 12px 0;
+
+      &::before,
+      &::after {
+        content: none;
+      }
     }
 
     @media (max-width: $breakpoint768) {
@@ -153,6 +177,8 @@
     object-fit: cover;
     user-select: none;
     pointer-events: none;
+    object-position: 0 -2px;
+
 
     @media (max-width: $breakpoint992) {
       position: static;
