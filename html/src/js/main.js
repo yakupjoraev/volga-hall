@@ -52,3 +52,31 @@ function fixedNav() {
   }
 }
 window.addEventListener('scroll', fixedNav)
+
+
+function hallTabs() {
+  const container = document.querySelector('.hall-layout');
+
+  if (!container) {
+    return null
+  }
+
+  const tabButtons = document.querySelectorAll('.hall-layout__btn');
+  const tabContents = document.querySelectorAll('.hall-layout__content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-tab-btn');
+
+      // Удаляем класс active у всех кнопок и контента
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // Добавляем класс active к выбранной кнопке и соответствующему контенту
+      button.classList.add('active');
+      document.querySelector(`.hall-layout__content[data-tab-content="${target}"]`).classList.add('active');
+    });
+  });
+}
+
+hallTabs();

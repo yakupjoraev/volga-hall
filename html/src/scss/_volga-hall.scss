@@ -1,0 +1,286 @@
+.volga-hall {
+  position: relative;
+  height: 1080px;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint1650) {
+    height: 960px;
+  }
+
+  @media (max-width: $breakpoint1450) {
+    height: 800px;
+  }
+
+  @media (max-width: $breakpoint992) {
+    height: 1000px;
+  }
+
+  @media (max-width: $breakpoint768) {
+    height: 720px;
+  }
+
+  @media (max-width: $breakpoint480) {
+    height: 568px;
+  }
+
+  // .volga-hall__inner
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    height: 1080px;
+
+    @media (max-width: $breakpoint1650) {
+      height: 960px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      height: 800px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      height: 1000px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      height: 720px;
+    }
+
+    @media (max-width: $breakpoint480) {
+      height: 568px;
+    }
+  }
+
+  // .volga-hall__name
+
+  &__name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    z-index: 1;
+
+    @media (max-width: $breakpoint1650) {
+      width: 920px;
+      height: auto;
+    }
+
+    @media (max-width: $breakpoint992) {
+      width: 680px;
+      top: 38%;
+    }
+
+    @media (max-width: $breakpoint768) {
+      width: 100%;
+      max-width: 90%;
+      top: 55%;
+    }
+  }
+
+  // .volga-hall__picture
+
+  &__picture {
+    position: absolute;
+  }
+
+  // .volga-hall__picture--1
+
+  &__picture--1 {
+    top: 50px;
+    left: 0;
+
+    @media (max-width: $breakpoint1650) {
+      img {
+        width: 520px;
+        height: auto;
+      }
+    }
+
+    @media (max-width: $breakpoint1450) {
+      left: -140px;
+      top: 32px;
+      width: 430px;
+
+      img {
+        width: 430px;
+      }
+    }
+
+    @media (max-width: $breakpoint768) {
+      top: 20px;
+      left: 20px;
+
+      img {
+        width: 236px;
+      }
+    }
+
+    @media (max-width: $breakpoint480) {
+      top: 20px;
+      left: -70px;
+    }
+  }
+
+  // .volga-hall__picture--2
+
+  &__picture--2 {
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: $breakpoint1450) {
+      top: 32px;
+
+      img {
+        height: auto;
+        width: 218px;
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      right: 20px;
+      left: auto;
+      transform: translateX(0);
+    }
+
+    @media (max-width: $breakpoint768) {
+      top: 54px;
+      top: 50px;
+
+      img {
+        width: 118px;
+      }
+    }
+
+    @media (max-width: $breakpoint480) {
+      top: 54px;
+      right: 0;
+    }
+  }
+
+  // .volga-hall__picture--3
+
+  &__picture--3 {
+    top: 212px;
+    right: 0;
+
+    @media (max-width: $breakpoint1650) {
+      right: -40px;
+    }
+
+
+    @media (max-width: $breakpoint1450) {
+      top: 168px;
+      right: -100px;
+
+      img {
+        width: 324px;
+        height: auto;
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      top: 410px;
+      right: -160px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      right: -10px;
+      top: 286px;
+
+      img {
+        width: 174px;
+
+      }
+    }
+
+
+    @media (max-width: $breakpoint480) {
+      right: -60px;
+    }
+  }
+
+  // .volga-hall__picture--4
+
+  &__picture--4 {
+    bottom: 156px;
+    left: 100px;
+
+    @media (max-width: $breakpoint1650) {
+      bottom: 34px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      left: -20px;
+      bottom: 20px;
+
+      img {
+        width: 440px;
+        height: auto;
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      bottom: 222px;
+      left: -84px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      left: -10px;
+      bottom: 178px;
+
+      img {
+        width: 238px;
+      }
+    }
+
+    @media (max-width: $breakpoint480) {
+      left: -90px;
+      bottom: 78px;
+    }
+  }
+
+  // .volga-hall__picture--5
+
+  &__picture--5 {
+    bottom: -4px;
+    right: 384px;
+
+    @media (max-width: $breakpoint1650) {
+      bottom: -140px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      right: 240px;
+      bottom: -120px;
+
+      img {
+        width: 332px;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 1025px) {
+      right: 140px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      right: 40px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      right: 70px;
+      bottom: 24px;
+
+      img {
+        width: 180px;
+      }
+    }
+
+    @media (max-width: $breakpoint480) {
+      right: -24px;
+      bottom: -80px;
+    }
+  }
+}
