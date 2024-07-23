@@ -978,6 +978,130 @@ body.locked {
           flex: 0 1 744px;
 }
 
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 48px 0;
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.hero__top {
+  margin-bottom: 30px;
+}
+
+.hero__city {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+}
+
+.hero__city-cirkle {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 100%;
+  border-radius: 9px;
+  background: var(--geekblue-4);
+}
+
+.hero__city-text {
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--geekblue-1);
+}
+
+.hero__name-img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.hero__callback {
+  max-width: 188px;
+  margin-left: auto;
+  margin-right: 200px;
+}
+
+.hero__callback-label {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--foundation-darkblue-darkblue-1);
+}
+
+.hero__callback-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 124px;
+  height: 124px;
+  min-width: 124px;
+  background-color: var(--geekblue-6);
+  border-radius: 100%;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--geekblue-1);
+}
+
+.hero__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  row-gap: 12px;
+  margin-top: 160px;
+}
+
+.hero__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .footer {
   padding: 132px 0 32px;
   background-color: var(--geekblue-7);
@@ -1152,6 +1276,10 @@ body.locked {
     bottom: -140px;
   }
 
+  .hero__contacts {
+    margin-top: 32px;
+  }
+
   .footer__link--big {
     font-size: 30px;
   }
@@ -1256,6 +1384,10 @@ body.locked {
 
   .contact-us__title-italic {
     font-size: 48px;
+  }
+
+  .hero__contacts {
+    margin-top: 20px;
   }
 
   .footer__link--big {
@@ -1842,6 +1974,26 @@ body.locked {
     width: 100%;
   }
 
+  .hero {
+    padding-top: 90px;
+  }
+
+  .hero__top {
+    margin-bottom: 80px;
+  }
+
+  .hero__name {
+    margin-bottom: 80px;
+  }
+
+  .hero__callback {
+    margin-right: 90px;
+  }
+
+  .hero__contacts {
+    margin-top: 220px;
+  }
+
   .footer {
     padding: 32px 0px;
   }
@@ -2008,6 +2160,32 @@ body.locked {
   .contact-us__main {
     row-gap: 16px;
   }
+
+  .hero {
+    padding: 30px 0;
+  }
+
+  .hero__top {
+    margin-bottom: 40px;
+  }
+
+  .hero__name {
+    margin-bottom: 12px;
+  }
+
+  .hero__callback {
+    margin-right: 20px;
+  }
+
+  .hero__callback-link {
+    width: 102px;
+    height: 102px;
+    min-width: 102px;
+  }
+
+  .hero__contacts {
+    margin-top: 140px;
+  }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -2143,6 +2321,37 @@ body.locked {
   .volga-hall__picture--5 {
     right: -24px;
     bottom: -80px;
+  }
+
+  .hero {
+    padding: 30px 0 20px;
+  }
+
+  .hero__top {
+    margin-bottom: 30px;
+  }
+
+  .hero__city-text {
+    font-size: 14px;
+  }
+
+  .hero__callback {
+    max-width: 160px;
+    margin-right: 0;
+  }
+
+  .hero__callback-label {
+    font-size: 14px;
+  }
+
+  .hero__contacts {
+    margin-top: 48px;
+    row-gap: 10px;
+  }
+
+  .hero__contact-img {
+    width: 36px;
+    height: 36px;
   }
 }
 
