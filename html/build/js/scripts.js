@@ -81,3 +81,7 @@ function hallTabs() {
 }
 
 hallTabs();
+
+document.querySelectorAll('.sums__item').forEach((item, index) => {
+  item.style.setProperty('--index', index + 1);
+});

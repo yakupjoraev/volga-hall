@@ -1,0 +1,256 @@
+.services {
+  position: relative;
+  z-index: 1;
+  padding: 32px 0;
+  overflow: hidden;
+
+  .section-head {
+    margin-bottom: 108px;
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 72px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      margin-bottom: 48px;
+    }
+  }
+
+  .section-line {
+    background: var(--foundation-darkblue-darkblue-9);
+  }
+
+  // .services__inner
+
+  &__inner {}
+
+  // .services__main
+
+  &__main {}
+
+  // .services__head
+
+  &__head {
+
+    margin-bottom: 40px;
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 32px;
+    }
+  }
+
+  // .services__title
+
+  &__title {
+    width: fit-content;
+    font-family: var(--third-family);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 120%;
+    color: var(--foundation-darkblue-darkblue-1);
+
+
+    @media (max-width: $breakpoint1650) {
+      font-size: 80px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 64px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      font-size: 48px;
+    }
+  }
+
+  // .services__title-bg
+
+  &__title-bg {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: -1;
+
+    font-family: var(--third-family);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 140px;
+    line-height: 120%;
+    color: rgba(255, 255, 255, 0.05);
+
+
+    @media (max-width: $breakpoint1650) {
+      font-size: 120px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 104px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      font-size: 68px;
+    }
+  }
+
+  // .services__columns
+
+  &__columns {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 24px;
+    margin-bottom: 32px;
+
+    @media (max-width: $breakpoint992) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  // .services__column
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+
+    &:nth-child(1) {
+      flex: 0 1 520px;
+
+      @media (max-width: $breakpoint992) {
+        flex: 0 1 auto;
+        max-width: 540px;
+        width: 100%;
+      }
+    }
+
+    &:nth-child(2) {
+      flex: 0 1 656px;
+
+      @media (max-width: $breakpoint992) {
+        flex: 0 1 auto;
+        max-width: 540px;
+        width: 100%;
+      }
+    }
+  }
+
+  // .services__text
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--foundation-darkblue-darkblue-1);
+  }
+
+  // .services__link
+
+  &__link {
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--geekblue-5);
+
+    text-decoration-line: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+  }
+
+  // .services__picture
+
+  &__picture {
+    position: relative;
+    z-index: 1;
+  }
+
+  // .services__pic
+
+  &__pic {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 56px;
+    object-fit: cover;
+
+    @media (max-width: $breakpoint992) {
+      min-height: 456px;
+      border-radius: 32px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      min-height: 286px;
+    }
+  }
+
+  // .services__btn
+
+  &__btn {}
+
+  // .services__decor
+
+  &__decor {
+    position: absolute;
+    right: -150px;
+    top: -180px;
+
+    width: 350px;
+    height: 450px;
+    border-radius: 100%;
+    background: var(--geekblue-6);
+    -webkit-filter: blur(60px);
+    filter: blur(60px);
+    opacity: .4;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    z-index: -1;
+
+
+    @media (max-width: $breakpoint1650) {
+      right: -40px;
+      top: -80px;
+      width: 250px;
+      height: 350px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      top: -60px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      display: none;
+    }
+  }
+
+  // .services__decor-line
+
+  &__decor-line {
+    position: absolute;
+    right: -90px;
+    top: -100px;
+    z-index: 1;
+
+    width: 230px;
+    height: 230px;
+    min-width: 230px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+
+    @media (max-width: $breakpoint1650) {
+      right: -20px;
+      top: -60px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      top: -40px;
+      width: 172px;
+      height: 172px;
+      min-width: 172px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      display: none;
+    }
+  }
+
+}
