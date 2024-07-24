@@ -1,0 +1,154 @@
+.tehno {
+  padding: 112px 0;
+
+  @media (max-width: $breakpoint1450) {
+    padding: 72px 0;
+  }
+
+  @media (max-width: $breakpoint992) {
+    padding: 64px 0;
+  }
+
+  @media (max-width: $breakpoint768) {
+    padding: 30px 0;
+  }
+
+  // .tehno__inner
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    @media (max-width: $breakpoint1450) {
+      align-items: flex-start;
+    }
+  }
+
+  // .tehno__picture
+
+  &__picture {
+    flex: 0 1 792px;
+
+    @media (max-width: $breakpoint1450) {
+      flex: 0 1 340px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      display: none;
+    }
+  }
+
+  // .tehno__pic
+
+  &__pic {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 56px;
+
+    @media (max-width: $breakpoint1450) {
+      max-height: 420px;
+    }
+  }
+
+  // .tehno__info
+
+  &__info {
+    flex: 0 1 792px;
+
+    @media (max-width: $breakpoint992) {
+      flex: 0 1 auto;
+      width: 100%;
+    }
+  }
+
+  // .tehno__title
+
+  &__title {
+    max-width: 520px;
+    margin: 0 auto 56px;
+
+    font-size: 36px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--foundation-darkblue-darkblue-1);
+
+    i {
+      font-family: var(--third-family);
+      font-style: italic;
+    }
+
+    @media (max-width: $breakpoint992) {
+      font-size: 24px;
+      max-width: 320px;
+    }
+  }
+
+  // .tehno__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 24px;
+    list-style: none;
+    counter-reset: my-counter;
+
+    @media (max-width: $breakpoint768) {
+      grid-template-columns: repeat(1, 1fr);
+      width: 100%;
+    }
+  }
+
+  // .tehno__item
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid var(--foundation-darkblue-darkblue-6);
+
+    &::before {
+      content: counter(my-counter) '/';
+      counter-increment: my-counter;
+
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: var(--foundation-darkblue-darkblue-1);
+    }
+
+    @media (max-width: $breakpoint992) {
+      padding: 14px 0;
+
+      &::before {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: $breakpoint768) {
+      padding: 12px 0;
+    }
+  }
+
+  // .tehno__item-text
+
+  &__item-text {
+    font-size: 16px;
+    line-height: 150%;
+    text-align: right;
+    color: var(--foundation-darkblue-darkblue-1);
+
+    @media (max-width: $breakpoint992) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      max-width: 280px;
+    }
+  }
+}
