@@ -57,7 +57,7 @@
 
 @font-face {
   font-family: "LT Remark";
-  src: url("../fonts/LTRemark-Bold-Italic.woff2") format("woff2"), url("../fonts/LTRemark-Bold-Italic.woff") format("woff");
+  src: url("../fonts/LT-Remark-Bold-Italic.woff2") format("woff2"), url("../fonts/LT-Remark-Bold-Italic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
@@ -262,6 +262,10 @@ body.locked {
   width: 100%;
   height: 1px;
   background: var(--geekblue-5);
+}
+
+.section-line--grey {
+  background: var(--foundation-darkblue-darkblue-9);
 }
 
 .nav {
@@ -1478,6 +1482,170 @@ body.locked {
   color: var(--foundation-darkblue-darkblue-1);
 }
 
+.also-offer {
+  padding: 32px 0 220px;
+  overflow: hidden;
+  background: var(--foundation-darkblue-darkblue-1);
+}
+
+.also-offer .section-head {
+  margin-bottom: 148px;
+}
+
+.also-offer__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-column-gap: 24px;
+     -moz-column-gap: 24px;
+          column-gap: 24px;
+}
+
+.also-offer__title {
+  max-width: 380px;
+  margin: 0 auto 56px;
+  font-size: 64px;
+  line-height: 120%;
+  color: var(--black-10);
+}
+
+.also-offer__title i {
+  font-family: var(--third-family);
+  font-style: italic;
+}
+
+.also-offer__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 24px;
+     -moz-column-gap: 24px;
+          column-gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Убираем вертикальный скролл, если он не нужен */
+  scrollbar-width: none;
+  /* Firefox */
+  scroll-behavior: smooth;
+  /* Плавная прокрутка */
+  -webkit-transition: scroll 0.3s ease-in-out;
+  -o-transition: scroll 0.3s ease-in-out;
+  transition: scroll 0.3s ease-in-out;
+  /* Плавный эффект прокрутки */
+}
+
+.also-offer__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.also-offer__card {
+  position: relative;
+  min-width: 520px;
+  width: 520px;
+  height: 640px;
+  overflow: hidden;
+}
+
+.also-offer__pic {
+  border-radius: 32px;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.also-offer__info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-width: 380px;
+  min-width: 380px;
+  min-height: 170px;
+  padding: 20px;
+  border-radius: 26px;
+  background-color: var(--white-10);
+}
+
+.also-offer__info::before {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 90px;
+  top: -100px;
+  right: 0;
+  border-radius: 0 60px 0 0;
+  -moz-border-radius: 0 50px 0 0;
+  -webkit-border-radius: 50px 0 0 0;
+  -webkit-box-shadow: -40px -28px 0 0 var(--white-10);
+  box-shadow: -40px -28px 0 0 var(--white-10);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.also-offer__info::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 90px;
+  bottom: 0;
+  left: -90px;
+  border-radius: 0 60px 0 0;
+  -moz-border-radius: 0 26px 0 0;
+  -webkit-border-radius: 26px 0 0 0;
+  -webkit-box-shadow: -35px -6px 0 0 var(--white-10);
+  box-shadow: -67px -59px 0 0 var(--white-10);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.also-offer__num {
+  z-index: 1;
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 84px;
+  line-height: 80%;
+  color: var(--foundation-darkblue-darkblue-13);
+}
+
+.also-offer__label {
+  z-index: 1;
+  max-width: 300px;
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  color: var(--foundation-darkblue-darkblue-13);
+}
+
+.also-offer__cards.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
 .footer {
   padding: 132px 0 32px;
   background-color: var(--geekblue-7);
@@ -1698,6 +1866,18 @@ body.locked {
     top: -60px;
   }
 
+  .also-offer {
+    padding: 32px 0 120px;
+  }
+
+  .also-offer .section-head {
+    margin-bottom: 124px;
+  }
+
+  .also-offer__title {
+    font-size: 56px;
+  }
+
   .footer__link--big {
     font-size: 30px;
   }
@@ -1878,6 +2058,34 @@ body.locked {
 
   .tehno__pic {
     max-height: 420px;
+  }
+
+  .also-offer {
+    padding: 32px 0 160px;
+  }
+
+  .also-offer .section-head {
+    margin-bottom: 70px;
+  }
+
+  .also-offer__title {
+    font-size: 48px;
+  }
+
+  .also-offer__card {
+    width: 436px;
+    min-width: 436px;
+    height: 500px;
+  }
+
+  .also-offer__info {
+    max-width: 280px;
+    min-width: 280px;
+    min-height: 120px;
+  }
+
+  .also-offer__label {
+    font-size: 18px;
   }
 
   .footer__link--big {
@@ -2577,6 +2785,31 @@ body.locked {
     font-size: 14px;
   }
 
+  .also-offer {
+    padding: 32px 0 90px;
+  }
+
+  .also-offer__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 48px;
+  }
+
+  .also-offer__title {
+    margin: 0;
+  }
+
+  .also-offer__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 32px;
+    margin: 0 auto;
+  }
+
   .footer {
     padding: 32px 0px;
   }
@@ -2873,6 +3106,10 @@ body.locked {
   .tehno__item-text {
     max-width: 280px;
   }
+
+  .also-offer__title {
+    font-size: 36px;
+  }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -2947,6 +3184,10 @@ body.locked {
     min-width: 260px;
     height: auto;
     margin-left: -140px;
+  }
+
+  .also-offer .section-head {
+    margin-bottom: 32px;
   }
 
   .footer {
@@ -3040,6 +3281,28 @@ body.locked {
     width: 36px;
     height: 36px;
   }
+
+  .also-offer {
+    padding: 32px 0 40px;
+  }
+
+  .also-offer__card {
+    width: 100%;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    height: 346px;
+  }
+
+  .also-offer__info {
+    padding: 10px;
+    max-width: 180px;
+    min-width: 180px;
+  }
+
+  .also-offer__num {
+    font-size: 64px;
+  }
 }
 
 @media (max-width: 359px) {
@@ -3050,6 +3313,10 @@ body.locked {
 
   .services__title {
     font-size: 42px;
+  }
+
+  .also-offer__title {
+    font-size: 30px;
   }
 }
 

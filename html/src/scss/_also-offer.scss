@@ -1,0 +1,254 @@
+.also-offer {
+  padding: 32px 0 220px;
+  overflow: hidden;
+  background: var(--foundation-darkblue-darkblue-1);
+
+  @media (max-width: $breakpoint1650) {
+    padding: 32px 0 120px;
+  }
+
+  @media (max-width: $breakpoint1450) {
+    padding: 32px 0 160px;
+  }
+
+  @media (max-width: $breakpoint992) {
+    padding: 32px 0 90px;
+  }
+
+  @media (max-width: $breakpoint480) {
+    padding: 32px 0 40px;
+  }
+
+
+  .section-head {
+    margin-bottom: 148px;
+
+    @media (max-width: $breakpoint1650) {
+      margin-bottom: 124px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: $breakpoint580) {
+      margin-bottom: 32px;
+    }
+  }
+
+  // .also-offer__inner
+
+  &__inner {}
+
+  // .also-offer__main
+
+  &__main {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 24px;
+
+    @media (max-width: $breakpoint992) {
+      flex-direction: column;
+      row-gap: 48px;
+    }
+  }
+
+  // .also-offer__title
+
+  &__title {
+    max-width: 380px;
+    margin: 0 auto 56px;
+
+    font-size: 64px;
+    line-height: 120%;
+    color: var(--black-10);
+
+    i {
+      font-family: var(--third-family);
+      font-style: italic;
+    }
+
+
+    @media (max-width: $breakpoint1650) {
+      font-size: 56px;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 48px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      margin: 0;
+    }
+
+    @media (max-width: $breakpoint768) {
+      font-size: 36px;
+    }
+
+    @media (max-width: $breakpoint359) {
+      font-size: 30px;
+    }
+  }
+
+  // .also-offer__cards
+
+  &__cards {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Убираем вертикальный скролл, если он не нужен */
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+    /* Плавная прокрутка */
+    transition: scroll 0.3s ease-in-out;
+    /* Плавный эффект прокрутки */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: $breakpoint992) {
+      flex-direction: column;
+      row-gap: 32px;
+      margin: 0 auto;
+    }
+  }
+
+  // .also-offer__card
+
+  &__card {
+    position: relative;
+    min-width: 520px;
+    width: 520px;
+    height: 640px;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint1450) {
+      width: 436px;
+      min-width: 436px;
+      height: 500px;
+    }
+
+    @media (max-width: $breakpoint480) {
+      width: 100%;
+      min-width: max-content;
+      height: 346px;
+    }
+  }
+
+  // .also-offer__pic
+
+  &__pic {
+    border-radius: 32px;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // .also-offer__info
+
+  &__info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    width: fit-content;
+    height: fit-content;
+    max-width: 380px;
+    min-width: 380px;
+    min-height: 170px;
+    padding: 20px;
+    border-radius: 26px;
+    background-color: var(--white-10);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 90px;
+      top: -100px;
+      right: 0;
+      border-radius: 0 60px 0 0;
+      -moz-border-radius: 0 50px 0 0;
+      -webkit-border-radius: 50px 0 0 0;
+      -webkit-box-shadow: -40px -28px 0 0 var(--white-10);
+      box-shadow: -40px -28px 0 0 var(--white-10);
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100px;
+      width: 90px;
+      bottom: 0;
+      left: -90px;
+      border-radius: 0 60px 0 0;
+      -moz-border-radius: 0 26px 0 0;
+      -webkit-border-radius: 26px 0 0 0;
+      -webkit-box-shadow: -35px -6px 0 0 var(--white-10);
+      box-shadow: -67px -59px 0 0 var(--white-10);
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+
+    @media (max-width: $breakpoint1450) {
+      max-width: 280px;
+      min-width: 280px;
+      min-height: 120px;
+    }
+
+    @media (max-width: $breakpoint480) {
+      padding: 10px;
+      max-width: 180px;
+      min-width: 180px;
+    }
+  }
+
+  // .also-offer__num
+
+  &__num {
+    z-index: 1;
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 80%;
+    color: var(--foundation-darkblue-darkblue-13);
+
+    @media (max-width: $breakpoint480) {
+      font-size: 64px;
+    }
+  }
+
+  // .also-offer__label
+
+  &__label {
+    z-index: 1;
+    max-width: 300px;
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--foundation-darkblue-darkblue-13);
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 18px;
+    }
+  }
+}
+
+.also-offer__cards.smooth-scroll {
+  scroll-behavior: smooth;
+}
