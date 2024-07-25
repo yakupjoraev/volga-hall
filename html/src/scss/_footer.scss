@@ -53,7 +53,7 @@
   &__list {
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 16px;
 
     @media (max-width: $breakpoint992) {
       &:nth-child(1) {
@@ -66,19 +66,7 @@
 
   // .footer__item
 
-  &__item {
-    &:not(:first-child) {
-      margin-bottom: 8px;
-
-      @media (max-width: $breakpoint580) {
-        margin-bottom: 0;
-      }
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+  &__item {}
 
   // .footer__item--head
 

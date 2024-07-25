@@ -157,7 +157,7 @@
   &__item-sum {
     white-space: nowrap;
     font-size: 96px;
-    line-height: 120%;
+    line-height: 80%;
     color: var(--geekblue-5);
 
     span {
@@ -170,10 +170,12 @@
 
     @media (max-width: $breakpoint1450) {
       font-size: 64px;
+      line-height: 40%;
     }
 
     @media (max-width: $breakpoint768) {
       font-size: 48px;
+      line-height: 60%;
 
       span {
         font-size: 36px;

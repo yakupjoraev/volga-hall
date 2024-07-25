@@ -15,6 +15,18 @@
     padding: 30px 0 20px;
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+  }
+
   // .hero__inner
 
   &__inner {}
@@ -28,7 +40,7 @@
     max-width: 100%;
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+    // filter: blur(3px);
     z-index: -1;
     object-fit: cover;
   }
@@ -36,6 +48,8 @@
   // .hero__top
 
   &__top {
+    position: relative;
+    z-index: 1;
     margin-bottom: 30px;
 
     @media (max-width: $breakpoint992) {
@@ -54,6 +68,8 @@
   // .hero__city
 
   &__city {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,6 +103,9 @@
   // .hero__name
 
   &__name {
+    position: relative;
+    z-index: 1;
+
     @media (max-width: $breakpoint992) {
       margin-bottom: 80px;
     }
@@ -107,6 +126,8 @@
   // .hero__callback
 
   &__callback {
+    position: relative;
+    z-index: 1;
     max-width: 188px;
     margin-left: auto;
     margin-right: 200px;
@@ -167,6 +188,8 @@
   // .hero__contacts
 
   &__contacts {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
