@@ -1483,6 +1483,8 @@ body.locked {
 }
 
 .also-offer {
+  position: relative;
+  z-index: 1;
   padding: 32px 0 220px;
   overflow: hidden;
   background: var(--foundation-darkblue-darkblue-1);
@@ -1490,6 +1492,26 @@ body.locked {
 
 .also-offer .section-head {
   margin-bottom: 148px;
+}
+
+.also-offer .section-title {
+  color: var(--black-10);
+}
+
+.also-offer .section-circkle {
+  background-color: var(--geekblue-2);
+}
+
+.also-offer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 650px;
+  height: 790px;
+  background-image: url("data:image/svg+xml,%3Csvg width='651' height='790' viewBox='0 0 651 790' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_f_2088_3481)'%3E%3Cellipse cx='91.1037' cy='299.871' rx='164.717' ry='302.866' transform='rotate(-32.6559 91.1037 299.871)' fill='%232F54EB' /%3E%3C/g%3E%3Cg filter='url(%23filter1_f_2088_3481)'%3E%3Cellipse cx='223.746' cy='208.773' rx='200.398' ry='221.131' transform='rotate(-32.6559 223.746 208.773)' fill='white' /%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_f_2088_3481' x='-343.236' y='-190.24' width='868.679' height='980.222' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix' /%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' /%3E%3CfeGaussianBlur stdDeviation='110' result='effect1_foregroundBlur_2088_3481' /%3E%3C/filter%3E%3Cfilter id='filter1_f_2088_3481' x='-202.92' y='-226.562' width='853.332' height='870.671' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix' /%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' /%3E%3CfeGaussianBlur stdDeviation='110' result='effect1_foregroundBlur_2088_3481' /%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
 }
 
 .also-offer__main {
@@ -2386,6 +2408,10 @@ body.locked {
         -ms-flex-align: center;
             align-items: center;
     width: 886px;
+  }
+
+  .also-offer::before {
+    content: none;
   }
 }
 
