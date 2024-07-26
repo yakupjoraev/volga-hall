@@ -594,6 +594,13 @@ body.locked {
   background-color: var(--black-10);
 }
 
+.prices.visible .prices__main {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .prices .section-head {
   margin-bottom: 98px;
 }
@@ -605,6 +612,13 @@ body.locked {
 .prices__main {
   position: relative;
   padding-bottom: 704px;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+  -webkit-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .prices__info {
@@ -722,6 +736,13 @@ body.locked {
   overflow: hidden;
 }
 
+.hall-layout.visible .hall-layout__main {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .hall-layout .section-head {
   margin-bottom: 256px;
 }
@@ -742,6 +763,13 @@ body.locked {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+  -webkit-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .hall-layout__main::before {

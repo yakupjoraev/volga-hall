@@ -7,6 +7,14 @@
     margin: 40px 0 60px;
   }
 
+  &.visible {
+    .prices__main {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
 
   .section-head {
     margin-bottom: 98px;
@@ -30,6 +38,9 @@
   &__main {
     position: relative;
     padding-bottom: 704px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.3s linear;
 
     @media (max-width: $breakpoint1450) {
       padding-bottom: 0;

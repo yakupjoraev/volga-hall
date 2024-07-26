@@ -18,6 +18,13 @@
     padding: 40px 0;
   }
 
+  &.visible {
+    .hall-layout__main {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 
   .section-head {
     margin-bottom: 256px;
@@ -51,6 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.3s linear;
 
     &::before {
       content: '';

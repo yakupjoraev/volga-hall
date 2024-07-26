@@ -172,7 +172,7 @@ const observer = new IntersectionObserver(handleIntersection, {
 const sectionLine = document.querySelectorAll('.section-head');
 const servicesMain = document.querySelectorAll('.services__main');
 const sumsItems = document.querySelectorAll('.sums__item');
-const tehnoSection = document.querySelectorAll('.tehno');
+const animationSection = document.querySelectorAll('.animation-section');
 
 // Наблюдаем за каждым элементом
 sectionLine.forEach(block => {
@@ -187,7 +187,7 @@ servicesMain.forEach(block => {
   observer.observe(block);
 });
 
-tehnoSection.forEach(block => {
+animationSection.forEach(block => {
   observer.observe(block);
 });
 
