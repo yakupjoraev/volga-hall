@@ -8,10 +8,15 @@
 
   @media (max-width: $breakpoint1650) {
     // max-width: 1200px;
+    padding: 0 96px;
   }
 
   @media (max-width: $breakpoint1450) {
     // max-width: 1200px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 36px;
   }
 
   @media (max-width: $breakpoint992) {
