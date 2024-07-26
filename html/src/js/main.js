@@ -122,3 +122,70 @@ slider.addEventListener('mousemove', (e) => {
   const walk = (x - startX) * 2; //scroll-fast
   slider.scrollLeft = scrollLeft - walk;
 });
+
+
+// //////////////////////////////////////// animations /////////////////////////////////////////////
+
+
+// Функция для запуска счетчика
+function sumsVal(element) {
+  let startValue = 0;
+  let endValue = parseInt(element.getAttribute("data-val"));
+  let duration = Math.floor(1000 / endValue);
+  let counter = setInterval(function () {
+    startValue += 1;
+    element.textContent = startValue;
+    if (startValue == endValue) {
+      clearInterval(counter);
+    }
+  }, duration);
+}
+
+// Функция, которая будет вызываться при появлении элемента в поле видимости
+function handleIntersection(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Добавляем класс, когда элемент появляется в поле видимости
+      entry.target.classList.add('visible');
+
+      // Если элемент имеет класс sums__item, запускаем анимацию счетчика
+      if (entry.target.classList.contains('sums__item')) {
+        let valueDisplay = entry.target.querySelector(".sums__item-sum");
+        sumsVal(valueDisplay);
+      }
+
+      // Отключаем наблюдение для данного элемента после добавления класса (если это нужно)
+      observer.unobserve(entry.target);
+    }
+  });
+}
+
+// Создаем экземпляр IntersectionObserver
+const observer = new IntersectionObserver(handleIntersection, {
+  root: null, // Используем viewport как корневой элемент
+  rootMargin: '0px', // Можете настроить отступы, если нужно
+  threshold: 0.5, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
+});
+
+// Получаем все элементы с классом "section-head" и "sums__item"
+const sectionLine = document.querySelectorAll('.section-head');
+const servicesMain = document.querySelectorAll('.services__main');
+const sumsItems = document.querySelectorAll('.sums__item');
+const tehnoSection = document.querySelectorAll('.tehno');
+
+// Наблюдаем за каждым элементом
+sectionLine.forEach(block => {
+  observer.observe(block);
+});
+
+sumsItems.forEach(block => {
+  observer.observe(block);
+});
+
+servicesMain.forEach(block => {
+  observer.observe(block);
+});
+
+tehnoSection.forEach(block => {
+  observer.observe(block);
+});

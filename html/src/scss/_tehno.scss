@@ -13,6 +13,15 @@
     padding: 30px 0;
   }
 
+  &.visible {
+
+    .tehno__picture,
+    .tehno__info {
+      opacity: 1;
+    }
+
+  }
+
   // .tehno__inner
 
   &__inner {
@@ -29,6 +38,8 @@
 
   &__picture {
     flex: 0 1 792px;
+    opacity: 0;
+    transition: opacity 0.6s linear;
 
     @media (max-width: $breakpoint1450) {
       flex: 0 1 340px;
@@ -57,6 +68,8 @@
 
   &__info {
     flex: 0 1 792px;
+    opacity: 0;
+    transition: opacity 0.6s linear;
 
     @media (max-width: $breakpoint992) {
       flex: 0 1 auto;

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 
   main {
     flex-grow: 1;
@@ -18,6 +19,8 @@
   display: flex;
   align-items: center;
   column-gap: 4px;
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0, .32, .59, .46);
 }
 
 .section-circkle {
@@ -39,11 +42,24 @@
 }
 
 .section-line {
-  width: 100%;
+  width: 0;
   height: 1px;
   background: var(--geekblue-5);
+  transition: 1s cubic-bezier(0, .32, .59, .46);
 
   &--grey {
     background: var(--foundation-darkblue-darkblue-9);
+  }
+}
+
+.section-head {
+  &.visible {
+    .section-titles {
+      opacity: 1;
+    }
+
+    .section-line {
+      width: 100%;
+    }
   }
 }
