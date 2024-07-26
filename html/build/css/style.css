@@ -37,27 +37,27 @@
 }
 
 @font-face {
-  font-family: "LT Remark";
-  src: url("../fonts/LTRemark-Regular.woff2") format("woff2"), url("../fonts/LTRemark-Regular.woff") format("woff");
+  font-family: "Heuristica";
+  src: url("../fonts/Heuristica-Regular.woff2") format("woff2"), url("../fonts/Heuristica-Regular.woff") format("woff");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "LT Remark";
-  src: url("../fonts/LTRemark-Regular-Italic.woff2") format("woff2"), url("../fonts/LTRemark-Regular-Italic.woff") format("woff");
+  font-family: "Heuristica";
+  src: url("../fonts/Heuristica-Italic.woff2") format("woff2"), url("../fonts/Heuristica-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "LT Remark";
-  src: url("../fonts/LTRemark-Bold.woff2") format("woff2"), url("../fonts/LTRemark-Bold.woff") format("woff");
+  font-family: "Heuristica";
+  src: url("../fonts/Heuristica-Bold.woff2") format("woff2"), url("../fonts/Heuristica-Bold.woff") format("woff");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: "LT Remark";
-  src: url("../fonts/LT-Remark-Bold-Italic.woff2") format("woff2"), url("../fonts/LT-Remark-Bold-Italic.woff") format("woff");
+  font-family: "Heuristica";
+  src: url("../fonts/Heuristica-BoldItalic.woff2") format("woff2"), url("../fonts/Heuristica-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
@@ -65,7 +65,7 @@
 :root {
   --font-family: "Manrope", sans-serif;
   --second-family: "Heuristica", sans-serif;
-  --third-family: "LT Remark", sans-serif;
+  --third-family: "Heuristica", sans-serif;
   --foundation-darkblue-darkblue-1: #fff;
   --foundation-darkblue-darkblue-2: #fdfdfd;
   --foundation-darkblue-darkblue-3: #f6f6f7;
@@ -1059,7 +1059,7 @@ body.locked {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh + 66px);
   background-color: #fff;
   -webkit-animation: fadeIn 1s forwards 0.6s;
           animation: fadeIn 1s forwards 0.6s;
