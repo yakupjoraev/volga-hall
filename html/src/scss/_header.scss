@@ -5,15 +5,19 @@
 // Navbar
 .nav {
   background-color: var(--black-10);
+  overflow: hidden;
 }
 
 .navbar {
+  position: relative;
+  z-index: 12;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
   column-gap: 40px;
   padding: 14px 0;
+  animation: slide-up 1.6s cubic-bezier(.165, .84, .44, 1) both 2s;
 
   @media (max-width: $breakpoint1450) {
     column-gap: 20px;

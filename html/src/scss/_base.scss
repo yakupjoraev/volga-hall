@@ -45,7 +45,7 @@
   width: 0;
   height: 1px;
   background: var(--geekblue-5);
-  transition: 1s cubic-bezier(0, .32, .59, .46);
+  transition: 1.4s cubic-bezier(0, .32, .59, .46);
 
   &--grey {
     background: var(--foundation-darkblue-darkblue-9);
@@ -61,5 +61,79 @@
     .section-line {
       width: 100%;
     }
+  }
+}
+
+
+section.visible {
+  .text-animation {
+    // width: max-content;
+    overflow: hidden;
+    // animation: slide-up 1.6s cubic-bezier(.165, .84, .44, 1) calc(1 * .13s);
+    // animation-delay: 0;
+    // will-change: transform;
+
+    transform: translateY(0);
+  }
+}
+
+// div:has(>.text-animation) {
+//   overflow: hidden;
+// }
+
+.text-animation {
+  will-change: transform;
+
+  transform: translateY(100%);
+  transition: 2s cubic-bezier(.165, .84, .44, 1);
+}
+
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  /* To remove underline from anchor */
+  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.3s;
+
+  @media (hover:hover) {
+    &:hover {}
+  }
+}
+
+
+.btn.hovered {
+  width: 124px;
+  height: 124px;
+  min-width: 124px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 1px solid var(--foundation-darkblue-darkblue-1);
+}
+
+.btn-text {
+  display: inline-block;
+  transition: transform 0.2s ease-out;
+}
+
+@keyframes btn {
+  0% {
+    transform: scale(0.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

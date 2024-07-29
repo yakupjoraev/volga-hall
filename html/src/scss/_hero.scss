@@ -245,9 +245,10 @@
 
 .hero {
   position: relative;
-  z-index: 12;
+  z-index: 1;
   padding: 48px 0;
   overflow: hidden;
+  min-height: 100vh;
 
 
   @media (max-width: $breakpoint992) {
@@ -276,7 +277,7 @@
 
   &::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -284,6 +285,8 @@
     height: calc(100vh + 66px);
     background-color: #fff;
     animation: fadeIn 1s forwards 0.6s;
+    user-select: none;
+    pointer-events: none;
   }
 
   // .hero__inner
@@ -465,8 +468,10 @@
   // .hero__contacts
 
   &__contacts {
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    z-index: 9;
+    bottom: 48px;
+    right: 144px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -477,15 +482,13 @@
     animation: showContacts 1s forwards 2.5s;
 
     @media (max-width: $breakpoint1650) {
-      margin-top: 32px;
+      right: 96px;
     }
 
-    @media (max-width: $breakpoint1450) {
-      margin-top: 20px;
-    }
+    @media (max-width: $breakpoint1450) {}
 
     @media (max-width: $breakpoint992) {
-      margin-top: 220px;
+      right: 32px;
     }
 
     @media (max-width: $breakpoint768) {

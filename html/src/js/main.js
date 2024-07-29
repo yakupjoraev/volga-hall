@@ -85,46 +85,168 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
   item.style.setProperty('--index', index + 1);
 });
 
-document.querySelector('.also-offer__cards').addEventListener('wheel', function (event) {
-  if (event.deltaY !== 0) {
-    event.preventDefault();
-    this.scrollLeft += event.deltaY;
+
+
+
+function alsoOfferScroll() {
+  const slider = document.querySelector('.also-offer__cards');
+
+  if (!slider) {
+    return null;
   }
-});
 
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-const slider = document.querySelector('.also-offer__cards');
-let isDown = false;
-let startX;
-let scrollLeft;
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
 
-slider.addEventListener('mousedown', (e) => {
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-slider.addEventListener('mouseleave', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
 
-slider.addEventListener('mouseup', () => {
-  isDown = false;
-  slider.classList.remove('active');
-});
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;  // stop the fn from running
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 0.1; //scroll-fast
+    slider.scrollLeft = scrollLeft - walk;
+  });
 
-slider.addEventListener('mousemove', (e) => {
-  if (!isDown) return;  // stop the fn from running
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2; //scroll-fast
-  slider.scrollLeft = scrollLeft - walk;
-});
+  // Function to scroll the slider to the end smoothly
+  function smoothScrollToEnd() {
+    slider.scrollTo({
+      left: slider.scrollWidth - slider.clientWidth,
+      behavior: 'smooth'
+    });
+  }
+
+  // Create an intersection observer to detect when the slider becomes visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Wait for 0.5 seconds before scrolling
+        setTimeout(smoothScrollToEnd, 700);
+      }
+    });
+  }, { threshold: 0.5 }); // Adjust threshold as needed
+
+  observer.observe(slider);
+}
+
+if (window.matchMedia("(min-width: 767px)").matches) {
+  alsoOfferScroll();
+}
+
 
 
 // //////////////////////////////////////// animations /////////////////////////////////////////////
+
+
+
+// class Sticker {
+//   constructor(options) {
+//     this.elements = document.querySelectorAll('.sticky_w');
+//     this.texts = document.querySelectorAll('.sticky_t');
+
+//     this.elements.forEach((el, index) => {
+//       el.innert = el.getAttribute("data-sticky") || 1;
+//       el.selfInnert = el.innert * 1.5; // Adjust multiplier to make the button move more
+
+//       el.text = this.texts[index];
+//       el.text.style.pointerEvents = "none";
+
+//       el.offsetY = 0;
+//       el.offsetX = 0;
+//       el.translateX = 0;
+//       el.translateY = 0;
+
+//       el.btnSize = {
+//         width: el.offsetWidth,
+//         height: el.offsetHeight
+//       };
+
+//       el.addEventListener("mousemove", (e) => {
+//         e = e || window.event;
+//         el.offsetX = e.offsetX;
+//         el.offsetY = e.offsetY;
+//         el.translateX = (-el.btnSize.width / 2) + el.offsetX;
+//         el.translateY = (-el.btnSize.height / 2) + el.offsetY;
+
+//         gsap.to(el.text, {
+//           duration: options.inertion,
+//           x: ((-el.btnSize.width / 2) + el.offsetX) / el.innert,
+//           y: ((-el.btnSize.height / 2) + el.offsetY) / el.innert,
+//           ease: "power1.out"
+//         });
+
+//         gsap.to(el, {
+//           duration: options.inertion,
+//           x: el.translateX / 4, // Adjust to make the element move significantly
+//           y: el.translateY / 4, // Adjust to make the element move significantly
+//           ease: "power1.out"
+//         });
+//       });
+
+//       el.addEventListener("mouseenter", (e) => {
+//         el.classList.add('hovered');
+//         el.offsetX = e.offsetX;
+//         el.offsetY = e.offsetY;
+
+//         gsap.to(el.text, {
+//           duration: 0.1,
+//           x: ((-el.btnSize.width / 2) + el.offsetX) / el.innert,
+//           y: ((-el.btnSize.height / 2) + el.offsetY) / el.innert,
+//           ease: "power1.out"
+//         });
+
+//         gsap.to(el, {
+//           duration: 0.1,
+//           x: el.translateX / 4, // Adjust to make the element move significantly
+//           y: el.translateY / 4, // Adjust to make the element move significantly
+//           ease: "power1.out"
+//         });
+//       });
+
+//       el.addEventListener("mouseleave", () => {
+//         el.classList.remove('hovered');
+
+//         gsap.to(el.text, {
+//           duration: options.spring,
+//           x: 0,
+//           y: 0,
+//           ease: "power1.out"
+//         });
+
+//         gsap.to(el, {
+//           duration: options.spring,
+//           x: 0,
+//           y: 0,
+//           ease: "power1.out"
+//         });
+//       });
+//     });
+//   }
+// }
+
+// new Sticker({
+//   inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
+//   spring: 0.5    // And change this                   //  0.3 - 1
+// });
+
+
+
 
 
 // Функция для запуска счетчика
@@ -189,3 +311,4 @@ servicesMain.forEach(block => {
 animationSection.forEach(block => {
   observer.observe(block);
 });
+

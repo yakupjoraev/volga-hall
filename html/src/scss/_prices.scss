@@ -7,12 +7,12 @@
     margin: 40px 0 60px;
   }
 
-  &.visible {
-    .prices__main {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  // &.visible {
+  //   .prices__main {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+  // }
 
 
 
@@ -38,9 +38,9 @@
   &__main {
     position: relative;
     padding-bottom: 704px;
-    transform: translateY(100%);
-    opacity: 0;
-    transition: 0.5s linear;
+    // transform: translateY(100%);
+    // opacity: 0;
+    // transition: 0.5s linear;
 
     @media (max-width: $breakpoint1450) {
       padding-bottom: 0;
@@ -119,6 +119,12 @@
     }
 
 
+  }
+
+  // .prices__text-wrapper
+
+  &__text-wrapper {
+    overflow: hidden;
   }
 
   // .prices__text
