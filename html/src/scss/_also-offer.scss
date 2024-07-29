@@ -61,6 +61,17 @@
       content: none;
     }
 
+
+  }
+
+  &.visible {
+
+
+    .also-offer__card {
+      &::before {
+        height: 0;
+      }
+    }
   }
 
   // .also-offer__inner
@@ -152,6 +163,21 @@
     width: 520px;
     height: 640px;
     overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 124%;
+      height: 120%;
+      border-radius: 56px;
+      background-color: var(--white-10);
+      z-index: 10;
+      transition: height 0.4s linear;
+      user-select: none;
+      pointer-events: none;
+    }
 
     @media (max-width: $breakpoint1450) {
       width: 436px;
