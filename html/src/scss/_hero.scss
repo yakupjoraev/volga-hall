@@ -364,13 +364,20 @@
     }
   }
 
+  // .hero__name-wrapper
+
+  &__name-wrapper {
+    overflow: hidden;
+  }
+
   // .hero__name
 
   &__name {
     position: relative;
     z-index: 1;
-    opacity: 0;
-    transform: scaleY(0);
+    // opacity: 0;
+
+    transform: translateY(100%);
     transform-origin: bottom;
     animation: showNamesSale 1s forwards 1s;
 
@@ -530,7 +537,7 @@
 @keyframes showNamesSale {
   to {
     opacity: 1;
-    transform: scaleY(1);
+    transform: translateY(0);
     /* Animate to full height */
   }
 }

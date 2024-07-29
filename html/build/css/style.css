@@ -1125,13 +1125,16 @@ body.locked {
   color: var(--geekblue-1);
 }
 
+.hero__name-wrapper {
+  overflow: hidden;
+}
+
 .hero__name {
   position: relative;
   z-index: 1;
-  opacity: 0;
-  -webkit-transform: scaleY(0);
-      -ms-transform: scaleY(0);
-          transform: scaleY(0);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
   -webkit-transform-origin: bottom;
       -ms-transform-origin: bottom;
           transform-origin: bottom;
@@ -1263,8 +1266,8 @@ body.locked {
 @-webkit-keyframes showNamesSale {
   to {
     opacity: 1;
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     /* Animate to full height */
   }
 }
@@ -1272,8 +1275,8 @@ body.locked {
 @keyframes showNamesSale {
   to {
     opacity: 1;
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     /* Animate to full height */
   }
 }
