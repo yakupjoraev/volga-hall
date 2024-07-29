@@ -1032,6 +1032,7 @@ body.locked {
   position: relative;
   z-index: 12;
   padding: 48px 0;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -1076,8 +1077,11 @@ body.locked {
   -o-object-fit: cover;
      object-fit: cover;
   opacity: 0;
-  -webkit-animation: showBg 1s forwards 2s;
-          animation: showBg 1s forwards 2s;
+  -webkit-transform: scale(2);
+      -ms-transform: scale(2);
+          transform: scale(2);
+  -webkit-animation: showBg 1s forwards 1.8s;
+          animation: showBg 1s forwards 1.8s;
 }
 
 .hero__top {
@@ -1270,7 +1274,7 @@ body.locked {
             transform: translateY(100%) scale(0.8);
   }
 
-  70% {
+  60% {
     opacity: 1;
     -webkit-transform: translateY(0) scale(0.8);
             transform: translateY(0) scale(0.8);
@@ -1296,7 +1300,7 @@ body.locked {
             transform: translateY(100%) scale(0.8);
   }
 
-  70% {
+  60% {
     opacity: 1;
     -webkit-transform: translateY(0) scale(0.8);
             transform: translateY(0) scale(0.8);
@@ -1318,12 +1322,16 @@ body.locked {
 @-webkit-keyframes showBg {
   to {
     opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes showBg {
   to {
     opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
