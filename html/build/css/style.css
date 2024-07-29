@@ -1030,7 +1030,7 @@ body.locked {
 
 .hero {
   position: relative;
-  z-index: 1;
+  z-index: 12;
   padding: 48px 0;
 }
 
@@ -1063,86 +1063,6 @@ body.locked {
   background-color: #fff;
   -webkit-animation: fadeIn 1s forwards 0.6s;
           animation: fadeIn 1s forwards 0.6s;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    background-color: #fff;
-  }
-
-  to {
-    background-color: transparent;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    background-color: #fff;
-  }
-
-  to {
-    background-color: transparent;
-  }
-}
-
-@-webkit-keyframes showName {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes showName {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes showBg {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showBg {
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes showCallback {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes showCallback {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes showContacts {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes showContacts {
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
 }
 
 .hero__bg {
@@ -1209,11 +1129,14 @@ body.locked {
   position: relative;
   z-index: 1;
   opacity: 0;
-  -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
-  -webkit-animation: showName 1s forwards 1s;
-          animation: showName 1s forwards 1s;
+  -webkit-transform: scaleY(0);
+      -ms-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom;
+      -ms-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: showNamesSale 1s forwards 1s;
+          animation: showNamesSale 1s forwards 1s;
 }
 
 .hero__name-img {
@@ -1299,6 +1222,104 @@ body.locked {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+@-webkit-keyframes showName {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes showName {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes showNamesSale {
+  to {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    /* Animate to full height */
+  }
+}
+
+@keyframes showNamesSale {
+  to {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    /* Animate to full height */
+  }
+}
+
+@-webkit-keyframes showBg {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showBg {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showCallback {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes showCallback {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes showContacts {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes showContacts {
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 
 .sums {

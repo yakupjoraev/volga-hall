@@ -245,7 +245,7 @@
 
 .hero {
   position: relative;
-  z-index: 1;
+  z-index: 12;
   padding: 48px 0;
 
 
@@ -285,42 +285,7 @@
     animation: fadeIn 1s forwards 0.6s;
   }
 
-  @keyframes fadeIn {
-    from {
-      background-color: #fff;
-    }
 
-    to {
-      background-color: transparent;
-    }
-  }
-
-  @keyframes showName {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes showBg {
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes showCallback {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes showContacts {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
   // .hero__inner
 
@@ -405,8 +370,9 @@
     position: relative;
     z-index: 1;
     opacity: 0;
-    transform: translateY(100%);
-    animation: showName 1s forwards 1s;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    animation: showNamesSale 1s forwards 1s;
 
     @media (max-width: $breakpoint992) {
       margin-bottom: 80px;
@@ -541,5 +507,50 @@
       width: 36px;
       height: 36px;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes showName {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showNamesSale {
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    /* Animate to full height */
+  }
+}
+
+@keyframes showBg {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showCallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showContacts {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
