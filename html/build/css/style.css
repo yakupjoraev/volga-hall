@@ -1142,8 +1142,8 @@ body.locked {
   -webkit-transform-origin: bottom;
       -ms-transform-origin: bottom;
           transform-origin: bottom;
-  -webkit-animation: showNamesSale 1.2s forwards 1.2s;
-          animation: showNamesSale 1.2s forwards 1.2s;
+  -webkit-animation: showNamesSale 1.4s forwards 1.2s;
+          animation: showNamesSale 1.4s forwards 1.2s;
 }
 
 .hero__name-img {
