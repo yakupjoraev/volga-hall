@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
+  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
@@ -160,6 +161,7 @@
           способный реализовать<br />
           даже самые смелые задумки.<br />
         </h3>
+
       </div>
 
       <ul class="sums__list">
@@ -189,7 +191,11 @@
     </div>
   </div>
 </section>
-      <section class="services animation-section">
+
+      <div class="slider swiper">
+        <div class="slider-wrapper swiper-wrapper">
+          <div class="slide swiper-slide">
+            <section class="services animation-section">
   <div class="container">
     <div class="services__inner">
       <div class="section-head">
@@ -203,8 +209,8 @@
 
       <div class="services__main">
         <div class="services__head">
-          <h3 class="services__title">Конференции</h3>
-          <div class="services__title-bg">Конференции</div>
+          <h3 class="services__title text-animation">Конференции</h3>
+          <div class="services__title-bg text-animation">Конференции</div>
         </div>
 
         <div class="services__columns">
@@ -233,9 +239,9 @@
               srcset="./img/services/conferences-pic@2x.png" alt="picture">
           </picture>
 
-          <a class="services__btn" href="#">
-            Оставить <br />
-            заявку
+
+          <a data-sticky="3" class="services__btn btn sticky_w" href="#">
+            <span class="btn-text sticky_t">Оставить <br /> заявку</span>
           </a>
 
 
@@ -247,7 +253,9 @@
     </div>
   </div>
 </section>
-      <section class="services animation-section">
+          </div>
+          <div class="slide swiper-slide">
+            <section class="services animation-section">
   <div class="container">
     <div class="services__inner">
       <div class="section-head">
@@ -261,8 +269,8 @@
 
       <div class="services__main">
         <div class="services__head">
-          <h3 class="services__title">Банкеты</h3>
-          <div class="services__title-bg">Банкеты</div>
+          <h3 class="services__title text-animation">Банкеты</h3>
+          <div class="services__title-bg text-animation">Банкеты</div>
         </div>
 
         <div class="services__columns">
@@ -292,10 +300,10 @@
               alt="picture">
           </picture>
 
-          <a class="services__btn" href="#">
-            Оставить <br />
-            заявку
+          <a data-sticky="3" class="services__btn btn sticky_w" href="#">
+            <span class="btn-text sticky_t">Оставить <br /> заявку</span>
           </a>
+
 
           <div class="services__decor"></div>
           <div class="services__decor-line"></div>
@@ -306,6 +314,11 @@
     </div>
   </div>
 </section>
+          </div>
+        </div>
+      </div>
+
+
       <section class="tehno animation-section">
   <div class="container">
     <div class="tehno__inner">
@@ -499,8 +512,10 @@
             </p>
           </div>
 
+          <a data-sticky="3" class="prices__link btn sticky_w" href="#">
+            <span class="btn-text sticky_t">Ознакомиться с&nbsp;ценами</span>
+          </a>
 
-          <a class="prices__link" href="#">Ознакомиться с&nbsp;ценами</a>
         </div>
 
         <picture>
@@ -584,6 +599,8 @@
     <div class="volga-hall__inner">
       <img class="volga-hall__name" width="1200" height="286" src="./img/volga-hall/Volga Hall.svg" alt="Volga Hall">
 
+      <div class="circle"></div>
+
       <div class="volga-hall__picture volga-hall__picture--1">
         <picture>
           <source srcset="./img/volga-hall/1.webp 1x, ./img/volga-hall/1@2x.webp 2x" type="image/webp">
@@ -617,6 +634,46 @@
       </div>
 
       <div class="volga-hall__picture volga-hall__picture--5">
+        <picture>
+          <source srcset="./img/volga-hall/5.webp 1x, ./img/volga-hall/5@2x.webp 2x" type="image/webp">
+          <source srcset="./img/volga-hall/5.png 1x, ./img/volga-hall/5@2x.png 2x" type="image/png">
+          <img src="./img/volga-hall/5.png" width="396" height="386" srcset="./img/volga-hall/5@2x.png" alt="Alt">
+        </picture>
+      </div>
+
+      <div class="volga-hall__picture volga-hall__picture--1 second">
+        <picture>
+          <source srcset="./img/volga-hall/1.webp 1x, ./img/volga-hall/1@2x.webp 2x" type="image/webp">
+          <source srcset="./img/volga-hall/1.png 1x, ./img/volga-hall/1@2x.png 2x" type="image/png">
+          <img src="./img/volga-hall/1.png" width="530" height="300" srcset="./img/volga-hall/1@2x.png" alt="Alt">
+        </picture>
+      </div>
+
+      <div class="volga-hall__picture volga-hall__picture--2 second">
+        <picture>
+          <source srcset="./img/volga-hall/2.webp 1x, ./img/volga-hall/2@2x.webp 2x" type="image/webp">
+          <source srcset="./img/volga-hall/2.png 1x, ./img/volga-hall/2@2x.png 2x" type="image/png">
+          <img src="./img/volga-hall/2.png" width="260" height="386" srcset="./img/volga-hall/2@2x.png" alt="Alt">
+        </picture>
+      </div>
+
+      <div class="volga-hall__picture volga-hall__picture--3 second">
+        <picture>
+          <source srcset="./img/volga-hall/3.webp 1x, ./img/volga-hall/3@2x.webp 2x" type="image/webp">
+          <source srcset="./img/volga-hall/3.png 1x, ./img/volga-hall/3@2x.png 2x" type="image/png">
+          <img src="./img/volga-hall/3.png" width="384" height="386" srcset="./img/volga-hall/3@2x.png" alt="Alt">
+        </picture>
+      </div>
+
+      <div class="volga-hall__picture volga-hall__picture--4 second">
+        <picture>
+          <source srcset="./img/volga-hall/4.webp 1x, ./img/volga-hall/4@2x.webp 2x" type="image/webp">
+          <source srcset="./img/volga-hall/4.png 1x, ./img/volga-hall/4@2x.png 2x" type="image/png">
+          <img src="./img/volga-hall/4.png" width="520" height="240" srcset="./img/volga-hall/4@2x.png" alt="Alt">
+        </picture>
+      </div>
+
+      <div class="volga-hall__picture volga-hall__picture--5 second">
         <picture>
           <source srcset="./img/volga-hall/5.webp 1x, ./img/volga-hall/5@2x.webp 2x" type="image/webp">
           <source srcset="./img/volga-hall/5.png 1x, ./img/volga-hall/5@2x.png 2x" type="image/png">
@@ -665,13 +722,14 @@
               </div>
 
               <div class="form__footer">
-                <button type="submit" class="form__btn">Отправить</button>
 
-                <div class="form__file">
+                <button type="submit" data-sticky="3" class="form__btn btn sticky_w">Отправить</button>
+
+                <div class="form__file btn sticky_w" data-sticky="3">
                   <input class="form__file-input" type="file" id="file-input">
                   <label class="form__file-label" for="file-input">
                     <img class="form__file-icon" src="./img/icons/file-downloud.svg" alt="file-downloud icon">
-                    <span>Скачать прайс лист</span>
+                    <span class="btn-text sticky_t">Скачать прайс лист</span>
                   </label>
                 </div>
               </div>
@@ -764,9 +822,17 @@
   </div>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+<!-- GSAP основная библиотека -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+<!-- ScrollTrigger плагин -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+
 <!-- <script src="./js/sticker.js"></script> -->
 <!-- <script src="./js/TweenMax.min.js"></script> -->
+<script src="./js/swiper-bundle.min.js"></script>
 <script src="./js/scripts.min.js"></script>
 
 </html>

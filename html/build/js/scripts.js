@@ -250,6 +250,280 @@ if (window.matchMedia("(min-width: 767px)").matches) {
 
 
 
+
+class Sticker {
+  constructor(options) {
+    this.elements = document.querySelectorAll('.sticky_w');
+
+    this.elements.forEach((el) => {
+      el.innert = el.getAttribute("data-sticky") || 1;
+      el.selfInnert = el.innert * 1.5; // Adjust multiplier to make the button move more
+
+      // // Find the corresponding text element
+      // el.text = el.querySelector('.sticky_t');
+      // if (!el.text) return; // If no corresponding text element is found, skip this element
+      // el.text.style.pointerEvents = "none";
+
+      el.offsetY = 0;
+      el.offsetX = 0;
+      el.translateX = 0;
+      el.translateY = 0;
+
+      el.btnSize = {
+        width: el.offsetWidth,
+        height: el.offsetHeight
+      };
+
+      el.addEventListener("mousemove", (e) => {
+        e = e || window.event;
+        el.offsetX = e.offsetX;
+        el.offsetY = e.offsetY;
+        el.translateX = (-el.btnSize.width / 2) + el.offsetX;
+        el.translateY = (-el.btnSize.height / 2) + el.offsetY;
+
+        gsap.to(el.text, {
+          duration: options.inertion,
+          x: el.translateX / el.innert,
+          y: el.translateY / el.innert,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: options.inertion,
+          x: el.translateX / 4, // Adjust to make the element move significantly
+          y: el.translateY / 4, // Adjust to make the element move significantly
+          ease: "power1.out"
+        });
+      });
+
+      el.addEventListener("mouseenter", (e) => {
+        el.classList.add('hovered');
+        el.offsetX = e.offsetX;
+        el.offsetY = e.offsetY;
+
+        gsap.to(el.text, {
+          duration: 0.1,
+          x: ((-el.btnSize.width / 2) + el.offsetX) / el.innert,
+          y: ((-el.btnSize.height / 2) + el.offsetY) / el.innert,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: 0.1,
+          x: el.translateX / 4, // Adjust to make the element move significantly
+          y: el.translateY / 4, // Adjust to make the element move significantly
+          ease: "power1.out"
+        });
+      });
+
+      el.addEventListener("mouseleave", () => {
+        el.classList.remove('hovered');
+
+        gsap.to(el.text, {
+          duration: options.spring,
+          x: 0,
+          y: 0,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: options.spring,
+          x: 0,
+          y: 0,
+          ease: "power1.out"
+        });
+      });
+
+      // // Prevent default click behavior on anchor tags if the mouse is moving
+      // if (el.tagName.toLowerCase() === 'a') {
+      //   el.addEventListener('click', (e) => {
+      //     if (el.offsetX !== 0 || el.offsetY !== 0) {
+      //       e.preventDefault();
+      //     }
+      //   });
+      // }
+    });
+  }
+}
+
+new Sticker({
+  inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
+  spring: 0.5    // And change this                   //  0.3 - 1
+});
+
+
+
+
+
+
+const swiper = new Swiper('.slider', {
+  direction: 'vertical',
+  slidesPerView: 1,
+  spaceBetween: 0,
+  effect: 'slide',
+  watchOverflow: true,
+  speed: 800,
+  mousewheel: {
+    enabled: true,
+    releaseOnEdges: true,
+  },
+  on: {
+    slideChangeTransitionEnd: function () {
+      swiper.slides[swiper.activeIndex].style.transition = 'transform 0.8s ease';
+      swiper.slides[swiper.activeIndex].style.transform = 'translateY(0)';
+    },
+    transitionEnd: function () {
+      swiper.slides.forEach((slide, index) => {
+        if (index !== swiper.activeIndex) {
+          slide.style.transition = '';
+          slide.style.transform = '';
+        }
+      });
+    },
+  },
+});
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   // Получаем все слайды
+//   let slides = gsap.utils.toArray(".volga-hall__picture");
+
+//   // Определяем общую высоту секции
+//   let totalHeight = 0;
+//   slides.forEach(slide => {
+//     totalHeight += slide.scrollHeight; // Высчитываем высоту каждого слайда
+//   });
+
+//   // Создаем таймлайн GSAP
+//   let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".volga-hall",
+//       pin: true, // Закрепляем секцию на экране
+//       scrub: 1,
+//       start: "top top",
+//       end: "+=" + totalHeight * 2,
+//       pinSpacing: false, // Убираем дополнительное пространство при закреплении
+//     }
+//   });
+
+//   // Анимация прокрутки изображений вверх
+//   tl.to(slides, {
+//     yPercent: -80 * (slides.length - 1), // Прокрутка всех слайдов вверх
+//     ease: "none",
+//     duration: 1
+//   });
+
+//   // Плавное движение логотипа вниз
+//   tl.to(".volga-hall__name", {
+//     y: "50vh",
+//     duration: 1,
+//     ease: "power1.out",
+//     onComplete: () => {
+//       // Анимация белого круга после завершения анимации логотипа
+//       gsap.to(".circle", {
+//         opacity: 1,
+//         scale: 50,
+//         duration: 1,
+//         ease: "power1.out",
+//         onComplete: () => {
+//           // Показать следующий раздел после исчезновения круга
+//           gsap.to(".contact-us", {
+//             display: "flex",
+//             opacity: 1,
+//             duration: 1,
+//           });
+//         }
+//       });
+
+//       // Анимация исчезновения круга
+//       gsap.to(".circle", {
+//         opacity: 0,
+//         duration: 0.5,
+//         delay: 1,
+//       });
+//     }
+//   });
+// });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Определяем слайды
+  let slides = gsap.utils.toArray(".volga-hall__picture");
+
+  // Определяем общую высоту секции
+  let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
+
+  // Создание таймлайна GSAP для анимации слайдов
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".volga-hall",
+      pin: true, // Закрепляем секцию на экране
+      scrub: 1,
+      start: "top top",
+      end: "+=" + totalHeight * 3,
+      pinSpacing: false // Убираем дополнительное пространство при закреплении
+    }
+  });
+
+  // Анимация прокрутки изображений вверх
+  tl.to(slides, {
+    yPercent: -70 * (slides.length - 1),
+    ease: "none"
+  });
+
+  // Плавное движение логотипа вниз и анимация круга
+  tl.to(".volga-hall__name", {
+    y: "10vh",
+    duration: 1,
+    ease: "power1.out",
+  })
+    .to(".circle", {
+      opacity: 1,
+      y: "-20%",
+      scale: 1,
+      duration: 1,
+      ease: "power1.out",
+    })
+    .to(".circle", {
+      scale: 50,
+      duration: 1,
+      ease: "power1.out",
+      onComplete: () => {
+        gsap.to(".contact-us", {
+          display: "flex",
+          opacity: 1,
+          duration: 1
+        });
+      }
+    })
+    .to(".circle", {
+      opacity: 0,
+      duration: 0.5,
+      delay: 1
+    }, "<+=1");
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Функция для запуска счетчика
 function sumsVal(element) {
   let startValue = 0;

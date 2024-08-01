@@ -1006,7 +1006,9 @@ section.visible .text-animation {
 
 .volga-hall {
   position: relative;
-  height: 1080px;
+  z-index: 10;
+  height: 100vh;
+  background-color: var(--black-10);
   overflow: hidden;
 }
 
@@ -1036,6 +1038,10 @@ section.visible .text-animation {
   left: 0;
 }
 
+.volga-hall__picture--1.second {
+  top: calc(100% + 50px);
+}
+
 .volga-hall__picture--2 {
   top: 50px;
   left: 50%;
@@ -1044,9 +1050,17 @@ section.visible .text-animation {
           transform: translateX(-50%);
 }
 
+.volga-hall__picture--2.second {
+  top: calc(100% + 50px);
+}
+
 .volga-hall__picture--3 {
   top: 212px;
   right: 0;
+}
+
+.volga-hall__picture--3.second {
+  top: calc(100% + 212px);
 }
 
 .volga-hall__picture--4 {
@@ -1054,12 +1068,46 @@ section.visible .text-animation {
   left: 100px;
 }
 
+.volga-hall__picture--4.second {
+  bottom: -600px;
+}
+
 .volga-hall__picture--5 {
   bottom: -4px;
   right: 384px;
 }
 
+.volga-hall__picture--5.second {
+  bottom: -1200px;
+}
+
+.circle {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background-color: var(--white-10);
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
+  transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
+  -o-transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1s ease-out, transform 1s ease-out, -webkit-transform 1s ease-out;
+  z-index: 10;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
 .contact-us {
+  min-height: 50vh;
   padding: 32px 0 72px;
   background-color: var(--geekblue-7);
 }
@@ -1623,6 +1671,7 @@ section.visible .text-animation {
 }
 
 .services__head {
+  overflow: hidden;
   margin-bottom: 40px;
   opacity: 0;
   -webkit-transition: opacity 0.3s linear;
@@ -1816,6 +1865,17 @@ section.visible .text-animation {
   -webkit-transition: opacity 1.5s linear;
   -o-transition: opacity 1.5s linear;
   transition: opacity 1.5s linear;
+}
+
+/*анимация для слайдинга*/
+
+.slider {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  height: 100vh;
 }
 
 .tehno {
@@ -2147,6 +2207,7 @@ section.visible .text-animation {
 }
 
 .footer {
+  min-height: 50vh;
   padding: 132px 0 32px;
   background-color: var(--geekblue-7);
 }
@@ -2464,6 +2525,10 @@ section.visible .text-animation {
     width: 430px;
   }
 
+  .volga-hall__picture--1.second {
+    top: calc(100% + 32px);
+  }
+
   .volga-hall__picture--2 {
     top: 32px;
   }
@@ -2476,6 +2541,10 @@ section.visible .text-animation {
   .volga-hall__picture--3 {
     top: 168px;
     right: -100px;
+  }
+
+  .volga-hall__picture--3.second {
+    top: calc(100% + 168px);
   }
 
   .volga-hall__picture--3 img {
@@ -3159,6 +3228,10 @@ section.visible .text-animation {
     right: -160px;
   }
 
+  .volga-hall__picture--3.second {
+    top: calc(100% + 410px);
+  }
+
   .volga-hall__picture--4 {
     bottom: 222px;
     left: -84px;
@@ -3452,6 +3525,10 @@ section.visible .text-animation {
     width: 236px;
   }
 
+  .volga-hall__picture--1.second {
+    top: calc(100% + 20px);
+  }
+
   .volga-hall__picture--2 {
     top: 54px;
     top: 50px;
@@ -3464,6 +3541,10 @@ section.visible .text-animation {
   .volga-hall__picture--3 {
     right: -10px;
     top: 286px;
+  }
+
+  .volga-hall__picture--3.second {
+    top: calc(100% + 286px);
   }
 
   .volga-hall__picture--3 img {

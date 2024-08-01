@@ -52,6 +52,7 @@
   // .services__head
 
   &__head {
+    overflow: hidden;
     margin-bottom: 40px;
     opacity: 0;
     transition: opacity 0.3s linear;
@@ -361,4 +362,17 @@
     }
   }
 
+}
+
+/*анимация для слайдинга*/
+
+.slider {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider-wrapper {}
+
+.slide {
+  height: 100vh;
 }
