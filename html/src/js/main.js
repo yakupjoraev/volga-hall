@@ -298,77 +298,6 @@ const swiper = new Swiper('.slider', {
 
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-//   // Определяем слайды
-//   let slides = gsap.utils.toArray(".volga-hall__picture");
-
-//   // Определяем общую высоту секции
-//   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
-
-//   // Создание таймлайна GSAP для анимации слайдов
-//   let tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: ".volga-hall",
-//       pin: true, // Закрепляем секцию на экране
-//       scrub: 1,
-//       start: "top top",
-//       end: "+=" + totalHeight,
-//       pinSpacing: true // Оставляем пространство при закреплении
-//     }
-//   });
-
-//   // Анимация прокрутки изображений вверх
-//   tl.to(slides, {
-//     yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
-//     ease: "power1.inOut",
-//     duration: slides.length * 2 // Увеличиваем продолжительность для более плавной анимации
-//   });
-
-//   // Плавное движение логотипа вниз
-//   tl.to(".volga-hall__name", {
-//     y: "20vh",
-//     duration: 5,
-//     ease: "power1.out",
-//   }, "-=1") // Запуск анимации логотипа чуть раньше
-
-//     // Анимация круга
-//     .to(".circle", {
-//       opacity: 1,
-//       y: "10vh",
-//       scale: 1,
-//       duration: 2,
-//       ease: "power1.out",
-//     }, ">") // Запуск анимации круга после движения логотипа
-//     .to(".circle", {
-//       scale: 50,
-//       duration: 1,
-//       ease: "power1.out",
-//       onComplete: () => {
-
-//         gsap.to(window, {
-//           scrollTo: { y: ".contact-us", offsetY: 0 },
-//           duration: 0.1 // Установите очень короткую продолжительность для прокрутки
-//         });
-//         gsap.to(".contact-us", {
-//           duration: 1
-//         });
-//       }
-//     })
-//     .to(".circle", {
-//       opacity: 0,
-//       scale: 0,
-//       y: "50vh",
-//       duration: 0.5,
-//       delay: 3 // Задержка перед исчезновением круга
-//     }, "<+=5");
-// });
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -392,26 +321,97 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Анимация прокрутки изображений вверх
   tl.to(slides, {
-    yPercent: -60 * (slides.length - 1), // Измените значение для прокрутки
+    yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
     ease: "power1.inOut",
     duration: slides.length * 2 // Увеличиваем продолжительность для более плавной анимации
-  })
+  });
 
-    // Плавное движение логотипа вниз
-    .to(".volga-hall__name", {
-      y: "40vh",
-      duration: 5,
-      ease: "power1.out", onComplete: () => {
+  // Плавное движение логотипа вниз
+  tl.to(".volga-hall__name", {
+    y: "20vh",
+    duration: 5,
+    ease: "power1.out",
+  }, "-=1") // Запуск анимации логотипа чуть раньше
+
+    // Анимация круга
+    .to(".circle", {
+      opacity: 1,
+      y: "10vh",
+      scale: 1,
+      duration: 2,
+      ease: "power1.out",
+    }, ">") // Запуск анимации круга после движения логотипа
+    .to(".circle", {
+      scale: 50,
+      duration: 1,
+      ease: "power1.out",
+      onComplete: () => {
+
+        gsap.to(window, {
+          scrollTo: { y: ".contact-us", offsetY: 0 },
+          duration: 0.1 // Установите очень короткую продолжительность для прокрутки
+        });
         gsap.to(".contact-us", {
-          duration: 0,
-          onComplete: () => {
-            // Используем GSAP ScrollToPlugin для плавного прокручивания
-            gsap.to(window, { scrollTo: { y: ".contact-us", offsetY: 0 }, duration: 0 });
-          }
+          duration: 1
         });
       }
     })
+    .to(".circle", {
+      opacity: 0,
+      scale: 0,
+      y: "50vh",
+      duration: 0.5,
+      delay: 3 // Задержка перед исчезновением круга
+    }, "<+=5");
 });
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+//   // Определяем слайды
+//   let slides = gsap.utils.toArray(".volga-hall__picture");
+
+//   // Определяем общую высоту секции
+//   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
+
+//   // Создание таймлайна GSAP для анимации слайдов
+//   let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".volga-hall",
+//       pin: true, // Закрепляем секцию на экране
+//       scrub: 1,
+//       start: "top top",
+//       end: "+=" + totalHeight,
+//       pinSpacing: true // Оставляем пространство при закреплении
+//     }
+//   });
+
+//   // Анимация прокрутки изображений вверх
+//   tl.to(slides, {
+//     yPercent: -60 * (slides.length - 1), // Измените значение для прокрутки
+//     ease: "power1.inOut",
+//     duration: slides.length * 2 // Увеличиваем продолжительность для более плавной анимации
+//   })
+
+//     // Плавное движение логотипа вниз
+//     .to(".volga-hall__name", {
+//       y: "40vh",
+//       duration: 5,
+//       ease: "power1.out", onComplete: () => {
+//         gsap.to(".contact-us", {
+//           duration: 0,
+//           onComplete: () => {
+//             // Используем GSAP ScrollToPlugin для плавного прокручивания
+//             gsap.to(window, { scrollTo: { y: ".contact-us", offsetY: 0 }, duration: 0 });
+//           }
+//         });
+//       }
+//     })
+// });
 
 
 
