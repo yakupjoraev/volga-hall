@@ -103,6 +103,7 @@ section.visible {
 
 
 .btn {
+  border-radius: 100%;
   position: relative;
   overflow: hidden;
   text-decoration: none;
@@ -120,7 +121,7 @@ section.visible {
   height: 124px;
   min-width: 124px;
   border-radius: 100%;
-  background-color: transparent;
+  background-color: #10239e;
   border: 1px solid var(--foundation-darkblue-darkblue-1);
 }
 
