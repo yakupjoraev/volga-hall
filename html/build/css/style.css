@@ -380,6 +380,10 @@ section.visible .text-animation {
   }
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .nav {
   background-color: var(--black-10);
   overflow: hidden;
@@ -858,9 +862,9 @@ section.visible .text-animation {
       -ms-transform: translateY(100%);
           transform: translateY(100%);
   opacity: 0;
-  -webkit-transition: 0.3s linear;
-  -o-transition: 0.3s linear;
-  transition: 0.3s linear;
+  -webkit-transition: 0.5s linear;
+  -o-transition: 0.5s linear;
+  transition: 0.5s linear;
 }
 
 .hall-layout__main::before {
@@ -1008,7 +1012,8 @@ section.visible .text-animation {
 .volga-hall {
   position: relative;
   z-index: 8;
-  height: 100vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
   background-color: var(--black-10);
   overflow: hidden;
 }
@@ -1085,7 +1090,7 @@ section.visible .text-animation {
 .circle {
   position: fixed;
   z-index: 9;
-  bottom: 20px;
+  bottom: -10vh;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -1106,6 +1111,61 @@ section.visible .text-animation {
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
+}
+
+.circle.active {
+  -webkit-animation: circkle 3s both;
+          animation: circkle 3s both;
+}
+
+@-webkit-keyframes circkle {
+  0% {
+    bottom: -10vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+  }
+
+  0% {
+    bottom: 20vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+  }
+
+  0% {
+    -webkit-transform: translateX(-50%) scale(50);
+            transform: translateX(-50%) scale(50);
+  }
+}
+
+@keyframes circkle {
+  0% {
+    bottom: -10vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+  }
+
+  0% {
+    bottom: 20vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+  }
+
+  0% {
+    -webkit-transform: translateX(-50%) scale(50);
+            transform: translateX(-50%) scale(50);
+  }
 }
 
 .contact-us {
@@ -1172,6 +1232,10 @@ section.visible .text-animation {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 744px;
           flex: 0 1 744px;
+}
+
+.contact-us-animation {
+  opacity: 0;
 }
 
 .hero {
@@ -1869,15 +1933,8 @@ section.visible .text-animation {
   transition: opacity 1.5s linear;
 }
 
-/*анимация для слайдинга*/
-
-.slider {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slide {
-  height: 100vh;
+.services [data-service--banquet] {
+  display: none;
 }
 
 .tehno {
@@ -2328,6 +2385,10 @@ section.visible .text-animation {
   color: var(--geekblue-5);
 }
 
+.footer-animation {
+  opacity: 0;
+}
+
 @media (max-width: 1649.98px) {
   .container {
     padding: 0 96px;
@@ -2385,6 +2446,7 @@ section.visible .text-animation {
 
   .volga-hall__picture--4 {
     bottom: 34px;
+    left: 0;
   }
 
   .volga-hall__picture--5 {
@@ -2989,7 +3051,7 @@ section.visible .text-animation {
 
 @media (max-width: 1200px) {
   .container {
-    padding: 36px;
+    padding: 0 36px;
   }
 
   .prices__info {
@@ -3266,6 +3328,10 @@ section.visible .text-animation {
     width: 100%;
   }
 
+  .contact-us-animation {
+    opacity: 1;
+  }
+
   .hero {
     padding-top: 90px;
   }
@@ -3408,6 +3474,10 @@ section.visible .text-animation {
     margin: 0 auto;
   }
 
+  .also-offer__card::before {
+    content: none;
+  }
+
   .footer {
     padding: 32px 0px;
   }
@@ -3429,6 +3499,10 @@ section.visible .text-animation {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
+  }
+
+  .footer-animation {
+    opacity: 1;
   }
 }
 
@@ -3715,10 +3789,6 @@ section.visible .text-animation {
 
   .also-offer__title {
     font-size: 36px;
-  }
-
-  .also-offer__card::before {
-    content: none;
   }
 }
 

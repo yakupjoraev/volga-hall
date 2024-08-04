@@ -120,3 +120,12 @@
     }
   }
 }
+
+.contact-us-animation {
+  // display: none;
+  opacity: 0;
+
+  @media (max-width: $breakpoint992) {
+    opacity: 1;
+  }
+}

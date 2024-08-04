@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Index</title>
-  <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+  <!-- <link rel="stylesheet" href="./css/swiper-bundle.min.css"> -->
   <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
@@ -19,18 +19,8 @@
     <main>
       @@include('./html/_hero.html')
       @@include('./html/_sums.html')
-
-      <div class="slider swiper">
-        <div class="slider-wrapper swiper-wrapper">
-          <div class="slide swiper-slide">
-            @@include('./html/_conferences.html')
-          </div>
-          <div class="slide swiper-slide">
-            @@include('./html/_banquets.html')
-          </div>
-        </div>
-      </div>
-
+      @@include('./html/_conferences.html')
+      @@include('./html/_banquets.html')
 
       @@include('./html/_tehno.html')
       @@include('./html/_also-offer.html')
@@ -55,9 +45,7 @@
       </div>
     </main>
 
-
     <div class="circle"></div>
-    <div class="white-circle"></div>
 
     <!-- Footer -->
     @@include('./html/_footer.html')
@@ -80,7 +68,8 @@
 
 <!-- <script src="./js/sticker.js"></script> -->
 <!-- <script src="./js/TweenMax.min.js"></script> -->
-<script src="./js/swiper-bundle.min.js"></script>
+<script src="./js/SmoothScroll.min.js"></script>
+<!-- <script src="./js/swiper-bundle.min.js"></script> -->
 <script src="./js/scripts.min.js"></script>
 
 </html>

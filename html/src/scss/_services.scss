@@ -362,17 +362,8 @@
     }
   }
 
-}
 
-/*анимация для слайдинга*/
-
-.slider {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slider-wrapper {}
-
-.slide {
-  height: 100vh;
+  [data-service--banquet] {
+    display: none;
+  }
 }

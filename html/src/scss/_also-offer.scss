@@ -196,7 +196,7 @@
       user-select: none;
       pointer-events: none;
 
-      @media (max-width: $breakpoint768) {
+      @media (max-width: $breakpoint992) {
         content: none;
       }
     }

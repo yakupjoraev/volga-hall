@@ -154,141 +154,39 @@ if (window.matchMedia("(min-width: 767px)").matches) {
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 
 
+// анимация для скролла и для скроллбара
+
+SmoothScroll({
+  // Время скролла 400 = 0.4 секунды
+  animationTime: 800,
+  // Размер шага в пикселях 
+  stepSize: 100,
+
+  // Дополнительные настройки:
+
+  // Ускорение 
+  accelerationDelta: 30,
+  // Максимальное ускорение
+  accelerationMax: 2,
+
+  // Поддержка клавиатуры
+  keyboardSupport: true,
+  // Шаг скролла стрелками на клавиатуре в пикселях
+  arrowScroll: 50,
+
+  // Pulse (less tweakable)
+  // ratio of "tail" to "acceleration"
+  pulseAlgorithm: true,
+  pulseScale: 4,
+  pulseNormalize: 1,
+
+  // Поддержка тачпада
+  touchpadSupport: true,
+})
 
 
 
 
-class Sticker {
-  constructor(options) {
-    this.elements = document.querySelectorAll('.sticky_w');
-
-    this.elements.forEach((el) => {
-      el.innert = el.getAttribute("data-sticky") || 1;
-      el.selfInnert = el.innert * 1.5; // Adjust multiplier to make the button move more
-
-      // // Find the corresponding text element
-      // el.text = el.querySelector('.sticky_t');
-      // if (!el.text) return; // If no corresponding text element is found, skip this element
-      // el.text.style.pointerEvents = "none";
-
-      el.offsetY = 0;
-      el.offsetX = 0;
-      el.translateX = 0;
-      el.translateY = 0;
-
-      el.btnSize = {
-        width: el.offsetWidth,
-        height: el.offsetHeight
-      };
-
-      el.addEventListener("mousemove", (e) => {
-        e = e || window.event;
-        el.offsetX = e.offsetX;
-        el.offsetY = e.offsetY;
-        el.translateX = (-el.btnSize.width / 2) + el.offsetX;
-        el.translateY = (-el.btnSize.height / 2) + el.offsetY;
-
-        gsap.to(el.text, {
-          duration: options.inertion,
-          x: el.translateX / el.innert,
-          y: el.translateY / el.innert,
-          ease: "power1.out"
-        });
-
-        gsap.to(el, {
-          duration: options.inertion,
-          x: el.translateX / 4, // Adjust to make the element move significantly
-          y: el.translateY / 4, // Adjust to make the element move significantly
-          ease: "power1.out"
-        });
-      });
-
-      el.addEventListener("mouseenter", (e) => {
-        el.classList.add('hovered');
-        el.offsetX = e.offsetX;
-        el.offsetY = e.offsetY;
-
-        gsap.to(el.text, {
-          duration: 0.1,
-          x: ((-el.btnSize.width / 2) + el.offsetX) / el.innert,
-          y: ((-el.btnSize.height / 2) + el.offsetY) / el.innert,
-          ease: "power1.out"
-        });
-
-        gsap.to(el, {
-          duration: 0.1,
-          x: el.translateX / 4, // Adjust to make the element move significantly
-          y: el.translateY / 4, // Adjust to make the element move significantly
-          ease: "power1.out"
-        });
-      });
-
-      el.addEventListener("mouseleave", () => {
-        el.classList.remove('hovered');
-
-        gsap.to(el.text, {
-          duration: options.spring,
-          x: 0,
-          y: 0,
-          ease: "power1.out"
-        });
-
-        gsap.to(el, {
-          duration: options.spring,
-          x: 0,
-          y: 0,
-          ease: "power1.out"
-        });
-      });
-
-      // // Prevent default click behavior on anchor tags if the mouse is moving
-      // if (el.tagName.toLowerCase() === 'a') {
-      //   el.addEventListener('click', (e) => {
-      //     if (el.offsetX !== 0 || el.offsetY !== 0) {
-      //       e.preventDefault();
-      //     }
-      //   });
-      // }
-    });
-  }
-}
-
-new Sticker({
-  inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
-  spring: 0.5    // And change this                   //  0.3 - 1
-});
-
-
-
-
-
-
-const swiper = new Swiper('.slider', {
-  direction: 'vertical',
-  slidesPerView: 1,
-  spaceBetween: 0,
-  effect: 'slide',
-  watchOverflow: true,
-  speed: 800,
-  mousewheel: {
-    enabled: true,
-    releaseOnEdges: true,
-  },
-  on: {
-    slideChangeTransitionEnd: function () {
-      swiper.slides[swiper.activeIndex].style.transition = 'transform 0.8s ease';
-      swiper.slides[swiper.activeIndex].style.transform = 'translateY(0)';
-    },
-    transitionEnd: function () {
-      swiper.slides.forEach((slide, index) => {
-        if (index !== swiper.activeIndex) {
-          slide.style.transition = '';
-          slide.style.transform = '';
-        }
-      });
-    },
-  },
-});
 
 
 
@@ -299,6 +197,18 @@ const swiper = new Swiper('.slider', {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Функция для проверки ширины окна
+  function checkWidth() {
+    return window.innerWidth >= 1000;
+  }
+
+  // Проверяем ширину окна
+  if (!checkWidth()) {
+    // Если ширина меньше 1000px, прерываем выполнение
+    console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+    return;
+  }
+
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   // Определяем слайды
@@ -306,6 +216,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Определяем общую высоту секции
   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
+
+  // Функция для получения значения `y` в зависимости от брекпоинта
+  function getAdaptiveValues() {
+    let windowWidth = window.innerWidth;
+    let values = { logoY: 0, circleY: 0, circleEndY: 0 };
+
+    if (windowWidth >= 1600) { // Десктопы
+      values.logoY = window.innerHeight * 0.3;
+      values.circleY = -window.innerHeight * 0.3;
+      values.circleEndY = -window.innerHeight * 0.5;
+    }
+    else if (windowWidth >= 1200) { // Десктопы
+      values.logoY = window.innerHeight * 0.1;
+      values.circleY = -window.innerHeight * 0.1;
+      values.circleEndY = -window.innerHeight * 0.5;
+    } else if (windowWidth >= 768) { // Ноутбуки
+      values.logoY = window.innerHeight * 0.4;
+      values.circleY = -window.innerHeight * 0.4;
+      values.circleEndY = -window.innerHeight * 0.6;
+    } else { // Планшеты
+      values.logoY = window.innerHeight * 0.5;
+      values.circleY = -window.innerHeight * 0.5;
+      values.circleEndY = -window.innerHeight * 0.7;
+    }
+
+    return values;
+  }
+
+  // Получаем адаптивные значения
+  let values = getAdaptiveValues();
 
   // Создание таймлайна GSAP для анимации слайдов
   let tl = gsap.timeline({
@@ -323,95 +263,92 @@ document.addEventListener('DOMContentLoaded', () => {
   tl.to(slides, {
     yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
     ease: "power1.inOut",
-    duration: slides.length * 2 // Увеличиваем продолжительность для более плавной анимации
+    duration: slides.length * 1.5 // Увеличиваем продолжительность для более плавной анимации
   });
 
   // Плавное движение логотипа вниз
   tl.to(".volga-hall__name", {
-    y: "20vh",
-    duration: 5,
+    y: values.logoY,
+    duration: 6,
     ease: "power1.out",
   }, "-=1") // Запуск анимации логотипа чуть раньше
 
     // Анимация круга
     .to(".circle", {
       opacity: 1,
-      y: "10vh",
+      y: values.circleY,
+
       scale: 1,
       duration: 2,
       ease: "power1.out",
+      onComplete: () => { document.body.classList.add('no-scroll'); },
     }, ">") // Запуск анимации круга после движения логотипа
     .to(".circle", {
-      scale: 50,
+      scale: 60,
+      // height: "300vh",
       duration: 1,
       ease: "power1.out",
-      onComplete: () => {
+      onEnd: () => {
+        // Включение скролла
+        document.body.classList.remove('no-scroll');
+      },
 
+      onComplete: () => {
+        // Искусственная прокрутка
         gsap.to(window, {
-          scrollTo: { y: ".contact-us", offsetY: 0 },
-          duration: 0.1 // Установите очень короткую продолжительность для прокрутки
-        });
-        gsap.to(".contact-us", {
-          duration: 1
+          scrollTo: { y: ".contact-us-animation", offsetY: 0 },
+          duration: 0.1, // Установите очень короткую продолжительность для прокрутки
+          onComplete: () => {
+            // Показ секции "Контакты" и футера
+            gsap.to(".contact-us-animation, .footer-animation", {
+              display: 'flex',
+              opacity: 1,
+              duration: 0.5,
+              onComplete: () => {
+                // Исчезновение круга через секунду после прокрутки
+                setTimeout(() => {
+                  gsap.to(".circle", {
+                    opacity: 0,
+                    // scale: 0,
+                    y: '-50vh',
+                    duration: 0.5,
+                    onComplete: () => {
+                      // Включение скролла
+                      document.body.classList.remove('no-scroll');
+                    }
+                  });
+                }, 200);
+              }
+            });
+          }
         });
       }
-    })
-    .to(".circle", {
-      opacity: 0,
-      scale: 0,
-      y: "50vh",
-      duration: 0.5,
-      delay: 3 // Задержка перед исчезновением круга
-    }, "<+=5");
+    });
+
+  // Добавляем ScrollTrigger для обратного скролла
+  ScrollTrigger.create({
+    trigger: ".volga-hall",
+    start: "top top",
+    end: "+=" + totalHeight,
+    onUpdate: (self) => {
+      if (self.direction === -1) {
+        // Обратный скролл
+        gsap.to(".contact-us-animation, .footer-animation", {
+          opacity: 0,
+          // display: 'none',
+          duration: 0.5
+        });
+      }
+    }
+  });
+
 });
 
 
 
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-//   // Определяем слайды
-//   let slides = gsap.utils.toArray(".volga-hall__picture");
-
-//   // Определяем общую высоту секции
-//   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
-
-//   // Создание таймлайна GSAP для анимации слайдов
-//   let tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: ".volga-hall",
-//       pin: true, // Закрепляем секцию на экране
-//       scrub: 1,
-//       start: "top top",
-//       end: "+=" + totalHeight,
-//       pinSpacing: true // Оставляем пространство при закреплении
-//     }
-//   });
-
-//   // Анимация прокрутки изображений вверх
-//   tl.to(slides, {
-//     yPercent: -60 * (slides.length - 1), // Измените значение для прокрутки
-//     ease: "power1.inOut",
-//     duration: slides.length * 2 // Увеличиваем продолжительность для более плавной анимации
-//   })
-
-//     // Плавное движение логотипа вниз
-//     .to(".volga-hall__name", {
-//       y: "40vh",
-//       duration: 5,
-//       ease: "power1.out", onComplete: () => {
-//         gsap.to(".contact-us", {
-//           duration: 0,
-//           onComplete: () => {
-//             // Используем GSAP ScrollToPlugin для плавного прокручивания
-//             gsap.to(window, { scrollTo: { y: ".contact-us", offsetY: 0 }, duration: 0 });
-//           }
-//         });
-//       }
-//     })
-// });
 
 
 

@@ -139,3 +139,9 @@ section.visible {
     transform: scale(1);
   }
 }
+
+// Добавьте следующий CSS в ваш файл стилей
+
+.no-scroll {
+  overflow: hidden;
+}
