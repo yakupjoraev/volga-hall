@@ -96,6 +96,9 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Функция для проверки ширины окна
   function checkWidth() {
@@ -111,13 +114,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const container = document.querySelector(".also-offer__main");
   const section = document.querySelector(".also-offer");
+  const container = document.querySelector(".also-offer__main");
   const cards = document.querySelectorAll(".also-offer__card");
   const containerWidth = section.offsetWidth;
 
-  // Вычисление общей ширины контейнера на основе карточек
-  const totalWidth = Array.from(cards).reduce((acc, card) => acc + card.offsetWidth, 0);
+  // Вычисление общей ширины контейнера на основе карточек и title wrappers
+  const totalWidth = [...cards].reduce((acc, item) => acc + item.offsetWidth, 0);
 
   // Устанавливаем ширину контейнера карточек
   container.style.width = `${totalWidth}px`;
@@ -129,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollTrigger: {
       trigger: section,
       pin: true,
-      scrub: 0.1,
+      scrub: 1, // уменьшение значения для еще большего ускорения прокрутки
       end: () => `+=${totalWidth}`,
       invalidateOnRefresh: true
     }
