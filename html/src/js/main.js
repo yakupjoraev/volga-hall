@@ -152,7 +152,105 @@ if (window.matchMedia("(min-width: 767px)").matches) {
 
 
 // //////////////////////////////////////// animations /////////////////////////////////////////////
+class Sticker {
+  constructor(options) {
+    this.elements = document.querySelectorAll('.sticky_w');
 
+    this.elements.forEach((el) => {
+      el.innert = el.getAttribute("data-sticky") || 1;
+      el.selfInnert = el.innert * 1.5; // Adjust multiplier to make the button move more
+
+      // // Find the corresponding text element
+      // el.text = el.querySelector('.sticky_t');
+      // if (!el.text) return; // If no corresponding text element is found, skip this element
+      // el.text.style.pointerEvents = "none";
+
+      el.offsetY = 0;
+      el.offsetX = 0;
+      el.translateX = 0;
+      el.translateY = 0;
+
+      el.btnSize = {
+        width: el.offsetWidth,
+        height: el.offsetHeight
+      };
+
+      el.addEventListener("mousemove", (e) => {
+        e = e || window.event;
+        el.offsetX = e.offsetX;
+        el.offsetY = e.offsetY;
+        el.translateX = (-el.btnSize.width / 2) + el.offsetX;
+        el.translateY = (-el.btnSize.height / 2) + el.offsetY;
+
+        gsap.to(el.text, {
+          duration: options.inertion,
+          x: el.translateX / el.innert,
+          y: el.translateY / el.innert,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: options.inertion,
+          x: el.translateX / 4, // Adjust to make the element move significantly
+          y: el.translateY / 4, // Adjust to make the element move significantly
+          ease: "power1.out"
+        });
+      });
+
+      el.addEventListener("mouseenter", (e) => {
+        el.classList.add('hovered');
+        el.offsetX = e.offsetX;
+        el.offsetY = e.offsetY;
+
+        gsap.to(el.text, {
+          duration: 0.1,
+          x: ((-el.btnSize.width / 2) + el.offsetX) / el.innert,
+          y: ((-el.btnSize.height / 2) + el.offsetY) / el.innert,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: 0.1,
+          x: el.translateX / 4, // Adjust to make the element move significantly
+          y: el.translateY / 4, // Adjust to make the element move significantly
+          ease: "power1.out"
+        });
+      });
+
+      el.addEventListener("mouseleave", () => {
+        el.classList.remove('hovered');
+
+        gsap.to(el.text, {
+          duration: options.spring,
+          x: 0,
+          y: 0,
+          ease: "power1.out"
+        });
+
+        gsap.to(el, {
+          duration: options.spring,
+          x: 0,
+          y: 0,
+          ease: "power1.out"
+        });
+      });
+
+      // // Prevent default click behavior on anchor tags if the mouse is moving
+      // if (el.tagName.toLowerCase() === 'a') {
+      //   el.addEventListener('click', (e) => {
+      //     if (el.offsetX !== 0 || el.offsetY !== 0) {
+      //       e.preventDefault();
+      //     }
+      //   });
+      // }
+    });
+  }
+}
+
+new Sticker({
+  inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
+  spring: 0.5    // And change this                   //  0.3 - 1
+});
 
 // анимация для скролла и для скроллбара
 
