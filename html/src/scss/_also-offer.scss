@@ -110,6 +110,7 @@
     max-width: 380px;
     width: 380px;
     margin-bottom: 56px;
+    margin-right: 486px;
 
     @media (max-width: $breakpoint992) {
       margin: 0;
@@ -120,8 +121,6 @@
   // .also-offer__title
 
   &__title {
-
-
     font-size: 64px;
     line-height: 120%;
     color: var(--black-10);
@@ -186,6 +185,11 @@
     height: 640px;
     overflow: hidden;
 
+    &--empty {
+      min-width: 260px;
+      width: 260px;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -211,10 +215,28 @@
       height: 500px;
     }
 
+    @media (max-width: $breakpoint992) {
+      &--empty {
+        height: 0px;
+      }
+
+      &--title {
+        height: auto;
+      }
+    }
+
     @media (max-width: $breakpoint480) {
       width: 100%;
       min-width: max-content;
       height: 346px;
+
+      &--empty {
+        height: auto;
+      }
+
+      &--title {
+        height: auto;
+      }
     }
   }
 

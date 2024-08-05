@@ -1094,7 +1094,7 @@ section.visible .text-animation {
 .circle {
   position: fixed;
   z-index: 9;
-  bottom: -10vh;
+  bottom: -200px;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -2121,6 +2121,7 @@ section.visible .text-animation {
   max-width: 380px;
   width: 380px;
   margin-bottom: 56px;
+  margin-right: 486px;
 }
 
 .also-offer__title {
@@ -2167,6 +2168,11 @@ section.visible .text-animation {
   width: 520px;
   height: 640px;
   overflow: hidden;
+}
+
+.also-offer__card--empty {
+  min-width: 260px;
+  width: 260px;
 }
 
 .also-offer__card::before {
@@ -3525,6 +3531,14 @@ section.visible .text-animation {
     content: none;
   }
 
+  .also-offer__card--empty {
+    height: 0px;
+  }
+
+  .also-offer__card--title {
+    height: auto;
+  }
+
   .footer {
     padding: 32px 0px;
   }
@@ -4015,6 +4029,14 @@ section.visible .text-animation {
     min-width: -moz-max-content;
     min-width: max-content;
     height: 346px;
+  }
+
+  .also-offer__card--empty {
+    height: auto;
+  }
+
+  .also-offer__card--title {
+    height: auto;
   }
 
   .also-offer__info {

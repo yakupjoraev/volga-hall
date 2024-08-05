@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Анимация прокрутки изображений вверх
   tl.to(slides, {
-    yPercent: -60 * (slides.length - 1), // Измените значение для прокрутки
+    yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
     ease: "power1.inOut",
     duration: slides.length * 1.5 // Увеличиваем продолжительность для более плавной анимации
   });
