@@ -95,7 +95,7 @@
     left: 0;
 
     &.second {
-      top: calc(100% + 50px);
+      top: calc(100% + 100px);
     }
 
     @media (max-width: $breakpoint1650) {
@@ -249,19 +249,22 @@
     }
 
     @media (max-width: $breakpoint1650) {
-      bottom: 34px;
+      bottom: 180px;
       left: 0;
     }
 
     @media (max-width: $breakpoint1450) {
       left: -20px;
-      bottom: 20px;
+      bottom: 180px;
 
       img {
         width: 440px;
         height: auto;
       }
 
+      &.second {
+        bottom: -500px;
+      }
     }
 
     @media (max-width: $breakpoint992) {
@@ -295,16 +298,21 @@
     }
 
     @media (max-width: $breakpoint1650) {
-      bottom: -140px;
+      bottom: -60px;
+      right: 100px;
     }
 
     @media (max-width: $breakpoint1450) {
       right: 240px;
-      bottom: -120px;
+      bottom: 30px;
 
       img {
         width: 332px;
         height: auto;
+      }
+
+      &.second {
+        bottom: -1000px;
       }
     }
 
@@ -340,7 +348,7 @@
   transform: translateX(-50%);
   width: 200px;
   height: 200px;
-  background-color: var(--white-10);
+  background-color: var(--geekblue-7);
   border-radius: 50%;
   opacity: 0;
   transition: opacity 1s ease-out, transform 1s ease-out;

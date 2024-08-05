@@ -331,11 +331,11 @@ section.visible .text-animation {
   overflow: hidden;
   text-decoration: none;
   /* To remove underline from anchor */
-  -webkit-transition: background-color 0.3s, color 0.3s, border 0.3s, -webkit-transform 0.2s ease-out;
-  transition: background-color 0.3s, color 0.3s, border 0.3s, -webkit-transform 0.2s ease-out;
-  -o-transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.3s;
-  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.3s;
-  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.3s, -webkit-transform 0.2s ease-out;
+  -webkit-transition: background-color 0.3s, color 0.3s, border 0.1s, -webkit-transform 0.2s ease-out;
+  transition: background-color 0.3s, color 0.3s, border 0.1s, -webkit-transform 0.2s ease-out;
+  -o-transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.1s;
+  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.1s;
+  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.1s, -webkit-transform 0.2s ease-out;
 }
 
 .btn.hovered {
@@ -344,7 +344,6 @@ section.visible .text-animation {
   min-width: 124px;
   border-radius: 100%;
   background-color: #10239e;
-  border: 1px solid var(--foundation-darkblue-darkblue-1);
 }
 
 .btn-text {
@@ -764,11 +763,23 @@ section.visible .text-animation {
   box-shadow: -35px -6px 0 0 var(--black-10);
 }
 
+.prices__text-wrappers {
+  overflow: hidden;
+}
+
 .prices__text-wrapper {
   overflow: hidden;
 }
 
+.prices__text-wrapper .text-animation {
+  -webkit-transition: 5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  -o-transition: 5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: 5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
 .prices__text {
+  overflow: hidden;
+  display: inline;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 32px;
@@ -831,13 +842,6 @@ section.visible .text-animation {
   overflow: hidden;
 }
 
-.hall-layout.visible .hall-layout__main {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-}
-
 .hall-layout .section-head {
   margin-bottom: 256px;
 }
@@ -858,13 +862,9 @@ section.visible .text-animation {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
-  opacity: 0;
-  -webkit-transition: 0.5s linear;
-  -o-transition: 0.5s linear;
-  transition: 0.5s linear;
+  -webkit-transition: 0.7s linear;
+  -o-transition: 0.7s linear;
+  transition: 0.7s linear;
 }
 
 .hall-layout__main::before {
@@ -1009,6 +1009,10 @@ section.visible .text-animation {
   max-width: 100%;
 }
 
+.hall-layout__title-wrapper {
+  overflow: hidden;
+}
+
 .volga-hall {
   position: relative;
   z-index: 8;
@@ -1045,7 +1049,7 @@ section.visible .text-animation {
 }
 
 .volga-hall__picture--1.second {
-  top: calc(100% + 50px);
+  top: calc(100% + 100px);
 }
 
 .volga-hall__picture--2 {
@@ -1097,7 +1101,7 @@ section.visible .text-animation {
           transform: translateX(-50%);
   width: 200px;
   height: 200px;
-  background-color: var(--white-10);
+  background-color: var(--geekblue-7);
   border-radius: 50%;
   opacity: 0;
   -webkit-transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
@@ -1240,7 +1244,7 @@ section.visible .text-animation {
 
 .hero {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 48px 0;
   overflow: hidden;
   min-height: 100vh;
@@ -1265,6 +1269,7 @@ section.visible .text-animation {
 .hero::after {
   content: "";
   position: fixed;
+  z-index: 111;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -1706,6 +1711,10 @@ section.visible .text-animation {
   margin-top: calc((var(--index) - 1) * 100px);
 }
 
+.sums__title-wrapper {
+  overflow: hidden;
+}
+
 .services {
   position: relative;
   z-index: 1;
@@ -1988,8 +1997,6 @@ section.visible .text-animation {
 }
 
 .tehno__title {
-  max-width: 520px;
-  margin: 0 auto 56px;
   font-size: 36px;
   line-height: 120%;
   text-align: center;
@@ -2045,10 +2052,20 @@ section.visible .text-animation {
   color: var(--foundation-darkblue-darkblue-1);
 }
 
+.tehno__title-wrappers {
+  max-width: 520px;
+  margin: 0 auto 56px;
+}
+
+.tehno__title-wrapper {
+  overflow: hidden;
+}
+
 .also-offer {
   position: relative;
   z-index: 1;
   padding: 32px 0 220px;
+  min-height: 100vh;
   overflow: hidden;
   background: var(--foundation-darkblue-darkblue-1);
 }
@@ -2100,9 +2117,10 @@ section.visible .text-animation {
           column-gap: 24px;
 }
 
-.also-offer__title-wrapper {
+.also-offer__title-wrappers {
   max-width: 380px;
-  margin: 0 auto 56px;
+  width: 380px;
+  margin-bottom: 56px;
 }
 
 .also-offer__title {
@@ -2263,6 +2281,10 @@ section.visible .text-animation {
 
 .also-offer__cards.smooth-scroll {
   scroll-behavior: smooth;
+}
+
+.also-offer__title-wrapper {
+  overflow: hidden;
 }
 
 .footer {
@@ -2445,12 +2467,13 @@ section.visible .text-animation {
   }
 
   .volga-hall__picture--4 {
-    bottom: 34px;
+    bottom: 180px;
     left: 0;
   }
 
   .volga-hall__picture--5 {
-    bottom: -140px;
+    bottom: -60px;
+    right: 100px;
   }
 
   .hero__contacts {
@@ -2618,7 +2641,7 @@ section.visible .text-animation {
 
   .volga-hall__picture--4 {
     left: -20px;
-    bottom: 20px;
+    bottom: 180px;
   }
 
   .volga-hall__picture--4 img {
@@ -2626,14 +2649,22 @@ section.visible .text-animation {
     height: auto;
   }
 
+  .volga-hall__picture--4.second {
+    bottom: -500px;
+  }
+
   .volga-hall__picture--5 {
     right: 240px;
-    bottom: -120px;
+    bottom: 30px;
   }
 
   .volga-hall__picture--5 img {
     width: 332px;
     height: auto;
+  }
+
+  .volga-hall__picture--5.second {
+    bottom: -1000px;
   }
 
   .contact-us {
@@ -3158,6 +3189,18 @@ section.visible .text-animation {
     margin-bottom: 40px;
   }
 
+  .prices__text-wrappers {
+    display: inline;
+  }
+
+  .prices__text-wrapper .text-animation {
+    display: inline;
+  }
+
+  .prices__text-wrapper {
+    display: inline;
+  }
+
   .prices__text {
     font-size: 24px;
   }
@@ -3434,7 +3477,6 @@ section.visible .text-animation {
 
   .tehno__title {
     font-size: 24px;
-    max-width: 320px;
   }
 
   .tehno__item {
@@ -3449,6 +3491,11 @@ section.visible .text-animation {
     font-size: 14px;
   }
 
+  .tehno__title-wrappers {
+    font-size: 24px;
+    max-width: 320px;
+  }
+
   .also-offer {
     padding: 32px 0 90px;
   }
@@ -3461,7 +3508,7 @@ section.visible .text-animation {
     row-gap: 48px;
   }
 
-  .also-offer__title-wrapper {
+  .also-offer__title-wrappers {
     margin: 0;
   }
 

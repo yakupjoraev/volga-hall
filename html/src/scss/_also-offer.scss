@@ -2,6 +2,9 @@
   position: relative;
   z-index: 1;
   padding: 32px 0 220px;
+
+  min-height: 100vh;
+
   overflow: hidden;
   background: var(--foundation-darkblue-darkblue-1);
 
@@ -101,11 +104,12 @@
     }
   }
 
-  // .also-offer__title-wrapper
+  // .also-offer__title-wrappers
 
-  &__title-wrapper {
+  &__title-wrappers {
     max-width: 380px;
-    margin: 0 auto 56px;
+    width: 380px;
+    margin-bottom: 56px;
 
     @media (max-width: $breakpoint992) {
       margin: 0;
@@ -326,4 +330,8 @@
 
 .also-offer__cards.smooth-scroll {
   scroll-behavior: smooth;
+}
+
+.also-offer__title-wrapper {
+  overflow: hidden;
 }

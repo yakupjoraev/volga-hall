@@ -108,7 +108,7 @@ section.visible {
   overflow: hidden;
   text-decoration: none;
   /* To remove underline from anchor */
-  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.3s;
+  transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.1s;
 
   @media (hover:hover) {
     &:hover {}
@@ -122,7 +122,7 @@ section.visible {
   min-width: 124px;
   border-radius: 100%;
   background-color: #10239e;
-  border: 1px solid var(--foundation-darkblue-darkblue-1);
+  // border: 1px solid transparent;
 }
 
 .btn-text {

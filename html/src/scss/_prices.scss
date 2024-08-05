@@ -121,15 +121,40 @@
 
   }
 
+  // .prices__text-wrappers
+
+  &__text-wrappers {
+    overflow: hidden;
+
+    @media (max-width: $breakpoint992) {
+      display: inline;
+    }
+  }
+
+
   // .prices__text-wrapper
 
   &__text-wrapper {
     overflow: hidden;
+
+    .text-animation {
+      transition: 5s cubic-bezier(.165, .84, .44, 1) !important;
+
+      @media (max-width: $breakpoint992) {
+        display: inline;
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      display: inline;
+    }
   }
 
   // .prices__text
 
   &__text {
+    overflow: hidden;
+    display: inline;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 32px;
