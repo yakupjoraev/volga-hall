@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollTrigger: {
       trigger: section,
       pin: true,
-      scrub: 1, // уменьшение значения для еще большего ускорения прокрутки
+      scrub: 0.01, // уменьшение значения для еще большего ускорения прокрутки
       end: () => `+=${totalWidth}`,
       invalidateOnRefresh: true
     }
