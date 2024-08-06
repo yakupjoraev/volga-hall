@@ -367,3 +367,28 @@
     display: none;
   }
 }
+
+.services {
+  position: relative;
+}
+
+.services__main {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.services.banquets {
+  display: none;
+
+  @media (max-width: 1000px) {
+    display: block;
+  }
+}
+
+.services.banquets.active {
+  display: block;
+}
+
+.hidden-scroll {
+  overflow: hidden;
+}

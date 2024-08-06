@@ -1946,6 +1946,29 @@ section.visible .text-animation {
   display: none;
 }
 
+.services {
+  position: relative;
+}
+
+.services__main {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.services.banquets {
+  display: none;
+}
+
+.services.banquets.active {
+  display: block;
+}
+
+.hidden-scroll {
+  overflow: hidden;
+}
+
 .tehno {
   padding: 112px 0;
 }
@@ -3112,6 +3135,12 @@ section.visible .text-animation {
 @media (max-width: 1025px) {
   .volga-hall__picture--5 {
     right: 140px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .services.banquets {
+    display: block;
   }
 }
 

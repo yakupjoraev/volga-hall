@@ -97,6 +97,88 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Функция для проверки ширины окна
+  function checkWidth() {
+    return window.innerWidth >= 1000;
+  }
+
+  // Проверяем ширину окна
+  if (!checkWidth()) {
+    // Если ширина меньше 1000px, прерываем выполнение
+    console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const conferencesContent = {
+    title: "Конференции",
+    titleBg: "Конференции",
+    text1: "Наш зал подойдет для проведения деловых встреч, тренингов, конференций и выставок, а также совещаний и других крупных событий, которые требуют создания определенных условий.",
+    text2: "Volga Hall - технически оснащенный комплекс с современным оборудованием и опытным персоналом, сопровождающим мероприятие. ВолгаХолл так-же отлично подойдет для аренды зала для тренингов.",
+    imgSrc: "./img/services/conferences-pic.png",
+    imgSrcset: "./img/services/conferences-pic@2x.png",
+    imgSrcWebp: "./img/services/conferences-pic.webp",
+    imgSrcsetWebp: "./img/services/conferences-pic@2x.webp"
+  };
+
+  const banquetsContent = {
+    title: "Банкеты",
+    titleBg: "Банкеты",
+    text1: "Проведение ваших мероприятий в банкетном зале в Волгограде в VOLGA HALL в Ворошиловском районе в отеле Hampton by Hilton Volgograd - наиболее оптимальное решение для свадьбы или корпоратива.",
+    text2: "Ведь это не просто зал - это целый комплекс со всем необходимым техническим оборудованием и сопровождением мероприятий опытным персоналом, а также важным преимуществом будет размещение в отеле Hampton by Hilton Volgograd.",
+    imgSrc: "./img/services/banquets-pic.png",
+    imgSrcset: "./img/services/banquets-pic@2x.png",
+    imgSrcWebp: "./img/services/banquets-pic.webp",
+    imgSrcsetWebp: "./img/services/banquets-pic@2x.webp"
+  };
+
+  // Основной ScrollTrigger для секции конференций
+  ScrollTrigger.create({
+    trigger: ".services.conferences",
+    start: "top top",
+    end: "bottom top",
+    pin: true,
+    pinSpacing: true,
+    scrub: 0.1,
+    onEnter: () => swapContent(banquetsContent),
+    onLeaveBack: () => swapContent(conferencesContent)
+
+  });
+
+  function swapContent(content) {
+    // Анимация исчезновения старого контента
+    gsap.to(".services__title, .services__title-bg, .services__text, .services__pic, .services__link, .services__btn", {
+      y: 150,
+      opacity: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      onComplete: () => {
+        // Замена контента
+        document.querySelector(".services__title").textContent = content.title;
+        document.querySelector(".services__title-bg").textContent = content.titleBg;
+        document.querySelector(".services__text:first-of-type").textContent = content.text1;
+        document.querySelector(".services__text:last-of-type").textContent = content.text2;
+
+        const picture = document.querySelector(".services__picture picture");
+        picture.querySelector("source[type='image/webp']").srcset = `${content.imgSrcWebp} 1x, ${content.imgSrcsetWebp} 2x`;
+        picture.querySelector("source[type='image/jpeg']").srcset = `${content.imgSrc} 1x, ${content.imgSrcset} 2x`;
+        picture.querySelector("img").src = content.imgSrc;
+        picture.querySelector("img").srcset = content.imgSrcset;
+
+        // Анимация появления нового контента
+        gsap.fromTo(".services__title, .services__title-bg, .services__text, .services__pic, .services__link, .services__btn",
+          { y: 150, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.2, stagger: 0.1 }
+        );
+      }
+    });
+  }
+});
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -271,6 +353,16 @@ SmoothScroll({
   // Поддержка тачпада
   touchpadSupport: true,
 })
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -460,6 +552,12 @@ function handleIntersection(entries, observer) {
       // Добавляем класс, когда элемент появляется в поле видимости
       entry.target.classList.add('visible');
 
+      // Сохраняем состояние видимости в localStorage
+      const id = entry.target.dataset.id;
+      if (id) {
+        localStorage.setItem(id, 'visible');
+      }
+
       // Если элемент имеет класс sums__item, запускаем анимацию счетчика
       if (entry.target.classList.contains('sums__item')) {
         let valueDisplay = entry.target.querySelector(".sums__item-sum");
@@ -485,21 +583,38 @@ const servicesMain = document.querySelectorAll('.services__main');
 const sumsItems = document.querySelectorAll('.sums__item');
 const animationSection = document.querySelectorAll('.animation-section');
 
-// Наблюдаем за каждым элементом
-sectionLine.forEach(block => {
+// Функция для восстановления состояния видимости
+function restoreVisibility() {
+  document.querySelectorAll('.section-head, .services__main, .sums__item, .animation-section').forEach(el => {
+    const id = el.dataset.id;
+    if (id && localStorage.getItem(id) === 'visible') {
+      el.classList.add('visible');
+    }
+  });
+}
+
+// Устанавливаем уникальные идентификаторы для отслеживания состояния
+sectionLine.forEach((block, index) => {
+  block.dataset.id = `sectionLine-${index}`;
   observer.observe(block);
 });
 
-sumsItems.forEach(block => {
+sumsItems.forEach((block, index) => {
+  block.dataset.id = `sumsItems-${index}`;
   observer.observe(block);
 });
 
-servicesMain.forEach(block => {
+servicesMain.forEach((block, index) => {
+  block.dataset.id = `servicesMain-${index}`;
   observer.observe(block);
 });
 
-animationSection.forEach(block => {
+animationSection.forEach((block, index) => {
+  block.dataset.id = `animationSection-${index}`;
   observer.observe(block);
 });
+
+// Восстанавливаем состояние видимости при загрузке страницы
+document.addEventListener('DOMContentLoaded', restoreVisibility);
 
 
