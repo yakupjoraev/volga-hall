@@ -142,14 +142,14 @@ document.addEventListener("DOMContentLoaded", function () {
     pin: true,
     pinSpacing: true,
     scrub: 0.1,
+    anticipatePin: 1,
     onEnter: () => swapContent(banquetsContent),
     onLeaveBack: () => swapContent(conferencesContent)
-
   });
 
   function swapContent(content) {
     // Анимация исчезновения старого контента
-    gsap.to(".services__title, .services__title-bg, .services__text, .services__pic, .services__link, .services__btn", {
+    gsap.to(".services__title, .services__title-bg, .services__text, .services__pic, .services__link", {
       y: 150,
       opacity: 0,
       duration: 0.2,
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         picture.querySelector("img").srcset = content.imgSrcset;
 
         // Анимация появления нового контента
-        gsap.fromTo(".services__title, .services__title-bg, .services__text, .services__pic, .services__link, .services__btn",
+        gsap.fromTo(".services__title, .services__title-bg, .services__text, .services__pic, .services__link",
           { y: 150, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.2, stagger: 0.1 }
         );
@@ -403,8 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let values = { logoY: 0, circleY: 0, circleEndY: 0 };
 
     if (windowWidth >= 1600) { // Десктопы
-      values.logoY = window.innerHeight * 0.001;
-      values.circleY = -window.innerHeight * 0.3;
+      values.logoY = window.innerHeight * 0.1;
+      values.circleY = -window.innerHeight * 0.4;
       values.circleEndY = -window.innerHeight * 0.5;
     }
     else if (windowWidth >= 1200) { // Десктопы
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 1,
       y: values.circleY,
       scale: 1,
-      duration: 2,
+      duration: 4,
       ease: "power1.out",
       onComplete: () => {
         document.body.classList.add('no-scroll');
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, ">") // Запуск анимации круга после движения логотипа
     .to(".circle", {
       scale: 60,
-      duration: 1,
+      duration: 2,
       ease: "power1.out",
     });
 
@@ -490,13 +490,13 @@ document.addEventListener('DOMContentLoaded', () => {
               gsap.to(".circle", {
                 opacity: 0,
                 y: '-50vh',
-                duration: 0.5,
+                duration: 2,
                 onComplete: () => {
                   // Включение скролла
                   document.body.classList.remove('no-scroll');
                 }
               });
-            }, 200);
+            }, 100);
           }
         });
       }
@@ -515,11 +515,26 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0,
           duration: 0.5
         });
+
+        gsap.to(".circle", {
+          opacity: 0,
+        });
+
+        // Плавное движение логотипа вниз
+        gsap.to(".volga-hall__name", {
+          duration: 2,
+        }) // Запуск анимации логотипа чуть раньше
       }
     }
   });
 
 });
+
+
+
+
+
+
 
 
 
