@@ -114,6 +114,13 @@
     line-height: 120%;
     text-align: right;
     color: var(--geekblue-1);
+    transition: color 0.2s linear;
+
+    @media (hover:hover) {
+      &:hover {
+        color: var(--geekblue-6);
+      }
+    }
 
     &--phone {
       @media (max-width: $breakpoint768) {
@@ -342,11 +349,32 @@
       width: 36px;
       height: 36px;
       min-width: 36px;
+      border-radius: 100%;
+      background-color: var(--white-10);
+      border: 1px solid transparent;
+      transition: 0.2s linear;
+
+      @media (hover:hover) {
+        &:hover {
+          .nav-menu__social-icon {
+            filter: brightness(0) saturate(100%) invert(24%) sepia(72%) saturate(3997%) hue-rotate(228deg) brightness(95%) contrast(94%);
+          }
+
+        }
+      }
+
+      &:active,
+      &:focus {
+        border-color: var(--geekblue-3);
+      }
+
     }
 
     // .nav-menu__social-icon
 
-    &__social-icon {}
+    &__social-icon {
+      filter: brightness(0) saturate(100%) invert(12%) sepia(15%) saturate(19%) hue-rotate(333deg) brightness(92%) contrast(95%);
+    }
 
     // .nav-menu__picture
 

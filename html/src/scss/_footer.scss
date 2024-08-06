@@ -88,6 +88,13 @@
     font-size: 14px;
     line-height: 120%;
     color: var(--foundation-darkblue-darkblue-1);
+    transition: color 0.2s linear;
+
+    @media (hover:hover) {
+      &:hover {
+        color: var(--geekblue-3);
+      }
+    }
   }
 
   // .footer__link--big

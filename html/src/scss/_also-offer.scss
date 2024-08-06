@@ -185,6 +185,8 @@
     height: 640px;
     overflow: hidden;
 
+
+
     &--empty {
       min-width: 260px;
       width: 260px;
@@ -205,6 +207,12 @@
       pointer-events: none;
 
       @media (max-width: $breakpoint992) {
+        content: none;
+      }
+    }
+
+    &--title {
+      &::before {
         content: none;
       }
     }
