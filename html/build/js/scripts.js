@@ -560,18 +560,13 @@ function sumsVal(element) {
   }, duration);
 }
 
+
 // Функция, которая будет вызываться при появлении элемента в поле видимости
 function handleIntersection(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // Добавляем класс, когда элемент появляется в поле видимости
       entry.target.classList.add('visible');
-
-      // Сохраняем состояние видимости в localStorage
-      const id = entry.target.dataset.id;
-      if (id) {
-        localStorage.setItem(id, 'visible');
-      }
 
       // Если элемент имеет класс sums__item, запускаем анимацию счетчика
       if (entry.target.classList.contains('sums__item')) {
@@ -598,38 +593,19 @@ const servicesMain = document.querySelectorAll('.services__main');
 const sumsItems = document.querySelectorAll('.sums__item');
 const animationSection = document.querySelectorAll('.animation-section');
 
-// Функция для восстановления состояния видимости
-function restoreVisibility() {
-  document.querySelectorAll('.section-head, .services__main, .sums__item, .animation-section').forEach(el => {
-    const id = el.dataset.id;
-    if (id && localStorage.getItem(id) === 'visible') {
-      el.classList.add('visible');
-    }
-  });
-}
-
-// Устанавливаем уникальные идентификаторы для отслеживания состояния
-sectionLine.forEach((block, index) => {
-  block.dataset.id = `sectionLine-${index}`;
+// Наблюдаем за каждым элементом
+sectionLine.forEach(block => {
   observer.observe(block);
 });
 
-sumsItems.forEach((block, index) => {
-  block.dataset.id = `sumsItems-${index}`;
+sumsItems.forEach(block => {
   observer.observe(block);
 });
 
-servicesMain.forEach((block, index) => {
-  block.dataset.id = `servicesMain-${index}`;
+servicesMain.forEach(block => {
   observer.observe(block);
 });
 
-animationSection.forEach((block, index) => {
-  block.dataset.id = `animationSection-${index}`;
+animationSection.forEach(block => {
   observer.observe(block);
 });
-
-// Восстанавливаем состояние видимости при загрузке страницы
-document.addEventListener('DOMContentLoaded', restoreVisibility);
-
-
