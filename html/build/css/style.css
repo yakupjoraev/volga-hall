@@ -3192,6 +3192,10 @@ section.visible .text-animation {
     margin-left: auto;
   }
 
+  .volga-hall__picture.second {
+    display: none;
+  }
+
   .volga-hall__picture--1.second {
     top: 90%;
   }
@@ -3227,6 +3231,10 @@ section.visible .text-animation {
 
   .also-offer__title-wrappers {
     margin: 0;
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    width: auto;
   }
 
   .also-offer__cards {

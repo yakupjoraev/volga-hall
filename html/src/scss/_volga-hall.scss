@@ -86,6 +86,12 @@
   &__picture {
     position: absolute;
 
+    @media (max-width: 1200px) {
+      &.second {
+        display: none;
+      }
+    }
+
   }
 
   // .volga-hall__picture--1

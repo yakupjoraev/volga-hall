@@ -114,6 +114,8 @@
 
     @media (max-width: 1200px) {
       margin: 0;
+      max-width: fit-content;
+      width: auto;
     }
 
   }
