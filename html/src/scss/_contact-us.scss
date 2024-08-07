@@ -123,9 +123,16 @@
 
 .contact-us-animation {
   // display: none;
-  opacity: 0;
 
-  @media (max-width: 1200px) {
-    opacity: 1;
+
+  .container {
+    opacity: 0;
+    transition: 0.2s linear 0.2s linear;
+
+    @media (max-width: 1200px) {
+      opacity: 1;
+    }
   }
+
+
 }

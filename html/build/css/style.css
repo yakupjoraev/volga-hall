@@ -1095,9 +1095,9 @@ section.visible .text-animation {
 }
 
 .circle {
-  position: fixed;
+  position: absolute;
   z-index: 9;
-  bottom: -200px;
+  bottom: -300px;
   left: 50%;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -1106,7 +1106,7 @@ section.visible .text-animation {
   height: 200px;
   background-color: var(--geekblue-7);
   border-radius: 50%;
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
   transition: opacity 1s ease-out, -webkit-transform 1s ease-out;
   -o-transition: opacity 1s ease-out, transform 1s ease-out;
@@ -1118,6 +1118,10 @@ section.visible .text-animation {
       -ms-user-select: none;
           user-select: none;
   pointer-events: none;
+}
+
+.circle.scale-none {
+  scale: 1 !important;
 }
 
 .circle.active {
@@ -1241,8 +1245,11 @@ section.visible .text-animation {
           flex: 0 1 744px;
 }
 
-.contact-us-animation {
+.contact-us-animation .container {
   opacity: 0;
+  -webkit-transition: 0.2s linear 0.2s linear;
+  -o-transition: 0.2s linear 0.2s linear;
+  transition: 0.2s linear 0.2s linear;
 }
 
 .hero {
@@ -2471,8 +2478,11 @@ section.visible .text-animation {
   color: var(--geekblue-5);
 }
 
-.footer-animation {
+.footer-animation .container {
   opacity: 0;
+  -webkit-transition: 0.2s linear 0.2s linear;
+  -o-transition: 0.2s linear 0.2s linear;
+  transition: 0.2s linear 0.2s linear;
 }
 
 @media (max-width: 1649.98px) {
@@ -3192,7 +3202,7 @@ section.visible .text-animation {
     left: 58%;
   }
 
-  .contact-us-animation {
+  .contact-us-animation .container {
     opacity: 1;
   }
 
@@ -3233,7 +3243,7 @@ section.visible .text-animation {
     height: auto;
   }
 
-  .footer-animation {
+  .footer-animation .container {
     opacity: 1;
   }
 }
