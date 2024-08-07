@@ -3234,6 +3234,10 @@ section.visible .text-animation {
     margin: 0 auto;
   }
 
+  .also-offer__card::before {
+    content: none;
+  }
+
   .also-offer__card--empty {
     height: 0px;
   }
@@ -3638,10 +3642,6 @@ section.visible .text-animation {
 
   .also-offer {
     padding: 32px 0 90px;
-  }
-
-  .also-offer__card::before {
-    content: none;
   }
 
   .footer {
