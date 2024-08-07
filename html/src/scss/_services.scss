@@ -181,6 +181,8 @@
   // .services__link
 
   &__link {
+    display: flex;
+    width: fit-content;
     font-size: 16px;
     line-height: 120%;
     color: var(--geekblue-5);
@@ -380,7 +382,7 @@
 .services.banquets {
   display: none;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     display: block;
   }
 }

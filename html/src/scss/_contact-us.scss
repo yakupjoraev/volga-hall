@@ -125,7 +125,7 @@
   // display: none;
   opacity: 0;
 
-  @media (max-width: $breakpoint992) {
+  @media (max-width: 1200px) {
     opacity: 1;
   }
 }

@@ -1849,6 +1849,12 @@ section.visible .text-animation {
 }
 
 .services__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   font-size: 16px;
   line-height: 120%;
   color: var(--geekblue-5);
@@ -2216,8 +2222,8 @@ section.visible .text-animation {
 }
 
 .also-offer__card--empty {
-  min-width: 260px;
-  width: 260px;
+  min-width: 96px;
+  width: 96px;
 }
 
 .also-offer__card::before {
@@ -3177,20 +3183,64 @@ section.visible .text-animation {
     margin-left: auto;
   }
 
+  .volga-hall__picture--1.second {
+    top: 90%;
+  }
+
+  .volga-hall__picture--2.second {
+    top: 100%;
+    left: 58%;
+  }
+
+  .contact-us-animation {
+    opacity: 1;
+  }
+
+  .services.banquets {
+    display: block;
+  }
+
   .also-offer::before {
     content: none;
+  }
+
+  .also-offer__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 48px;
+  }
+
+  .also-offer__title-wrappers {
+    margin: 0;
+  }
+
+  .also-offer__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 32px;
+    margin: 0 auto;
+  }
+
+  .also-offer__card--empty {
+    height: 0px;
+  }
+
+  .also-offer__card--title {
+    height: auto;
+  }
+
+  .footer-animation {
+    opacity: 1;
   }
 }
 
 @media (max-width: 1025px) {
   .volga-hall__picture--5 {
     right: 140px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .services.banquets {
-    display: block;
   }
 }
 
@@ -3456,10 +3506,6 @@ section.visible .text-animation {
     width: 100%;
   }
 
-  .contact-us-animation {
-    opacity: 1;
-  }
-
   .hero {
     padding-top: 90px;
   }
@@ -3585,37 +3631,8 @@ section.visible .text-animation {
     padding: 32px 0 90px;
   }
 
-  .also-offer__main {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    row-gap: 48px;
-  }
-
-  .also-offer__title-wrappers {
-    margin: 0;
-  }
-
-  .also-offer__cards {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    row-gap: 32px;
-    margin: 0 auto;
-  }
-
   .also-offer__card::before {
     content: none;
-  }
-
-  .also-offer__card--empty {
-    height: 0px;
-  }
-
-  .also-offer__card--title {
-    height: auto;
   }
 
   .footer {
@@ -3639,10 +3656,6 @@ section.visible .text-animation {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
-  }
-
-  .footer-animation {
-    opacity: 1;
   }
 }
 

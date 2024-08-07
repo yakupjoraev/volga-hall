@@ -99,13 +99,13 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
 document.addEventListener("DOMContentLoaded", function () {
   // Функция для проверки ширины окна
   function checkWidth() {
-    return window.innerWidth >= 1000;
+    return window.innerWidth >= 1200;
   }
 
   // Проверяем ширину окна
   if (!checkWidth()) {
-    // Если ширина меньше 1000px, прерываем выполнение
-    console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+    // Если ширина меньше 1200px, прерываем выполнение
+    console.log('Ширина окна меньше 1200px. Анимации не будут выполнены.');
     return;
   }
 
@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     scrub: 0.1,
     anticipatePin: 1,
     onEnter: () => swapContent(banquetsContent),
+    onEnterBack: () => swapContent(conferencesContent),
     onLeaveBack: () => swapContent(conferencesContent)
   });
 
@@ -174,7 +175,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
 });
+
 
 
 
@@ -183,13 +186,12 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // Функция для проверки ширины окна
   function checkWidth() {
-    return window.innerWidth >= 1000;
+    return window.innerWidth >= 1200;
   }
-
   // Проверяем ширину окна
   if (!checkWidth()) {
-    // Если ширина меньше 1000px, прерываем выполнение
-    console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+    // Если ширина меньше 1200px, прерываем выполнение
+    console.log('Ширина окна меньше 1200px. Анимации не будут выполнены.');
     return;
   }
 
@@ -198,7 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".also-offer");
   const container = document.querySelector(".also-offer__main");
   const cards = document.querySelectorAll(".also-offer__card");
-  const containerWidth = section.offsetWidth;
+  const sectionWidth = section.offsetWidth;
+  const containerWidth = container.offsetWidth;
 
   // Вычисление общей ширины контейнера на основе карточек и title wrappers
   const totalWidth = [...cards].reduce((acc, item) => acc + item.offsetWidth, 0);
@@ -214,11 +217,13 @@ document.addEventListener("DOMContentLoaded", function () {
       trigger: section,
       pin: true,
       scrub: 0.01, // уменьшение значения для еще большего ускорения прокрутки
-      end: () => `+=${totalWidth}`,
+      end: () => `+=${totalWidth - sectionWidth + containerWidth}`,
       invalidateOnRefresh: true
     }
   });
 });
+
+
 
 
 
@@ -378,7 +383,7 @@ SmoothScroll({
 document.addEventListener('DOMContentLoaded', () => {
   // Функция для проверки ширины окна
   function checkWidth() {
-    return window.innerWidth >= 1000;
+    return window.innerWidth >= 1200;
   }
 
   // Проверяем ширину окна

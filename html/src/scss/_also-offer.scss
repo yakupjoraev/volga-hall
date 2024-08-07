@@ -98,7 +98,7 @@
     align-items: flex-start;
     column-gap: 24px;
 
-    @media (max-width: $breakpoint992) {
+    @media (max-width: 1200px) {
       flex-direction: column;
       row-gap: 48px;
     }
@@ -112,7 +112,7 @@
     margin-bottom: 56px;
     margin-right: 486px;
 
-    @media (max-width: $breakpoint992) {
+    @media (max-width: 1200px) {
       margin: 0;
     }
 
@@ -169,7 +169,7 @@
       display: none;
     }
 
-    @media (max-width: $breakpoint992) {
+    @media (max-width: 1200px) {
       flex-direction: column;
       row-gap: 32px;
       margin: 0 auto;
@@ -188,8 +188,8 @@
 
 
     &--empty {
-      min-width: 260px;
-      width: 260px;
+      min-width: 96px;
+      width: 96px;
     }
 
     &::before {
@@ -223,7 +223,7 @@
       height: 500px;
     }
 
-    @media (max-width: $breakpoint992) {
+    @media (max-width: 1200px) {
       &--empty {
         height: 0px;
       }

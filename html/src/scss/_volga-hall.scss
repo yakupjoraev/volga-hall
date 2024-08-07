@@ -120,6 +120,12 @@
 
     }
 
+    @media (max-width: 1200px) {
+      &.second {
+        top: 90%;
+      }
+    }
+
     @media (max-width: $breakpoint768) {
       top: 20px;
       left: 20px;
@@ -156,6 +162,13 @@
       img {
         height: auto;
         width: 218px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      &.second {
+        top: 100%;
+        left: 58%;
       }
     }
 
