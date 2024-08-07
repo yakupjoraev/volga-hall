@@ -3201,6 +3201,10 @@ section.visible .text-animation {
     left: 58%;
   }
 
+  .circle {
+    display: none;
+  }
+
   .contact-us-animation .container {
     opacity: 1;
   }

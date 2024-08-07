@@ -377,6 +377,9 @@
     animation: circkle 3s both;
   }
 
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 
 @keyframes circkle {
