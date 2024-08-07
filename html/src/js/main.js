@@ -380,6 +380,366 @@ SmoothScroll({
 
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Функция для проверки ширины окна
+//   function checkWidth() {
+//     return window.innerWidth >= 1200;
+//   }
+
+//   // Проверяем ширину окна
+//   if (!checkWidth()) {
+//     // Если ширина меньше 1000px, прерываем выполнение
+//     console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+//     return;
+//   }
+
+//   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+//   // Определяем слайды
+//   let slides = gsap.utils.toArray(".volga-hall__picture");
+
+//   // Определяем общую высоту секции
+//   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
+
+//   // Функция для получения значения `y` в зависимости от брекпоинта
+//   function getAdaptiveValues() {
+//     let windowWidth = window.innerWidth;
+//     let values = { logoY: 0, circleY: 0, circleEndY: 0 };
+
+//     if (windowWidth >= 1600) { // Десктопы
+//       values.logoY = window.innerHeight * 0.1;
+//       values.circleY = -window.innerHeight * 0.65;
+//       values.circleEndY = -window.innerHeight * 0.5;
+//     }
+//     else if (windowWidth >= 1200) { // Десктопы
+//       values.logoY = window.innerHeight * 0.1;
+//       values.circleY = -window.innerHeight * 0.1;
+//       values.circleEndY = -window.innerHeight * 0.1;
+//     } else if (windowWidth >= 768) { // Ноутбуки
+//       values.logoY = window.innerHeight * 0.4;
+//       values.circleY = -window.innerHeight * 0.4;
+//       values.circleEndY = -window.innerHeight * 0.6;
+//     } else { // Планшеты
+//       values.logoY = window.innerHeight * 0.5;
+//       values.circleY = -window.innerHeight * 0.5;
+//       values.circleEndY = -window.innerHeight * 0.7;
+//     }
+
+//     return values;
+//   }
+
+//   // Получаем адаптивные значения
+//   let values = getAdaptiveValues();
+
+//   // Создание таймлайна GSAP для анимации слайдов
+//   let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".volga-hall",
+//       pin: true, // Закрепляем секцию на экране
+//       scrub: 1,
+//       start: "top top",
+//       end: "+=" + totalHeight,
+//       pinSpacing: true // Оставляем пространство при закреплении
+//     }
+//   });
+
+//   // Анимация прокрутки изображений вверх
+//   tl.to(slides, {
+//     yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
+//     ease: "power1.inOut",
+//     duration: slides.length * 1.5 // Увеличиваем продолжительность для более плавной анимации
+//   });
+
+//   // Плавное движение логотипа вниз
+//   tl.to(".volga-hall__name", {
+//     y: values.logoY,
+//     duration: 5,
+//     ease: "power1.out",
+//   }, "-=1") // Запуск анимации логотипа чуть раньше
+
+//     // Анимация круга
+//     .to(".circle", {
+//       opacity: 1,
+//       y: values.circleY,
+//       scale: 1,
+//       duration: 4,
+//       ease: "power1.out",
+//       onComplete: () => {
+//         document.body.classList.add('no-scroll');
+//         // Запускаем оставшуюся анимацию через 1 секунду
+//         gsap.delayedCall(1, completeCircleAnimation);
+//       }
+//     }, ">") // Запуск анимации круга после движения логотипа
+//     .to(".circle", {
+//       scale: 20,
+//       duration: 1,
+//       ease: "power1.out",
+//     });
+
+//   // Функция для завершения анимации круга и последующих шагов
+//   function completeCircleAnimation() {
+//     // Искусственная прокрутка
+//     gsap.to(window, {
+//       scrollTo: { y: ".contact-us-animation", offsetY: 0 },
+//       duration: 0.1, // Установите очень короткую продолжительность для прокрутки
+//       onComplete: () => {
+//         // Показ секции "Контакты" и футера
+//         gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//           // display: 'flex',
+//           opacity: 1,
+//           duration: 0.5,
+//           onComplete: () => {
+//             // Исчезновение круга через секунду после прокрутки
+//             setTimeout(() => {
+//               gsap.to(".circle", {
+//                 scale: 1,
+//                 duration: 1,
+//                 onComplete: () => {
+//                   // Включение скролла
+//                   document.body.classList.remove('no-scroll');
+//                   // Добавление класса к .circle
+//                   // document.querySelector(".circle").classList.add('scale-none');
+//                 }
+//               });
+//             }, 100);
+//           }
+//         });
+//       }
+//     });
+//   }
+
+//   // Добавляем ScrollTrigger для обратного скролла
+//   ScrollTrigger.create({
+//     trigger: ".volga-hall",
+//     start: "top top",
+//     end: "+=" + totalHeight,
+//     onUpdate: (self) => {
+//       if (self.direction === -1) {
+//         // Обратный скролл
+//         gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//           opacity: 1,
+//           duration: 0.5
+//         });
+
+//         // Обратный скролл: круг остается в своем размере и перемещается вниз
+//         gsap.to(".circle", {
+//           opacity: 1,
+//           // y: values.circleY,
+//           scale: 1,
+//           duration: 1,
+//         });
+
+//         // Плавное движение логотипа вниз
+//         gsap.to(".volga-hall__name", {
+//           // y: values.logoY,
+//           duration: 2,
+//         });
+//       }
+//     }
+//   });
+
+//   // Проверка текущей позиции страницы при загрузке
+//   window.addEventListener('load', () => {
+//     if (document.querySelector(".contact-us-animation").getBoundingClientRect().top < window.innerHeight) {
+//       // Если страница загружена в секциях "Контакты" или "Футер", не увеличиваем круг
+//       gsap.set(".circle", { scale: 1 });
+//       gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//         opacity: 1,
+//         duration: 0.5
+//       });
+//     }
+//   });
+// });
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Функция для проверки ширины окна
+//   function checkWidth() {
+//     return window.innerWidth >= 1200;
+//   }
+
+//   // Проверяем ширину окна
+//   if (!checkWidth()) {
+//     // Если ширина меньше 1000px, прерываем выполнение
+//     console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
+//     return;
+//   }
+
+//   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+//   // Определяем слайды
+//   let slides = gsap.utils.toArray(".volga-hall__picture");
+
+//   // Определяем общую высоту секции
+//   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
+
+//   // Функция для получения значения `y` в зависимости от брекпоинта
+//   function getAdaptiveValues() {
+//     let windowWidth = window.innerWidth;
+//     let values = { logoY: 0, circleY: 0, circleEndY: 0 };
+
+//     if (windowWidth >= 1600) { // Десктопы
+//       values.logoY = window.innerHeight * 0.1;
+//       values.circleY = -window.innerHeight * 0.65;
+//       values.circleEndY = -window.innerHeight * 0.5;
+//     }
+//     else if (windowWidth >= 1200) { // Десктопы
+//       values.logoY = window.innerHeight * 0.1;
+//       values.circleY = -window.innerHeight * 0.1;
+//       values.circleEndY = -window.innerHeight * 0.1;
+//     } else if (windowWidth >= 768) { // Ноутбуки
+//       values.logoY = window.innerHeight * 0.4;
+//       values.circleY = -window.innerHeight * 0.4;
+//       values.circleEndY = -window.innerHeight * 0.6;
+//     } else { // Планшеты
+//       values.logoY = window.innerHeight * 0.5;
+//       values.circleY = -window.innerHeight * 0.5;
+//       values.circleEndY = -window.innerHeight * 0.7;
+//     }
+
+//     return values;
+//   }
+
+//   // Получаем адаптивные значения
+//   let values = getAdaptiveValues();
+
+//   // Создание таймлайна GSAP для анимации слайдов
+//   let tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".volga-hall",
+//       pin: true, // Закрепляем секцию на экране
+//       scrub: 1,
+//       start: "top top",
+//       end: "+=" + totalHeight,
+//       pinSpacing: true // Оставляем пространство при закреплении
+//     }
+//   });
+
+//   // Анимация прокрутки изображений вверх
+//   tl.to(slides, {
+//     yPercent: -70 * (slides.length - 1), // Измените значение для прокрутки
+//     ease: "power1.inOut",
+//     duration: slides.length * 1.5 // Увеличиваем продолжительность для более плавной анимации
+//   });
+
+//   // Плавное движение логотипа вниз
+//   tl.to(".volga-hall__name", {
+//     y: values.logoY,
+//     duration: 5,
+//     ease: "power1.out",
+//   }, "-=1") // Запуск анимации логотипа чуть раньше
+
+//     // Анимация круга
+//     .to(".circle", {
+//       opacity: 1,
+//       y: values.circleY,
+//       scale: 1,
+//       duration: 2,
+//       ease: "power1.out",
+//       onComplete: () => {
+//         document.body.classList.add('no-scroll');
+//         // Запускаем оставшуюся анимацию через 1 секунду
+//         gsap.delayedCall(1, completeCircleAnimation);
+//       }
+//     }, ">") // Запуск анимации круга после движения логотипа
+//     .to(".circle", {
+//       onEnter: () => {
+//         gsap.to(".circle", {
+//           scale: 50,
+//           duration: 1,
+//           ease: "power1.out"
+//         });
+//       },
+//       onLeaveBack: () => {
+//         gsap.to(".circle", {
+//           scale: 1,
+//           duration: 1,
+//           ease: "power1.out"
+//         });
+//       }
+//     });
+
+//   // Функция для завершения анимации круга и последующих шагов
+//   function completeCircleAnimation() {
+//     // Искусственная прокрутка
+//     gsap.to(window, {
+//       scrollTo: { y: ".contact-us-animation", offsetY: 0 },
+//       duration: 0.1, // Установите очень короткую продолжительность для прокрутки
+//       onComplete: () => {
+//         // Показ секции "Контакты" и футера
+//         gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//           // display: 'flex',
+//           opacity: 1,
+//           duration: 1,
+//           onComplete: () => {
+//             // Исчезновение круга через секунду после прокрутки
+//             setTimeout(() => {
+//               gsap.to(".circle", {
+//                 scale: 1,
+//                 duration: 1,
+//                 onComplete: () => {
+//                   // Включение скролла
+//                   document.body.classList.remove('no-scroll');
+//                 }
+//               });
+//             }, 100);
+//           }
+//         });
+//       }
+//     });
+//   }
+
+//   // Добавляем ScrollTrigger для обратного скролла
+//   ScrollTrigger.create({
+//     trigger: ".volga-hall",
+//     start: "top top",
+//     end: "+=" + totalHeight,
+//     onUpdate: (self) => {
+//       if (self.direction === -1) {
+//         // Обратный скролл
+//         gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//           opacity: 1,
+//           duration: 0.5
+//         });
+
+//         // Обратный скролл: круг остается в своем размере и перемещается вниз
+//         gsap.to(".circle", {
+//           opacity: 1,
+//           // y: values.circleY,
+//           scale: 1,
+//           duration: 1,
+//         });
+
+//         // Плавное движение логотипа вниз
+//         gsap.to(".volga-hall__name", {
+//           // y: values.logoY,
+//           duration: 2,
+//         });
+//       }
+//     }
+//   });
+
+//   // Проверка текущей позиции страницы при загрузке
+//   window.addEventListener('load', () => {
+//     if (document.querySelector(".contact-us-animation").getBoundingClientRect().top < window.innerHeight) {
+//       // Если страница загружена в секциях "Контакты" или "Футер", не увеличиваем круг
+//       gsap.set(".circle", { scale: 1 });
+//       gsap.to(".contact-us-animation .container, .footer-animation .container", {
+//         opacity: 1,
+//         duration: 0.5
+//       });
+//     }
+//   });
+// });
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   // Функция для проверки ширины окна
   function checkWidth() {
@@ -401,19 +761,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Определяем общую высоту секции
   let totalHeight = slides.reduce((sum, slide) => sum + slide.scrollHeight, 0);
 
-  // Функция для получения значения `y` в зависимости от брекпоинта
+  // Функция для получения значения y в зависимости от брекпоинта
   function getAdaptiveValues() {
     let windowWidth = window.innerWidth;
     let values = { logoY: 0, circleY: 0, circleEndY: 0 };
 
     if (windowWidth >= 1600) { // Десктопы
       values.logoY = window.innerHeight * 0.1;
-      values.circleY = -window.innerHeight * 0.4;
+      values.circleY = -window.innerHeight * 0.65;
       values.circleEndY = -window.innerHeight * 0.5;
     }
     else if (windowWidth >= 1200) { // Десктопы
-      values.logoY = window.innerHeight * 0.1;
-      values.circleY = -window.innerHeight * 0.1;
+      values.logoY = window.innerHeight * 0.0001;
+      values.circleY = -window.innerHeight * 0.8;
       values.circleEndY = -window.innerHeight * 0.1;
     } else if (windowWidth >= 768) { // Ноутбуки
       values.logoY = window.innerHeight * 0.4;
@@ -462,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
       opacity: 1,
       y: values.circleY,
       scale: 1,
-      duration: 4,
+      duration: 2,
       ease: "power1.out",
       onComplete: () => {
         document.body.classList.add('no-scroll');
@@ -471,9 +831,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, ">") // Запуск анимации круга после движения логотипа
     .to(".circle", {
-      scale: 60,
-      duration: 2,
-      ease: "power1.out",
+      onEnter: () => {
+        gsap.to(".circle", {
+          scale: 50,
+          duration: 1,
+          ease: "power1.out"
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(".circle", {
+          scale: 1,
+          duration: 1,
+          ease: "power1.out"
+        });
+      }
     });
 
   // Функция для завершения анимации круга и последующих шагов
@@ -487,7 +858,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(".contact-us-animation .container, .footer-animation .container", {
           // display: 'flex',
           opacity: 1,
-          duration: 0.5,
+          duration: 1,
           onComplete: () => {
             // Исчезновение круга через секунду после прокрутки
             setTimeout(() => {
@@ -497,8 +868,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 onComplete: () => {
                   // Включение скролла
                   document.body.classList.remove('no-scroll');
-                  // Добавление класса к .circle
-                  // document.querySelector(".circle").classList.add('scale-none');
                 }
               });
             }, 100);
@@ -550,12 +919,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-
-
-
-
-
 
 
 
