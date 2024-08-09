@@ -88,6 +88,45 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
 
 
 
+function tariffsSlider() {
+  const container = document.querySelector('.tariffs');
+
+  if (!container) {
+    return null
+  }
+
+  const swiper = new Swiper(".tariffs__slider", {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 16,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+      },
+      // when window width is >= 380px
+      380: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      // when window width is >= 769px
+      769: {
+        slidesPerView: 3,
+        spaceBetween: 24
+      }
+    },
+    pagination: {
+      el: ".tariffs__slider-pagination",
+    },
+  });
+}
+
+if (window.matchMedia("(max-width: 991px)").matches) {
+  tariffsSlider();
+}
+
 
 
 
@@ -98,6 +137,10 @@ document.querySelectorAll('.sums__item').forEach((item, index) => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+  const sectionContainer = document.querySelector('.services');
+  if (!sectionContainer) {
+    return null
+  }
   // Функция для проверки ширины окна
   function checkWidth() {
     return window.innerWidth >= 1200;
@@ -185,6 +228,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+  const sectionContainer = document.querySelector('.also-offer');
+  if (!sectionContainer) {
+    return null
+  }
   // Функция для проверки ширины окна
   function checkWidth() {
     return window.innerWidth >= 1200;
@@ -382,6 +429,11 @@ SmoothScroll({
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.volga-hall');
+  if (!container) {
+    return null
+  }
+
   // Функция для проверки ширины окна
   function checkWidth() {
     return window.innerWidth >= 1200;

@@ -1,0 +1,254 @@
+.pay {
+  padding: 64px 0;
+
+  .section-head {
+    margin-bottom: 56px;
+
+    @media (max-width: $breakpoint992) {
+      margin-bottom: 40px;
+    }
+  }
+
+  // .pay__inner
+
+  &__inner {}
+
+  // .pay__main
+
+  &__main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: 40px;
+
+    @media (max-width: $breakpoint768) {
+      column-gap: 16px;
+    }
+  }
+
+  // .pay__info
+
+  &__info {
+    flex: 0 1 660px;
+
+    @media (max-width: $breakpoint1450) {
+      flex: 0 1 540px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      flex: 1 1 auto;
+    }
+  }
+
+  // .pay__title-wrapper
+
+  &__title-wrapper {
+    margin-bottom: 40px;
+    overflow: hidden;
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 36px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      margin-bottom: 24px;
+    }
+  }
+
+  // .pay__title
+
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+
+    color: var(--white-10);
+
+    i {
+      font-family: var(--second-family);
+      font-style: italic;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 64px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      font-size: 48px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      display: inline;
+    }
+
+    @media (max-width: $breakpoint359) {
+      font-size: 36px;
+    }
+  }
+
+  // .pay__text-wrappers
+
+  &__text-wrappers {
+    margin-bottom: 32px;
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 40px;
+    }
+  }
+
+  // .pay__text-wrapper
+
+  &__text-wrapper {
+    overflow: hidden;
+
+    @media (max-width: $breakpoint768) {
+      display: inline;
+    }
+  }
+
+  // .pay__text
+
+  &__text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--white-10);
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      display: inline;
+    }
+  }
+
+  // .pay__link
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2px;
+    min-width: 124px;
+    width: 124px;
+    height: 124px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1px solid var(--foundation-darkblue-darkblue-1);
+    outline: 0;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
+    text-align: center;
+    color: var(--foundation-darkblue-darkblue-1);
+
+    transition: 0.2s linear;
+    cursor: pointer;
+
+    span {
+      max-width: 78px;
+    }
+
+    img {
+      transition: filter 0.2s linear;
+    }
+
+    @media (hover:hover) {
+      &:hover {
+        background-color: var(--foundation-darkblue-darkblue-1);
+        color: var(--geekblue-10);
+
+        img {
+          filter: brightness(0) saturate(100%) invert(8%) sepia(70%) saturate(3403%) hue-rotate(234deg) brightness(90%) contrast(117%);
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      min-width: 102px;
+      width: 102px;
+      height: 102px;
+    }
+  }
+
+  // .pay__cards
+
+  &__cards {
+    display: flex;
+    align-items: center;
+    column-gap: 48px;
+    row-gap: 24px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    @media (max-width: $breakpoint1450) {
+      column-gap: 40px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      flex-direction: column;
+      row-gap: 16px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      flex: 0 0 144px;
+    }
+  }
+
+  // .pay__card
+
+  &__card {}
+
+  // .pay__card-img
+
+  &__card-img {
+    object-fit: cover;
+
+    @media (max-width: $breakpoint1450) {
+      &--visa {
+        width: 132px;
+        height: 40px;
+      }
+
+      &--mastercard {
+        width: 78px;
+        height: 48px;
+      }
+
+      &--mir {
+        width: 144px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: $breakpoint768) {
+      max-width: 144px;
+      height: auto;
+      width: auto;
+
+      &--visa {
+        width: 106px;
+        height: 36px;
+      }
+
+      &--mastercard {
+        width: 64px;
+        height: 40px;
+      }
+
+      &--mir {
+        width: 112px;
+        height: 32px;
+      }
+    }
+
+  }
+}

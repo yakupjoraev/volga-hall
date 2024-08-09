@@ -534,3 +534,13 @@
     height: auto;
   }
 }
+
+.header-second {
+  .text-animation {
+    transition: 2s cubic-bezier(.165, .84, .44, 1);
+  }
+
+  .navbar {
+    animation: slide-up 1.6s cubic-bezier(.165, .84, .44, 1) both 0.2s;
+  }
+}

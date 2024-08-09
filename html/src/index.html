@@ -12,48 +12,79 @@
 
 <body class="main__body">
   <div class="wrapper">
-    <!-- Header -->
-    @@include('./html/_header.html')
+    <div class="container">
+      <div class="pages">
+        <ul class="pages__list">
+          <li class="pages__item">
+            <a class="pages__link" href="main.html" target="_blank">
+              Main page
+            </a>
+          </li>
 
-    <!-- Main Page -->
-    <main>
-      @@include('./html/_hero.html')
-      @@include('./html/_sums.html')
+          <li class="pages__item">
+            <a class="pages__link" href="contacts.html" target="_blank">
+              Contacts page
+            </a>
+          </li>
 
+          <li class="pages__item">
+            <a class="pages__link" href="contacts-answer.html" target="_blank">
+              Contacts-answer page
+            </a>
+          </li>
 
-      @@include('./html/_conferences.html')
-      @@include('./html/_banquets.html')
+          <li class="pages__item">
+            <a class="pages__link" href="conferences.html" target="_blank">
+              Conferences page
+            </a>
+          </li>
 
-      @@include('./html/_tehno.html')
-      @@include('./html/_also-offer.html')
-      @@include('./html/_prices.html')
-      @@include('./html/_hall-layout.html')
-      @@include('./html/_volga-hall.html')
-      @@include('./html/_contact-us.html')
+          <li class="pages__item">
+            <a class="pages__link" href="banquets.html" target="_blank">
+              Banquets page
+            </a>
+          </li>
 
+          <li class="pages__item">
+            <a class="pages__link" href="prices.html" target="_blank">
+              Prices page
+            </a>
+          </li>
 
-      <div class="hero__contacts">
-        <a class="hero__contact" href="#">
-          <img class="hero__contact-img" src="./img/icons/hero-whatsup.svg" alt="social icon">
-
-        </a>
-
-        <a class="hero__contact" href="#">
-          <img class="hero__contact-img" src="./img/icons/hero-wiber.svg" alt="social icon">
-        </a>
-
-        <a class="hero__contact hero__contact--mobile" href="#">
-          <img class="hero__contact-img" src="./img/icons/hero-vk.svg" alt="social icon">
-        </a>
+          <li class="pages__item">
+            <a class="pages__link" href="loyalty.html" target="_blank">
+              Loyalty page
+            </a>
+          </li>
+        </ul>
       </div>
-    </main>
+    </div>
 
+    <style>
+      .pages__list {
+        display: grid;
+        gap: 20px;
+        padding: 50px 0;
+      }
 
+      .pages__item {
+        display: grid;
+      }
 
-    <!-- Footer -->
-    @@include('./html/_footer.html')
+      .pages__link {
+        padding: 20px;
+        background: var(--geekblue-7);
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 120%;
+        color: #fff;
+      }
+
+      .pages__link:hover {
+        background: var(--geekblue-8);
+      }
+    </style>
   </div>
-
 </body>
 
 <!-- GSAP основная библиотека -->
