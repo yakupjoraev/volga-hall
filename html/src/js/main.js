@@ -127,6 +127,28 @@ if (window.matchMedia("(max-width: 991px)").matches) {
 }
 
 
+function loyaltySlider() {
+  const container = document.querySelector('.loyalty');
+
+  if (!container) {
+    return null
+  }
+
+  const swiper = new Swiper(".loyalty__slider", {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 16,
+
+    pagination: {
+      el: ".loyalty__slider-pagination",
+    },
+  });
+}
+
+if (window.matchMedia("(max-width: 991px)").matches) {
+  loyaltySlider();
+}
+
 
 
 
@@ -664,7 +686,7 @@ function handleIntersection(entries, observer) {
 const observer = new IntersectionObserver(handleIntersection, {
   root: null, // Используем viewport как корневой элемент
   rootMargin: '0px', // Можете настроить отступы, если нужно
-  threshold: 0.5, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
+  threshold: 0.2, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
 });
 
 // Получаем все элементы с классом "section-head" и "sums__item"
