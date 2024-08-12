@@ -97,17 +97,37 @@
     column-gap: 40px;
     row-gap: 40px;
 
+    &--4-column {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     @media (max-width: $breakpoint992) {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 20px;
       column-gap: 68px;
+
+      &--4-column {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 60px;
+        row-gap: 70px;
+        justify-items: center;
+      }
     }
 
     @media (max-width: $breakpoint768) {
       column-gap: 16px;
       row-gap: 24px;
+
+      &--4-column {
+        column-gap: 60px;
+
+        .confa__item-pic::before {
+          transform: translate(-50%, -70%);
+        }
+      }
     }
   }
 

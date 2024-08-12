@@ -162,9 +162,56 @@
     line-height: 120%;
     color: var(--black-10);
 
-    @media (max-width: $breakpoint992) {
-      font-size: 18px;
+    &--small {
+      font-size: 14px;
     }
 
+    @media (max-width: $breakpoint992) {
+      font-size: 18px;
+
+      &--small {
+        font-size: 12px;
+      }
+    }
+
+  }
+}
+
+.rent-banqu {}
+
+.rent__list--banqu {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.rent__item-banqu {
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+  width: 100%;
+
+  .rent__item-text {
+    font-size: 16px;
+
+    &--small {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      font-size: 14px;
+
+      &--small {
+        font-size: 12px;
+      }
+    }
+  }
+
+
+
+  .rent__item-text:first-child {
+    flex: 0 0 360px;
+  }
+
+  .rent__item-text:last-child {
+    margin-left: auto;
   }
 }
