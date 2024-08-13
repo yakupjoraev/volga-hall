@@ -151,7 +151,25 @@ if (window.matchMedia("(max-width: 991px)").matches) {
 }
 
 
+function banquSlider() {
+  const container = document.querySelector('.rent-banqu');
 
+  if (!container) {
+    return null
+  }
+
+  const swiper = new Swiper(".rent-banqu__slider", {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 16,
+
+    navigation: {
+      nextEl: ".rent-banqu__slider-arrow--next",
+      prevEl: ".rent-banqu__slider-arrow--prev",
+    },
+  });
+}
+banquSlider();
 
 
 // //////////////////////////////////////// animations /////////////////////////////////////////////

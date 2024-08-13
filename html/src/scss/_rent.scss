@@ -175,12 +175,52 @@
     }
 
   }
+
+  // .rent__footer
+
+  &__footer {
+    margin-top: 36px;
+
+    @media (max-width: $breakpoint768) {
+      margin-top: 28px;
+    }
+  }
+
+  // .rent__footer-label
+
+  &__footer-label {
+    margin-bottom: 32px;
+  }
 }
 
-.rent-banqu {}
+.rent-banqu {
+
+  @media (max-width: $breakpoint992) {
+    .rent__title-wrappers {
+      text-align: left;
+    }
+
+    .rent__title {
+      text-align: left;
+    }
+  }
+
+}
 
 .rent__list--banqu {
   grid-template-columns: repeat(1, 1fr);
+
+  .rent__item {
+    padding: 20px 0;
+
+    @media (max-width: $breakpoint992) {
+      padding: 16px 0;
+    }
+
+    @media (max-width: $breakpoint768) {
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .rent__item-banqu {
@@ -205,13 +245,108 @@
     }
   }
 
-
-
   .rent__item-text:first-child {
     flex: 0 0 360px;
+
+    @media (max-width: $breakpoint992) {
+      flex: 0 0 180px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      flex: 1 1 90%;
+    }
   }
 
   .rent__item-text:last-child {
     margin-left: auto;
+  }
+
+  @media (max-width: $breakpoint992) {
+    align-items: flex-start;
+  }
+
+  @media (max-width: $breakpoint768) {
+    flex-wrap: wrap;
+    width: 90%;
+    row-gap: 12px;
+  }
+}
+
+.rent-banqu__slider {}
+
+.rent-banqu__slider-wrapper {}
+
+.rent-banqu__slide {}
+
+.rent-banqu__slider-control {
+  margin-top: 36px;
+  margin-left: auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+
+  @media (max-width: $breakpoint768) {
+    margin-top: 24px;
+  }
+}
+
+.rent-banqu__slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 1px solid var(--geekblue-4);
+  cursor: pointer;
+
+  img {
+    transition: transform 0.2s linear;
+  }
+
+  @media (hover:hover) {
+    &:hover {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &--prev {
+    &.swiper-button-disabled {
+      img {
+        opacity: 0.6;
+      }
+
+      @media (hover:hover) {
+        &:hover {
+          img {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  &--next {
+    &.swiper-button-disabled {
+      img {
+        opacity: 0.6;
+      }
+
+      @media (hover:hover) {
+        &:hover {
+          img {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint1450) {
+    width: 64px;
+    height: 64px;
   }
 }
