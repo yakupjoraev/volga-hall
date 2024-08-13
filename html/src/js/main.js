@@ -170,6 +170,26 @@ function banquSlider() {
 }
 banquSlider();
 
+function equipmentSlider() {
+  const container = document.querySelector('.equipment');
+
+  if (!container) {
+    return null
+  }
+
+  const swiper = new Swiper(".equipment-slider", {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 16,
+
+    navigation: {
+      nextEl: ".equipment-slider-arrow--next",
+      prevEl: ".equipment-slider-arrow--prev",
+    },
+  });
+}
+equipmentSlider();
+
 
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 

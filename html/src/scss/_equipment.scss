@@ -1,0 +1,138 @@
+.equipment {
+  padding: 80px 0 64px;
+  background: var(--white-10);
+  // min-height: 100vh;
+
+  @media (max-width: $breakpoint992) {
+    padding: 32px 0 64px;
+  }
+
+
+  .section-head {
+    margin-bottom: 56px;
+
+    @media (max-width: $breakpoint992) {
+      margin-bottom: 42px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      margin-bottom: 32px;
+    }
+  }
+
+
+  // .equipment__inner
+
+  &__inner {}
+
+  // .equipment__main
+
+  &__main {}
+
+  // .equipment__title-wrappers
+
+  &__title-wrappers {
+    margin-bottom: 42px;
+
+    @media (max-width: $breakpoint992) {
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      margin-bottom: 24px;
+    }
+  }
+
+  // .equipment__title-wrapper
+
+  &__title-wrapper {
+    overflow: hidden;
+  }
+
+  // .equipment__title
+
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: var(--black-10);
+
+    i {
+      font-family: var(--second-family);
+      font-style: italic;
+    }
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 64px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      font-size: 48px;
+    }
+
+    @media (max-width: $breakpoint480) {
+      font-size: 36px;
+    }
+
+
+    @media (max-width: $breakpoint359) {
+      font-size: 32px;
+    }
+  }
+
+  // .equipment__tabs
+
+  &__tabs {}
+
+  // .equipment__tabs-head
+
+  &__tabs-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+
+    @media (max-width: $breakpoint1450) {
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: $breakpoint768) {
+      margin-bottom: 32px;
+    }
+  }
+
+  // .equipment__btn
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 24px;
+    padding: 10px;
+    height: 56px;
+    background-color: var(--geekblue-1);
+    border: 0;
+    outline: 0;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--geekblue-8);
+
+    &.active {
+      background-color: var(--geekblue-6);
+      color: var(--white-10);
+    }
+
+    @media (max-width: $breakpoint1450) {
+      height: 48px;
+    }
+  }
+
+  // .equipment__tabs-content
+
+  &__tabs-content {}
+}
