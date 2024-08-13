@@ -152,6 +152,10 @@
     transform: translateY(0);
   }
 
+  .picture-animation {
+    animation: picture 1s linear both;
+  }
+
   // .contact-us-answer__inner
 
   &__inner {

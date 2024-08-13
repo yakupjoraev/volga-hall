@@ -76,13 +76,15 @@
 
 section.visible {
   .text-animation {
-    // width: max-content;
     overflow: hidden;
-    // animation: slide-up 1.6s cubic-bezier(.165, .84, .44, 1) calc(1 * .13s);
-    // animation-delay: 0;
-    // will-change: transform;
-
     transform: translateY(0);
+  }
+
+  .picture-animation {
+    /* Элемент принимает свою нормальную форму */
+    clip-path: circle(100% at 50% 50%);
+    /* 50% радиус круга */
+    transform: scale(1);
   }
 }
 
@@ -148,10 +150,33 @@ section.visible {
   }
 }
 
+@keyframes picture {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    transform: scale(0.3);
+    transition: transform 2s cubic-bezier(.165, .84, .44, 1),
+      clip-path 5s cubic-bezier(.165, .84, .44, 1);
+    will-change: transform, clip-path;
+  }
+
+  100% {
+    /* Элемент принимает свою нормальную форму */
+    clip-path: circle(100% at 50% 50%);
+    /* 50% радиус круга */
+    transform: scale(1);
+  }
+}
+
 // Добавьте следующий CSS в ваш файл стилей
 
 .no-scroll {
   overflow: hidden;
 }
 
-.picture-animation {}
+.picture-animation {
+  clip-path: circle(0% at 50% 50%);
+  transform: scale(0.3);
+  transition: transform 2s cubic-bezier(.165, .84, .44, 1),
+    clip-path 5s cubic-bezier(.165, .84, .44, 1);
+  will-change: transform, clip-path;
+}

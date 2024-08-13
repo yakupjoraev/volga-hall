@@ -299,6 +299,16 @@ section.visible .text-animation {
           transform: translateY(0);
 }
 
+section.visible .picture-animation {
+  /* Элемент принимает свою нормальную форму */
+  -webkit-clip-path: circle(100% at 50% 50%);
+          clip-path: circle(100% at 50% 50%);
+  /* 50% радиус круга */
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
 .text-animation {
   will-change: transform;
   -webkit-transform: translateY(100%);
@@ -387,8 +397,70 @@ section.visible .text-animation {
   }
 }
 
+@-webkit-keyframes picture {
+  0% {
+    -webkit-clip-path: circle(0% at 50% 50%);
+            clip-path: circle(0% at 50% 50%);
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+    -webkit-transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -o-transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, clip-path;
+  }
+
+  100% {
+    /* Элемент принимает свою нормальную форму */
+    -webkit-clip-path: circle(100% at 50% 50%);
+            clip-path: circle(100% at 50% 50%);
+    /* 50% радиус круга */
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes picture {
+  0% {
+    -webkit-clip-path: circle(0% at 50% 50%);
+            clip-path: circle(0% at 50% 50%);
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+    -webkit-transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -o-transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, clip-path;
+  }
+
+  100% {
+    /* Элемент принимает свою нормальную форму */
+    -webkit-clip-path: circle(100% at 50% 50%);
+            clip-path: circle(100% at 50% 50%);
+    /* 50% радиус круга */
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .no-scroll {
   overflow: hidden;
+}
+
+.picture-animation {
+  -webkit-clip-path: circle(0% at 50% 50%);
+          clip-path: circle(0% at 50% 50%);
+  -webkit-transform: scale(0.3);
+      -ms-transform: scale(0.3);
+          transform: scale(0.3);
+  -webkit-transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-transform 2s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform, clip-path;
 }
 
 .nav {
@@ -1347,6 +1419,11 @@ section.visible .text-animation {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
+}
+
+.contact-us-answer .picture-animation {
+  -webkit-animation: picture 1s linear both;
+          animation: picture 1s linear both;
 }
 
 .contact-us-answer__inner {
