@@ -724,7 +724,7 @@ function handleIntersection(entries, observer) {
 const observer = new IntersectionObserver(handleIntersection, {
   root: null, // Используем viewport как корневой элемент
   rootMargin: '0px', // Можете настроить отступы, если нужно
-  threshold: 0.2, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
+  threshold: 0.3, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
 });
 
 // Получаем все элементы с классом "section-head" и "sums__item"

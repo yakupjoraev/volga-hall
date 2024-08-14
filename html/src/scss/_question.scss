@@ -1,6 +1,10 @@
 .question {
   padding: 110px 0;
 
+  @media (max-width: $breakpoint1450) {
+    padding: 110px 0 70px;
+  }
+
   @media (max-width: $breakpoint992) {
     padding: 60px 0;
   }
@@ -142,6 +146,7 @@
 
     @media (max-width: $breakpoint1450) {
       display: inline;
+      font-size: 44px;
     }
 
     @media (max-width: $breakpoint992) {

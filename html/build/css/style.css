@@ -1713,7 +1713,6 @@ section.visible .picture-animation {
       -ms-flex-align: end;
           align-items: flex-end;
   row-gap: 12px;
-  margin-top: 160px;
   opacity: 0;
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
@@ -2951,6 +2950,7 @@ section.visible .picture-animation {
 }
 
 .tariffs__title-wrapper {
+  overflow: hidden;
   margin-bottom: 72px;
 }
 
@@ -3381,7 +3381,7 @@ section.visible .picture-animation {
 .hero-second__footer {
   position: relative;
   z-index: 1;
-  margin: 120px 0;
+  margin: 120px 0 40px;
 }
 
 .hero-second__footer::before {
@@ -3483,7 +3483,7 @@ section.visible .picture-animation {
 }
 
 .loyalty__title-wrappers {
-  margin-bottom: 64px;
+  margin-bottom: 54px;
 }
 
 .loyalty__title-wrapper {
@@ -3493,7 +3493,7 @@ section.visible .picture-animation {
 .loyalty__title {
   padding: 0 0 12px;
   font-size: 96px;
-  line-height: 120%;
+  line-height: 86%;
   letter-spacing: -0.02em;
   color: var(--white-10);
 }
@@ -4791,7 +4791,7 @@ section.visible .picture-animation {
   }
 
   .hero-second__footer {
-    margin: 80px 0;
+    margin: 80px 0 30px;
   }
 
   .hero-second__text {
@@ -4821,6 +4821,10 @@ section.visible .picture-animation {
     row-gap: 24px;
   }
 
+  .question {
+    padding: 110px 0 70px;
+  }
+
   .question__inner {
     -webkit-column-gap: 24px;
        -moz-column-gap: 24px;
@@ -4842,6 +4846,7 @@ section.visible .picture-animation {
 
   .question__title {
     display: inline;
+    font-size: 44px;
   }
 
   .equipment__title {
@@ -5719,10 +5724,6 @@ section.visible .picture-animation {
     margin-bottom: 32px;
   }
 
-  .rent__title-wrapper {
-    display: inline;
-  }
-
   .rent__title {
     font-size: 48px;
   }
@@ -5927,6 +5928,14 @@ section.visible .picture-animation {
             column-gap: 60px;
     row-gap: 70px;
     justify-items: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .confa__list--4-column .confa__item-pic::before {
+    background-size: cover;
   }
 
   .confa__item {
@@ -5941,14 +5950,18 @@ section.visible .picture-animation {
             transform: translate(-50%, -62%);
   }
 
+  .hero-second {
+    min-height: auto;
+  }
+
   .hero-second__title-wrappers {
     max-width: 600px;
-    margin: 0 auto 72px;
+    margin: 0 auto 48px;
   }
 
   .hero-second__title {
     font-size: 64px;
-    line-height: 128%;
+    line-height: 107%;
   }
 
   .hero-second__title i {
@@ -5966,6 +5979,10 @@ section.visible .picture-animation {
   .hero-second__text {
     display: inline;
     font-size: 20px;
+  }
+
+  .loyalty {
+    padding: 32px 0 48px;
   }
 
   .loyalty .section-head {
@@ -6333,10 +6350,6 @@ section.visible .picture-animation {
     min-width: 102px;
   }
 
-  .hero__contacts {
-    margin-top: 140px;
-  }
-
   .sums {
     min-height: 640px;
     padding: 30px 0;
@@ -6582,6 +6595,10 @@ section.visible .picture-animation {
     margin: 160px 0 20px;
   }
 
+  .loyalty {
+    padding: 32px 0 54px;
+  }
+
   .loyalty__main::before {
     right: -70px;
     -webkit-filter: blur(60px);
@@ -6592,6 +6609,10 @@ section.visible .picture-animation {
     left: -80px;
     -webkit-filter: blur(60px);
             filter: blur(60px);
+  }
+
+  .loyalty__title-wrappers {
+    margin-bottom: 24px;
   }
 
   .question {
@@ -6827,7 +6848,6 @@ section.visible .picture-animation {
   }
 
   .hero__contacts {
-    margin-top: 48px;
     row-gap: 10px;
   }
 
@@ -6874,6 +6894,10 @@ section.visible .picture-animation {
 
   .rent__title {
     font-size: 36px;
+  }
+
+  .hero-second {
+    padding: 100px 0 40px;
   }
 
   .hero-second__title {

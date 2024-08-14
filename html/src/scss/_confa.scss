@@ -114,6 +114,12 @@
         column-gap: 60px;
         row-gap: 70px;
         justify-items: center;
+        width: fit-content;
+        margin: 0 auto;
+
+        .confa__item-pic::before {
+          background-size: cover;
+        }
       }
     }
 

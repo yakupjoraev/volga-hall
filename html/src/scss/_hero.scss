@@ -232,7 +232,6 @@
     flex-direction: column;
     align-items: flex-end;
     row-gap: 12px;
-    margin-top: 160px;
     opacity: 0;
     transform: translateY(100%);
     animation: showContacts 1s forwards 2.5s;
@@ -241,18 +240,11 @@
       right: 96px;
     }
 
-    @media (max-width: $breakpoint1450) {}
-
     @media (max-width: $breakpoint992) {
       right: 32px;
     }
 
-    @media (max-width: $breakpoint768) {
-      margin-top: 140px;
-    }
-
     @media (max-width: $breakpoint480) {
-      margin-top: 48px;
       row-gap: 10px;
     }
   }

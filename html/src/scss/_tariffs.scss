@@ -33,6 +33,7 @@
   // .tariffs__title-wrapper
 
   &__title-wrapper {
+    overflow: hidden;
     margin-bottom: 72px;
 
     @media (max-width: $breakpoint1450) {
