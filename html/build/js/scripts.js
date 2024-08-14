@@ -191,6 +191,30 @@ function equipmentSlider() {
 }
 equipmentSlider();
 
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector('.equipment');
+
+  if (!container) {
+    return null
+  }
+  const tabButtons = document.querySelectorAll('.equipment__btn');
+  const tabContents = document.querySelectorAll('.equipment__tabs-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Удаляем класс active у всех кнопок и контентов
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      // Добавляем класс active только той кнопке, на которую кликнули, и соответствующему контенту
+      button.classList.add('active');
+      const tabContentId = button.getAttribute('data-equipment-btn');
+      const activeTabContent = document.querySelector(`[data-equipment-content="${tabContentId}"]`);
+      activeTabContent.classList.add('active');
+    });
+  });
+});
+
 
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 

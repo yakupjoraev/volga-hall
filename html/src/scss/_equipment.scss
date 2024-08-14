@@ -121,6 +121,7 @@
     font-size: 16px;
     line-height: 150%;
     color: var(--geekblue-8);
+    transition: 0.2s linear;
 
     &.active {
       background-color: var(--geekblue-6);
@@ -132,7 +133,18 @@
     }
   }
 
+  // .equipment__tabs-contents
+
+  &__tabs-contents {}
+
   // .equipment__tabs-content
 
-  &__tabs-content {}
+  &__tabs-content {
+    display: none;
+    animation: fade 0.5s linear;
+
+    &.active {
+      display: block;
+    }
+  }
 }

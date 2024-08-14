@@ -3824,11 +3824,24 @@ section.visible .picture-animation {
   font-size: 16px;
   line-height: 150%;
   color: var(--geekblue-8);
+  -webkit-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .equipment__btn.active {
   background-color: var(--geekblue-6);
   color: var(--white-10);
+}
+
+.equipment__tabs-content {
+  display: none;
+  -webkit-animation: fade 0.5s linear;
+          animation: fade 0.5s linear;
+}
+
+.equipment__tabs-content.active {
+  display: block;
 }
 
 .additional-services {
