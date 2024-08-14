@@ -73,9 +73,9 @@
   // .hero-second__title
 
   &__title {
-    padding: 0 0 12px;
+    padding: 0 0 30px;
     font-size: 96px;
-    line-height: 80%;
+    line-height: 72%;
     letter-spacing: -0.02em;
     text-align: center;
     color: var(--white-10);
@@ -100,6 +100,7 @@
 
     @media (max-width: $breakpoint768) {
       line-height: 100%;
+      padding: 0 0 16px;
     }
 
     @media (max-width: $breakpoint480) {
@@ -154,13 +155,11 @@
 
     @media (max-width: $breakpoint1450) {
       margin: 0 auto;
-    }
-
-    @media (max-width: $breakpoint768) {
       width: 102px;
       height: 102px;
       min-width: 102px;
     }
+
   }
 
 

@@ -101,11 +101,18 @@
     }
   }
 
+  // .rent__lists 
+  &__lists {}
+
   // .rent__list
 
   &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto);
+    /* 3 ряда */
+    grid-auto-flow: column;
+    /* Элементы будут заполнять колонки */
     column-gap: 300px;
     list-style: none;
     counter-reset: my-counter;
@@ -121,6 +128,7 @@
 
     @media (max-width: $breakpoint768) {
       grid-template-columns: repeat(1, 1fr);
+      grid-auto-flow: row;
       width: 100%;
     }
   }
@@ -215,6 +223,7 @@
 
 .rent__list--banqu {
   grid-template-columns: repeat(1, 1fr);
+  grid-auto-flow: row;
 
   .rent__item {
     padding: 20px 0;
@@ -275,6 +284,14 @@
     flex-wrap: wrap;
     width: 90%;
     row-gap: 12px;
+  }
+
+  @media (max-width: $breakpoint480) {
+
+    .rent__item-text:last-child {
+      margin-left: 0;
+    }
+
   }
 }
 

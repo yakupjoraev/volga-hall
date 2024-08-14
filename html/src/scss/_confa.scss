@@ -94,11 +94,13 @@
   &__list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
     column-gap: 40px;
     row-gap: 40px;
 
     &--4-column {
       grid-template-columns: repeat(4, 1fr);
+
     }
 
     @media (max-width: $breakpoint992) {
