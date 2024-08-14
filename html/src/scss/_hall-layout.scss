@@ -1,4 +1,7 @@
 .hall-layout {
+  position: relative;
+  z-index: 1;
+  background-color: var(--black-10);
   padding: 40px 0 328px;
   overflow: hidden;
 

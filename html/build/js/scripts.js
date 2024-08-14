@@ -703,6 +703,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+function hallPicAnim() {
+  const container = document.querySelector('.hall')
+
+  if (!container) {
+    return null
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".hall", {
+    scrollTrigger: {
+      trigger: ".hall",
+      start: "top top", // когда верх .hall касается верха окна
+      end: "bottom+=100% top", // когда нижняя часть секции .hall выходит за экран
+      pin: true, // фиксирует элемент
+      pinSpacing: false, // отключаем отступ, чтобы остальные секции перемещались поверх
+      scrub: true, // синхронизация с прокруткой
+    }
+  });
+
+}
+
+hallPicAnim();
+
+
+
 
 
 

@@ -463,6 +463,11 @@ section.visible .picture-animation {
   will-change: transform, clip-path;
 }
 
+.header {
+  position: relative;
+  z-index: 2;
+}
+
 .nav {
   background-color: var(--black-10);
   overflow: hidden;
@@ -933,6 +938,9 @@ section.visible .picture-animation {
 }
 
 .hall-layout {
+  position: relative;
+  z-index: 1;
+  background-color: var(--black-10);
   padding: 40px 0 328px;
   overflow: hidden;
 }
@@ -2947,6 +2955,9 @@ section.visible .picture-animation {
 }
 
 .tariffs {
+  position: relative;
+  z-index: 1;
+  background-color: var(--black-10);
   padding: 70px 0 80px;
 }
 
@@ -3126,6 +3137,9 @@ section.visible .picture-animation {
 }
 
 .serv {
+  position: relative;
+  z-index: 1;
+  background-color: var(--black-10);
   padding: 32px 0 96px;
 }
 
@@ -3319,6 +3333,8 @@ section.visible .picture-animation {
 }
 
 .hero-second {
+  position: relative;
+  z-index: 1;
   padding: 100px 0 40px;
   min-height: calc(100vh - 66px);
 }
@@ -3434,6 +3450,46 @@ section.visible .picture-animation {
 .hero-second__text i {
   font-family: var(--second-family);
   font-style: italic;
+}
+
+.hero-second__cirkle {
+  position: absolute;
+  z-index: -1;
+  top: -1120px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 1680px;
+  height: 1680px;
+  background-color: var(--geekblue-6);
+  border-radius: 100%;
+  -webkit-animation: heroSecondCirckle 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: heroSecondCirckle 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@-webkit-keyframes heroSecondCirckle {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(-50%) scale(1);
+            transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes heroSecondCirckle {
+  0% {
+    -webkit-transform: translateX(-50%) scale(0);
+            transform: translateX(-50%) scale(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(-50%) scale(1);
+            transform: translateX(-50%) scale(1);
+  }
 }
 
 .loyalty {
@@ -4295,6 +4351,7 @@ section.visible .picture-animation {
 
   .hero-second {
     padding: 80px 0 24px;
+    min-height: auto;
   }
 
   .hero-second__title-wrappers {
@@ -4303,6 +4360,12 @@ section.visible .picture-animation {
 
   .hero-second__text {
     font-size: 30px;
+  }
+
+  .hero-second__cirkle {
+    width: 1494px;
+    height: 1494px;
+    top: -990px;
   }
 
   .loyalty {
@@ -4791,6 +4854,7 @@ section.visible .picture-animation {
 
   .hero-second {
     padding: 160px 0 48px;
+    min-height: auto;
   }
 
   .hero-second__title-wrappers {
@@ -4818,6 +4882,16 @@ section.visible .picture-animation {
 
   .hero-second__text {
     font-size: 24px;
+  }
+
+  .hero-second__cirkle {
+    width: 1190px;
+    height: 1190px;
+    top: -762px;
+  }
+
+  .hero-prices .hero-second__main {
+    margin-top: 100px;
   }
 
   .loyalty {
@@ -5301,6 +5375,10 @@ section.visible .picture-animation {
   .also-offer__card--title {
     height: auto;
     width: 100%;
+  }
+
+  .hero-prices .hero-second__main {
+    margin-top: 200px;
   }
 
   .footer-animation .container {
@@ -5973,7 +6051,7 @@ section.visible .picture-animation {
   }
 
   .hero-second {
-    min-height: auto;
+    min-height: 600px;
   }
 
   .hero-second__title-wrappers {
@@ -5984,6 +6062,7 @@ section.visible .picture-animation {
   .hero-second__title {
     font-size: 64px;
     line-height: 107%;
+    padding: 0 0 16px;
   }
 
   .hero-second__title i {
@@ -6001,6 +6080,16 @@ section.visible .picture-animation {
   .hero-second__text {
     display: inline;
     font-size: 20px;
+  }
+
+  .hero-second__cirkle {
+    width: 958px;
+    height: 958px;
+    top: -520px;
+  }
+
+  .hero-prices .hero-second__main {
+    margin-top: 0;
   }
 
   .loyalty {
@@ -6604,13 +6693,24 @@ section.visible .picture-animation {
             flex: 0 1 calc(29.3333% - 20px);
   }
 
+  .hero-second__head {
+    min-height: 360px;
+  }
+
   .hero-second__title {
     line-height: 100%;
-    padding: 0 0 16px;
+  }
+
+  .hero-second__main {
+    margin-top: auto;
   }
 
   .hero-second__footer {
     margin: 160px 0 20px;
+  }
+
+  .hero-second__cirkle {
+    top: -540px;
   }
 
   .loyalty {
@@ -6928,6 +7028,10 @@ section.visible .picture-animation {
 
   .hero-second__footer {
     margin: 80px 0 20px;
+  }
+
+  .hero-prices .hero-second__title-wrappers {
+    margin-top: 40px;
   }
 
   .loyalty__title {
