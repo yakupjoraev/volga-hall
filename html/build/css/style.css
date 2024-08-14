@@ -1188,7 +1188,7 @@ section.visible .picture-animation {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   max-width: 100%;
-  z-index: 1;
+  z-index: 10;
 }
 
 .volga-hall__picture {

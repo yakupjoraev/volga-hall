@@ -614,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .to(".circle", {
       onEnter: () => {
         gsap.to(".circle", {
-          scale: 50,
+          scale: 80,
           duration: 1,
           ease: "power1.out"
         });
