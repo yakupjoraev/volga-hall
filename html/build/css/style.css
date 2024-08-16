@@ -3356,6 +3356,8 @@ section.visible .picture-animation {
   letter-spacing: -0.02em;
   text-align: center;
   color: var(--white-10);
+  -webkit-animation: slide-up 2.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: slide-up 2.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .hero-second__title i {
