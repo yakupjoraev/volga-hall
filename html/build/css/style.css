@@ -7393,6 +7393,10 @@ section.visible .picture-animation {
     color: var(--geekblue-6);
   }
 
+  .cookies__text a:hover {
+    color: #04199c;
+  }
+
   .cookies__btn:hover {
     background-color: #10239e;
   }

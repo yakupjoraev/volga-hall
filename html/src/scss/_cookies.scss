@@ -53,6 +53,12 @@
 
     a {
       color: var(--geekblue-7);
+
+      @media (hover:hover) {
+        &:hover {
+          color: #04199c;
+        }
+      }
     }
 
     @media (max-width: $breakpoint992) {

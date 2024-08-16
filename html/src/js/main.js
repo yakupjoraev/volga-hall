@@ -768,25 +768,28 @@ function sumsVal(element) {
   }, duration);
 }
 
-
 // Функция, которая будет вызываться при появлении элемента в поле видимости
 function handleIntersection(entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Добавляем класс, когда элемент появляется в поле видимости
-      entry.target.classList.add('visible');
+      // Добавляем задержку в 0.5 секунды перед выполнением кода
+      setTimeout(() => {
+        // Добавляем класс, когда элемент появляется в поле видимости
+        entry.target.classList.add('visible');
 
-      // Если элемент имеет класс sums__item, запускаем анимацию счетчика
-      if (entry.target.classList.contains('sums__item')) {
-        let valueDisplay = entry.target.querySelector(".sums__item-sum");
-        sumsVal(valueDisplay);
-      }
+        // Если элемент имеет класс sums__item, запускаем анимацию счетчика
+        if (entry.target.classList.contains('sums__item')) {
+          let valueDisplay = entry.target.querySelector(".sums__item-sum");
+          sumsVal(valueDisplay);
+        }
 
-      // Отключаем наблюдение для данного элемента после добавления класса (если это нужно)
-      observer.unobserve(entry.target);
+        // Отключаем наблюдение для данного элемента после добавления класса (если это нужно)
+        observer.unobserve(entry.target);
+      }, 200); // 200 миллисекунд = 0.2 секунды
     }
   });
 }
+
 
 // Создаем экземпляр IntersectionObserver
 const observer = new IntersectionObserver(handleIntersection, {
