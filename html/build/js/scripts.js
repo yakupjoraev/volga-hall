@@ -705,12 +705,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   // const container = document.querySelector('.hall')
-  const container = document.querySelector('.scroll-sections')
-
-  if (!container) {
-    return null
-  }
-
   /*Анимация - след блоки наезжают на картинку начало */
 
   // gsap.registerPlugin(ScrollTrigger);
@@ -728,6 +722,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*Анимация - след блоки наезжают на картинку конец */
 
+  const container = document.querySelector('.scroll-sections')
+
+  if (!container) {
+    return null
+  }
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -771,102 +770,32 @@ function sumsVal(element) {
 }
 
 
-// window.addEventListener('load', () => {
-//   // Создаем экземпляр IntersectionObserver
-//   const observer = new IntersectionObserver(handleIntersection, {
-//     root: null, // Используем viewport как корневой элемент
-//     rootMargin: '0px', // Можете настроить отступы, если нужно
-//     threshold: 0.3, // Порог видимости (0.3 означает, что элемент будет считаться видимым, когда 30% его видны)
-//   });
+window.addEventListener('load', () => {
+  function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(() => {
+          entry.target.classList.add('visible');
+        });
 
-//   // Получаем все элементы с классом "section-head", "sums__item", "services__main", "animation-section"
-//   const sectionLine = document.querySelectorAll('.section-head');
-//   const servicesMain = document.querySelectorAll('.services__main');
-//   const sumsItems = document.querySelectorAll('.sums__item');
-//   const animationSection = document.querySelectorAll('.animation-section');
+        if (entry.target.classList.contains('sums__item')) {
+          let valueDisplay = entry.target.querySelector(".sums__item-sum");
+          sumsVal(valueDisplay);
+        }
 
-//   // Наблюдаем за каждым элементом
-//   sectionLine.forEach(block => {
-//     observer.observe(block);
-//   });
-
-//   sumsItems.forEach(block => {
-//     observer.observe(block);
-//   });
-
-//   servicesMain.forEach(block => {
-//     observer.observe(block);
-//   });
-
-//   animationSection.forEach(block => {
-//     observer.observe(block);
-//   });
-// });
-
-// function handleIntersection(entries, observer) {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       // Добавляем класс, когда элемент появляется в поле видимости
-//       entry.target.classList.add('visible');
-
-//       // Если элемент имеет класс sums__item, запускаем анимацию счетчика
-//       if (entry.target.classList.contains('sums__item')) {
-//         let valueDisplay = entry.target.querySelector(".sums__item-sum");
-//         sumsVal(valueDisplay);
-//       }
-
-//       // Отключаем наблюдение для данного элемента после добавления класса (если это нужно)
-//       observer.unobserve(entry.target);
-//     }
-//   });
-// }
-
-
-// Функция, которая будет вызываться при появлении элемента в поле видимости
-function handleIntersection(entries, observer) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Добавляем класс, когда элемент появляется в поле видимости
-      entry.target.classList.add('visible');
-
-      // Если элемент имеет класс sums__item, запускаем анимацию счетчика
-      if (entry.target.classList.contains('sums__item')) {
-        let valueDisplay = entry.target.querySelector(".sums__item-sum");
-        sumsVal(valueDisplay);
+        observer.unobserve(entry.target);
       }
+    });
+  }
 
-      // Отключаем наблюдение для данного элемента после добавления класса (если это нужно)
-      observer.unobserve(entry.target);
-    }
+  const observer = new IntersectionObserver(handleIntersection, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
   });
-}
 
-// Создаем экземпляр IntersectionObserver
-const observer = new IntersectionObserver(handleIntersection, {
-  root: null, // Используем viewport как корневой элемент
-  rootMargin: '0px', // Можете настроить отступы, если нужно
-  threshold: 0.3, // Порог видимости (0.5 означает, что элемент будет считаться видимым, когда половина его видна)
+  const elements = document.querySelectorAll('.section-head, .services__main, .sums__item, .animation-section');
+  elements.forEach(block => {
+    observer.observe(block);
+  });
 });
-
-// Получаем все элементы с классом "section-head" и "sums__item"
-const sectionLine = document.querySelectorAll('.section-head');
-const servicesMain = document.querySelectorAll('.services__main');
-const sumsItems = document.querySelectorAll('.sums__item');
-const animationSection = document.querySelectorAll('.animation-section');
-
-// Наблюдаем за каждым элементом
-sectionLine.forEach(block => {
-  observer.observe(block);
-});
-
-sumsItems.forEach(block => {
-  observer.observe(block);
-});
-
-servicesMain.forEach(block => {
-  observer.observe(block);
-});
-
-animationSection.forEach(block => {
-  observer.observe(block);
-}); 
