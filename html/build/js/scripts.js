@@ -703,7 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
+function scrollPic() {
   // const container = document.querySelector('.hall')
   /*Анимация - след блоки наезжают на картинку начало */
 
@@ -741,7 +741,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-})
+}
+scrollPic()
 
 
 
@@ -770,32 +771,35 @@ function sumsVal(element) {
 }
 
 
-window.addEventListener('load', () => {
-  function handleIntersection(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        requestAnimationFrame(() => {
+// window.addEventListener('load', () => {
+function handleIntersection(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+
           entry.target.classList.add('visible');
-        });
+        }, 150);
+      });
 
-        if (entry.target.classList.contains('sums__item')) {
-          let valueDisplay = entry.target.querySelector(".sums__item-sum");
-          sumsVal(valueDisplay);
-        }
-
-        observer.unobserve(entry.target);
+      if (entry.target.classList.contains('sums__item')) {
+        let valueDisplay = entry.target.querySelector(".sums__item-sum");
+        sumsVal(valueDisplay);
       }
-    });
-  }
 
-  const observer = new IntersectionObserver(handleIntersection, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.3,
+      observer.unobserve(entry.target);
+    }
   });
+}
 
-  const elements = document.querySelectorAll('.section-head, .services__main, .sums__item, .animation-section');
-  elements.forEach(block => {
-    observer.observe(block);
-  });
+const observer = new IntersectionObserver(handleIntersection, {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.3,
 });
+
+const elements = document.querySelectorAll('.section-head, .services__main, .sums__item, .animation-section');
+elements.forEach(block => {
+  observer.observe(block);
+});
+// });

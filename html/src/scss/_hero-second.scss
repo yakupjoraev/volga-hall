@@ -168,8 +168,13 @@
     line-height: 120%;
     text-align: center;
     color: var(--geekblue-1);
+    transition: 0.5s linear;
 
-    animation: slide-up 2.4s cubic-bezier(.165, .84, .44, 1);
+    &.picture-animation {
+      animation-timing-function: 2s;
+    }
+
+    // animation: slide-up 2.4s cubic-bezier(.165, .84, .44, 1);
 
     @media (max-width: $breakpoint1450) {
       margin: 0 auto;
