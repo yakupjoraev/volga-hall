@@ -15,6 +15,7 @@
     justify-content: center;
     row-gap: 36px;
     min-height: calc(100vh - 66px);
+    padding: 40px 0;
 
     @media (max-width: $breakpoint1450) {
       row-gap: 28px;

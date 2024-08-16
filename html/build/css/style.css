@@ -4049,6 +4049,7 @@ section.visible .picture-animation {
           justify-content: center;
   row-gap: 36px;
   min-height: calc(100vh - 66px);
+  padding: 40px 0;
 }
 
 .not-found__picture {
