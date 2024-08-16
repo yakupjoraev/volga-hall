@@ -702,7 +702,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function hallPicAnim() {
+document.addEventListener('DOMContentLoaded', () => {
   // const container = document.querySelector('.hall')
   const container = document.querySelector('.scroll-sections')
 
@@ -741,9 +741,9 @@ function hallPicAnim() {
     }
   });
 
-}
+})
 
-hallPicAnim();
+
 
 
 
