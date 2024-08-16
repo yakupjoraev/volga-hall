@@ -3341,6 +3341,10 @@ section.visible .picture-animation {
   min-height: calc(100vh - 66px);
 }
 
+.hero-second.visible .hero-second__footer::before {
+  opacity: 1;
+}
+
 .hero-second__title-wrappers {
   margin-bottom: 54px;
 }
@@ -3431,6 +3435,10 @@ section.visible .picture-animation {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
+  opacity: 0;
+  -webkit-transition: 1s linear;
+  -o-transition: 1s linear;
+  transition: 1s linear;
 }
 
 .hero-second__footer .text-animation {
