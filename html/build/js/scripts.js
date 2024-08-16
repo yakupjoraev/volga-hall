@@ -704,7 +704,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function hallPicAnim() {
-  const container = document.querySelector('.hall')
+  // const container = document.querySelector('.hall')
+  const container = document.querySelector('.scroll-sections')
 
   if (!container) {
     return null
