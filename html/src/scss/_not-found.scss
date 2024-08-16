@@ -1,0 +1,111 @@
+.not-found {
+  background-color: var(--geekblue-7);
+  min-height: calc(100vh - 66px);
+
+  @media (max-width: $breakpoint768) {
+    min-height: calc(100vh - 60px);
+  }
+
+  // .not-found__inner
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 36px;
+    min-height: calc(100vh - 66px);
+
+    @media (max-width: $breakpoint1450) {
+      row-gap: 28px;
+    }
+  }
+
+  // .not-found__picture
+
+  &__picture {
+    overflow: hidden;
+
+    img {
+      height: auto;
+      animation: slide-up 2.4s cubic-bezier(.165, .84, .44, 1);
+    }
+
+    @media (max-width: $breakpoint1450) {
+      img {
+        width: 390px;
+      }
+    }
+
+    @media (max-width: $breakpoint992) {
+      img {
+        width: 320px;
+      }
+    }
+
+    @media (max-width: $breakpoint768) {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  // .not-found__title-wrapper
+
+  &__title-wrapper {
+    overflow: hidden;
+  }
+
+  // .not-found__title
+
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 133%;
+    text-align: center;
+    color: var(--foundation-darkblue-darkblue-1);
+    // transition: 2s cubic-bezier(.165, .84, .44, 1);
+    animation: slide-up 2s cubic-bezier(.165, .84, .44, 1);
+
+    @media (max-width: $breakpoint1450) {
+      font-size: 18px;
+    }
+
+    @media (max-width: $breakpoint992) {
+      font-size: 16px;
+    }
+
+  }
+
+  // .not-found__link
+
+  &__link {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 124px;
+    height: 124px;
+    min-width: 124px;
+    background-color: var(--foundation-darkblue-darkblue-1);
+    border-radius: 100%;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--geekblue-10);
+
+    &.hovered {
+      color: var(--foundation-darkblue-darkblue-1);
+    }
+
+    @media (max-width: 1200px) {
+      width: 102px;
+      height: 102px;
+      min-width: 102px;
+    }
+  }
+}

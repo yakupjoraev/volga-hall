@@ -247,6 +247,10 @@
     @media (max-width: $breakpoint480) {
       row-gap: 10px;
     }
+
+    @media (max-width: $breakpoint480) {
+      right: 8px;
+    }
   }
 
   // .hero__contact

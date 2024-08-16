@@ -709,12 +709,30 @@ function hallPicAnim() {
     return null
   }
 
+  /*Анимация - след блоки наезжают на картинку начало */
+
+  // gsap.registerPlugin(ScrollTrigger);
+
+  // gsap.to(".hall", {
+  //   scrollTrigger: {
+  //     trigger: ".hall",
+  //     start: "top top", // когда верх .hall касается верха окна
+  //     end: "bottom+=100% top", // когда нижняя часть секции .hall выходит за экран
+  //     pin: true, // фиксирует элемент
+  //     pinSpacing: false, // отключаем отступ, чтобы остальные секции перемещались поверх
+  //     scrub: true, // синхронизация с прокруткой
+  //   }
+  // });
+
+  /*Анимация - след блоки наезжают на картинку конец */
+
+
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".hall", {
+  gsap.to(".scroll-sections", {
     scrollTrigger: {
-      trigger: ".hall",
-      start: "top top", // когда верх .hall касается верха окна
+      trigger: ".scroll-sections",
+      start: "bottom bottom", // когда верх .hall касается верха окна
       end: "bottom+=100% top", // когда нижняя часть секции .hall выходит за экран
       pin: true, // фиксирует элемент
       pinSpacing: false, // отключаем отступ, чтобы остальные секции перемещались поверх
