@@ -3400,6 +3400,8 @@ section.visible .picture-animation {
   line-height: 120%;
   text-align: center;
   color: var(--geekblue-1);
+  -webkit-animation: slide-up 2.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          animation: slide-up 2.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .hero-second__footer {

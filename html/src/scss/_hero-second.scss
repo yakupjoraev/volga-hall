@@ -168,6 +168,8 @@
     text-align: center;
     color: var(--geekblue-1);
 
+    animation: slide-up 2.4s cubic-bezier(.165, .84, .44, 1);
+
     @media (max-width: $breakpoint1450) {
       margin: 0 auto;
       width: 102px;
