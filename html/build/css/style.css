@@ -466,6 +466,7 @@ section.visible .picture-animation {
 .header {
   position: relative;
   z-index: 4;
+  overflow: hidden;
 }
 
 .navbar {
@@ -502,6 +503,7 @@ section.visible .picture-animation {
 }
 
 .menu__item-link {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,6 +562,7 @@ section.visible .picture-animation {
 }
 
 .navbar__contacts-link {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7217,8 +7220,8 @@ section.visible .picture-animation {
 
   .also-offer__info {
     padding: 10px;
-    max-width: 180px;
-    min-width: 180px;
+    max-width: 220px;
+    min-width: 220px;
   }
 
   .also-offer__num {
@@ -7350,12 +7353,44 @@ section.visible .picture-animation {
 }
 
 @media (hover: hover) {
-  .menu__item-link:hover {
-    color: var(--geekblue-6);
+  .menu__item-link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--geekblue-1);
+    -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    -o-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
   }
 
-  .navbar__contacts-link:hover {
-    color: var(--geekblue-6);
+  .menu__item-link:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  .navbar__contacts-link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--geekblue-1);
+    -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    -o-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  .navbar__contacts-link:hover:after {
+    width: 90%;
+    left: 5%;
   }
 
   .form__input:hover {
