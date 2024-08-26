@@ -1973,6 +1973,18 @@ section.visible .picture-animation {
           flex-direction: row-reverse;
 }
 
+.sums__item-sum-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-column-gap: 0;
+     -moz-column-gap: 0;
+          column-gap: 0;
+}
+
 .sums__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1988,14 +2000,31 @@ section.visible .picture-animation {
   transition: 0.3s linear;
 }
 
+.sums__item:nth-child(1) .sums__item-sum {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.sums__item:nth-child(1) span {
+  margin-left: 5px;
+}
+
 .sums__item-sum {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 172px;
   white-space: nowrap;
   font-size: 96px;
   line-height: 80%;
   color: var(--geekblue-5);
 }
 
-.sums__item-sum span {
+.sums__item-sum ~ span {
+  white-space: nowrap;
+  line-height: 80%;
+  color: var(--geekblue-5);
   font-size: 40px;
 }
 
@@ -4415,6 +4444,7 @@ section.visible .picture-animation {
 
   .sums__item-sum {
     font-size: 80px;
+    min-width: 148px;
   }
 
   .sums__item-text {
@@ -4775,6 +4805,7 @@ section.visible .picture-animation {
   .sums__item-sum {
     font-size: 64px;
     line-height: 72%;
+    min-width: 114px;
   }
 
   .services .section-head {
@@ -6682,6 +6713,10 @@ section.visible .picture-animation {
     opacity: 0.6;
   }
 
+  .sums__info {
+    margin-bottom: 40px;
+  }
+
   .sums__title {
     font-size: 24px;
   }
@@ -6711,9 +6746,10 @@ section.visible .picture-animation {
 
   .sums__item-sum {
     font-size: 48px;
+    min-width: 86px;
   }
 
-  .sums__item-sum span {
+  .sums__item-sum ~ span {
     font-size: 36px;
   }
 

@@ -83,6 +83,10 @@
 
   &__info {
     overflow: hidden;
+
+    @media (max-width: $breakpoint768) {
+      margin-bottom: 40px;
+    }
   }
 
   // .sums__title
@@ -135,6 +139,14 @@
 
   }
 
+  // .sums__item-sum-wrapper
+
+  &__item-sum-wrapper {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 0;
+  }
+
   // .sums__item
 
   &__item {
@@ -143,6 +155,18 @@
     row-gap: 8px;
     overflow: hidden;
     transition: 0.3s linear;
+
+
+    &:nth-child(1) {
+
+      .sums__item-sum {
+        min-width: fit-content;
+      }
+
+      span {
+        margin-left: 5px;
+      }
+    }
 
     @media (max-width: $breakpoint768) {
 
@@ -160,31 +184,41 @@
     }
   }
 
+
+
   // .sums__item-sum
 
   &__item-sum {
+    width: fit-content;
+    min-width: 172px;
     white-space: nowrap;
     font-size: 96px;
     line-height: 80%;
     color: var(--geekblue-5);
 
-    span {
+    &~span {
+      white-space: nowrap;
+      line-height: 80%;
+      color: var(--geekblue-5);
       font-size: 40px;
     }
 
     @media (max-width: $breakpoint1650) {
       font-size: 80px;
+      min-width: 148px;
     }
 
     @media (max-width: $breakpoint1450) {
       font-size: 64px;
       line-height: 72%;
+      min-width: 114px;
     }
 
     @media (max-width: $breakpoint768) {
       font-size: 48px;
+      min-width: 86px;
 
-      span {
+      &~span {
         font-size: 36px;
       }
     }
