@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   padding: 100px 0 40px;
-  min-height: calc(100vh - 66px);
+  min-height: calc(100dvh - 66px);
 
 
   @media (max-width: $breakpoint1650) {

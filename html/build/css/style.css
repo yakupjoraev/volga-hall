@@ -212,7 +212,7 @@ body.locked {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -465,12 +465,7 @@ section.visible .picture-animation {
 
 .header {
   position: relative;
-  z-index: 2;
-}
-
-.nav {
-  background-color: var(--black-10);
-  overflow: hidden;
+  z-index: 4;
 }
 
 .navbar {
@@ -1168,8 +1163,8 @@ section.visible .picture-animation {
 .volga-hall {
   position: relative;
   z-index: 8;
-  height: 100vh !important;
-  max-height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
   background-color: var(--black-10);
   overflow: hidden;
 }
@@ -1328,7 +1323,7 @@ section.visible .picture-animation {
 }
 
 .contact-us {
-  min-height: 50vh;
+  min-height: 50dvh;
   padding: 32px 0 72px;
   background-color: var(--geekblue-7);
 }
@@ -1398,7 +1393,7 @@ section.visible .picture-animation {
   z-index: 8;
   bottom: 0;
   left: 0;
-  height: calc(100vh - 66px);
+  height: calc(100dvh - 66px);
   width: 100%;
   background-color: var(--black-10);
   overflow-y: auto;
@@ -1535,7 +1530,7 @@ section.visible .picture-animation {
   z-index: 3;
   padding: 48px 0;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .hero::before {
@@ -1564,7 +1559,7 @@ section.visible .picture-animation {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 100vw;
-  height: calc(100vh + 66px);
+  height: calc(100dvh + 66px);
   background-color: #fff;
   -webkit-animation: fadeIn 1s forwards 0.6s;
           animation: fadeIn 1s forwards 0.6s;
@@ -2400,7 +2395,7 @@ section.visible .picture-animation {
   position: relative;
   z-index: 1;
   padding: 32px 0 220px;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   background: var(--foundation-darkblue-darkblue-1);
 }
@@ -3233,7 +3228,7 @@ section.visible .picture-animation {
 .hall {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .hall__pic {
@@ -3338,7 +3333,7 @@ section.visible .picture-animation {
   position: relative;
   z-index: 1;
   padding: 100px 0 40px;
-  min-height: calc(100vh - 66px);
+  min-height: calc(100dvh - 66px);
 }
 
 .hero-second.visible .hero-second__footer::before {
@@ -4046,7 +4041,7 @@ section.visible .picture-animation {
 
 .not-found {
   background-color: var(--geekblue-7);
-  min-height: calc(100vh - 66px);
+  min-height: calc(100dvh - 66px);
 }
 
 .not-found__inner {
@@ -4064,7 +4059,7 @@ section.visible .picture-animation {
       -ms-flex-pack: center;
           justify-content: center;
   row-gap: 36px;
-  min-height: calc(100vh - 66px);
+  min-height: calc(100dvh - 66px);
   padding: 40px 0;
 }
 
@@ -4183,7 +4178,7 @@ section.visible .picture-animation {
 }
 
 .footer {
-  min-height: 50vh;
+  min-height: 50dvh;
   padding: 132px 0 32px;
   background-color: var(--geekblue-7);
 }
@@ -5165,7 +5160,7 @@ section.visible .picture-animation {
     background: #131418;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: none;
   }
@@ -5176,7 +5171,7 @@ section.visible .picture-animation {
     display: flex;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -5300,7 +5295,7 @@ section.visible .picture-animation {
     top: -100%;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     height: 100%;
     background-color: var(--black-10);
     display: -webkit-box;
@@ -5860,7 +5855,7 @@ section.visible .picture-animation {
   }
 
   .contact-us-answer {
-    height: calc(100vh - 58px);
+    height: calc(100dvh - 58px);
   }
 
   .contact-us-answer__picture img {
@@ -7001,7 +6996,7 @@ section.visible .picture-animation {
   }
 
   .not-found {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
   }
 
   .not-found__picture img {
@@ -7196,6 +7191,10 @@ section.visible .picture-animation {
             transform: scale(1);
   }
 
+  .sums {
+    min-height: 440px;
+  }
+
   .also-offer {
     padding: 32px 0 40px;
   }
@@ -7272,6 +7271,14 @@ section.visible .picture-animation {
 
   .additional-services__item-text {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 389px) {
+  .also-offer__info {
+    padding: 10px;
+    max-width: 220px;
+    min-width: 180px;
   }
 }
 

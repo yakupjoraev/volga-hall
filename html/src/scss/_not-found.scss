@@ -1,9 +1,9 @@
 .not-found {
   background-color: var(--geekblue-7);
-  min-height: calc(100vh - 66px);
+  min-height: calc(100dvh - 66px);
 
   @media (max-width: $breakpoint768) {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
   }
 
   // .not-found__inner
@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     row-gap: 36px;
-    min-height: calc(100vh - 66px);
+    min-height: calc(100dvh - 66px);
     padding: 40px 0;
 
     @media (max-width: $breakpoint1450) {

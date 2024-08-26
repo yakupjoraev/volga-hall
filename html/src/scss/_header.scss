@@ -2,14 +2,14 @@
 // Header
 .header {
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
-// Navbar
-.nav {
-  background-color: var(--black-10);
-  overflow: hidden;
-}
+// // Navbar
+// .nav {
+//   background-color: var(--black-10);
+//   overflow: hidden;
+// }
 
 .navbar {
   position: relative;
@@ -165,7 +165,7 @@
     background: #131418;
     left: 0;
     top: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: none;
 
@@ -173,7 +173,7 @@
       display: flex;
       left: 0;
       top: 0;
-      height: 100vh;
+      height: 100dvh;
       width: 100vw;
       flex-direction: column;
       pointer-events: all;
@@ -275,7 +275,7 @@
     top: -100%;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     height: 100%;
     background-color: var(--black-10);
 
