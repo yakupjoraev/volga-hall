@@ -1168,6 +1168,25 @@ section.visible .picture-animation {
   color: var(--white-10);
 }
 
+.hall-layout__content-descrs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 12px;
+  max-width: 240px;
+  margin: 20px auto 0;
+}
+
+.hall-layout__content-descr {
+  font-size: 18px;
+  line-height: 156%;
+  color: var(--white-10);
+}
+
 .volga-hall {
   position: relative;
   z-index: 8;
@@ -4680,6 +4699,10 @@ section.visible .picture-animation {
 
   .hall-layout__table-sum {
     font-size: 20px;
+  }
+
+  .hall-layout__content-descrs {
+    display: none;
   }
 
   .volga-hall {

@@ -415,3 +415,22 @@
     font-size: 18px;
   }
 }
+
+.hall-layout__content-descrs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  max-width: 240px;
+  margin: 20px auto 0;
+
+  @media (max-width: $breakpoint1450) {
+    display: none;
+  }
+}
+
+.hall-layout__content-descr {
+
+  font-size: 18px;
+  line-height: 156%;
+  color: var(--white-10);
+}
