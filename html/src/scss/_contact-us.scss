@@ -100,6 +100,10 @@
     line-height: 100%;
     color: var(--foundation-darkblue-darkblue-1);
 
+    &:last-child {
+      padding-bottom: 10px;
+    }
+
     @media (max-width: $breakpoint1450) {
       font-size: 48px;
     }

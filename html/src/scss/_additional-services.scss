@@ -65,12 +65,23 @@
       margin-bottom: 36px;
       column-gap: 18px;
     }
+
+    @media (max-width: $breakpoint768) {
+      flex-direction: column;
+      row-gap: 10px;
+    }
+
   }
 
   // .additional-services__title-wrappers
 
   &__title-wrappers {
     flex: 0 1 900px;
+
+
+    @media (max-width: $breakpoint992) {
+      flex: 0 1 auto;
+    }
   }
 
   // .additional-services__title-wrapper
@@ -139,11 +150,7 @@
     }
 
     @media (max-width: $breakpoint768) {
-      position: absolute;
-      right: 0;
-      top: 0;
-      max-width: 140px;
-      margin-top: 10px;
+      margin-top: 0;
     }
 
     @media (max-width: $breakpoint480) {
@@ -191,7 +198,7 @@
     row-gap: 32px;
 
     @media (max-width: 1550px) {
-      &:empty {
+      &--empty {
         display: none;
       }
     }

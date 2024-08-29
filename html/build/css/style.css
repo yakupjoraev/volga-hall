@@ -463,10 +463,38 @@ section.visible .picture-animation {
   will-change: transform, clip-path;
 }
 
+.header-placeholder {
+  height: 68px;
+  width: 100%;
+}
+
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 4;
-  overflow: hidden;
+}
+
+.headroom {
+  will-change: transform;
+  -webkit-transition: -webkit-transform 200ms linear;
+  transition: -webkit-transform 200ms linear;
+  -o-transition: transform 200ms linear;
+  transition: transform 200ms linear;
+  transition: transform 200ms linear, -webkit-transform 200ms linear;
+}
+
+.headroom--pinned {
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.headroom--unpinned {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .nav {
@@ -1409,6 +1437,10 @@ section.visible .picture-animation {
   color: var(--foundation-darkblue-darkblue-1);
 }
 
+.contact-us__title-italic:last-child {
+  padding-bottom: 10px;
+}
+
 .contact-us__form {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 744px;
@@ -1681,6 +1713,7 @@ section.visible .picture-animation {
   max-width: 100%;
   width: 100%;
   height: auto;
+  vertical-align: baseline;
 }
 
 .hero__callback {
@@ -4633,7 +4666,7 @@ section.visible .picture-animation {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .additional-services__item:empty {
+  .additional-services__item--empty {
     display: none;
   }
 }
@@ -5354,7 +5387,7 @@ section.visible .picture-animation {
   .nav-menu {
     position: fixed;
     z-index: 10;
-    top: -100%;
+    top: -100vh;
     left: 0;
     width: 100%;
     min-height: 100dvh;
@@ -5380,9 +5413,9 @@ section.visible .picture-animation {
     pointer-events: none;
     overflow-y: auto;
     overflow-x: hidden;
-    -webkit-transition: top 0.3s linear;
-    -o-transition: top 0.3s linear;
-    transition: top 0.3s linear;
+    -webkit-transition: top 0.5s linear;
+    -o-transition: top 0.5s linear;
+    transition: top 0.5s linear;
   }
 
   .nav-menu.active {
@@ -6469,6 +6502,12 @@ section.visible .picture-animation {
             column-gap: 18px;
   }
 
+  .additional-services__title-wrappers {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+  }
+
   .additional-services__title {
     font-size: 48px;
   }
@@ -6539,6 +6578,10 @@ section.visible .picture-animation {
 }
 
 @media (max-width: 767.98px) {
+  .header-placeholder {
+    height: 60px;
+  }
+
   .navbar__contacts-link--phone {
     background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='31' height='31' rx='15.5' stroke='white'/%3E%3Cg clip-path='url(%23clip0_328_3134)'%3E%3Cpath d='M10 8H14L16 13L13.5 14.5C14.571 16.6715 16.3285 18.429 18.5 19.5L20 17L25 19V23C25 23.5304 24.7893 24.0391 24.4142 24.4142C24.0391 24.7893 23.5304 25 23 25C19.0993 24.763 15.4202 23.1065 12.6568 20.3432C9.8935 17.5798 8.23705 13.9007 8 10C8 9.46957 8.21071 8.96086 8.58579 8.58579C8.96086 8.21071 9.46957 8 10 8Z' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_328_3134'%3E%3Crect width='24' height='24' fill='white' transform='translate(5 4)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
@@ -7043,16 +7086,20 @@ section.visible .picture-animation {
     padding: 40px 0 76px;
   }
 
+  .additional-services__head {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 10px;
+  }
+
   .additional-services__title-wrapper {
     max-width: 86%;
   }
 
   .additional-services__attantion {
-    position: absolute;
-    right: 0;
-    top: 0;
-    max-width: 140px;
-    margin-top: 10px;
+    margin-top: 0;
   }
 
   .additional-services__list {
@@ -7298,6 +7345,27 @@ section.visible .picture-animation {
 
   .rent__item-banqu .rent__item-text:last-child {
     margin-left: 0;
+  }
+
+  .pay__card-img {
+    max-width: 144px;
+    height: auto;
+    width: auto;
+  }
+
+  .pay__card-img--visa {
+    width: 65%;
+    height: auto;
+  }
+
+  .pay__card-img--mastercard {
+    width: 65%;
+    height: auto;
+  }
+
+  .pay__card-img--mir {
+    width: 65%;
+    height: auto;
   }
 
   .hero-second {

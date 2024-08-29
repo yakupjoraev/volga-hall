@@ -250,5 +250,26 @@
       }
     }
 
+    @media (max-width: $breakpoint480) {
+      max-width: 144px;
+      height: auto;
+      width: auto;
+
+      &--visa {
+        width: 65%;
+        height: auto;
+      }
+
+      &--mastercard {
+        width: 65%;
+        height: auto;
+      }
+
+      &--mir {
+        width: 65%;
+        height: auto;
+      }
+    }
+
   }
 }

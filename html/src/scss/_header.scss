@@ -1,9 +1,32 @@
 // Header
-// Header
+.header-placeholder {
+  height: 68px;
+  width: 100%;
+
+  @media (max-width: $breakpoint768) {
+    height: 60px;
+  }
+}
+
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 4;
-  overflow: hidden;
+}
+
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+}
+
+.headroom--pinned {
+  transform: translateY(0%);
+}
+
+.headroom--unpinned {
+  transform: translateY(-100%);
 }
 
 // // Navbar
@@ -303,7 +326,7 @@
   .nav-menu {
     position: fixed;
     z-index: 10;
-    top: -100%;
+    top: -100vh;
     left: 0;
     width: 100%;
     min-height: 100dvh;
@@ -319,7 +342,7 @@
     pointer-events: none;
     overflow-y: auto;
     overflow-x: hidden;
-    transition: top 0.3s linear;
+    transition: top 0.5s linear;
 
     &.active {
       top: 0;
