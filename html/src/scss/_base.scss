@@ -119,10 +119,6 @@ section.visible {
   text-decoration: none;
   /* To remove underline from anchor */
   transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s, border 0.1s;
-
-  @media (hover:hover) {
-    &:hover {}
-  }
 }
 
 

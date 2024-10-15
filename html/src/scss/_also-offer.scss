@@ -268,15 +268,16 @@
     right: 0;
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
     width: fit-content;
     height: fit-content;
     max-width: 380px;
     min-width: 380px;
-    min-height: 170px;
+    min-height: 210px;
+    max-height: 210px;
     padding: 20px;
     border-radius: 26px;
     background-color: var(--white-10);
+
 
     &::before {
       content: "";
@@ -316,19 +317,18 @@
     @media (max-width: $breakpoint1450) {
       max-width: 280px;
       min-width: 280px;
-      min-height: 120px;
+      min-height: 180px;
+      max-height: 180px;
     }
+
+    @media (max-width: $breakpoint992) {}
 
     @media (max-width: $breakpoint480) {
       padding: 10px;
       max-width: 220px;
       min-width: 220px;
-    }
-
-    @media (max-width: 389px) {
-      padding: 10px;
-      max-width: 220px;
-      min-width: 180px;
+      min-height: 142px;
+      max-height: 142px;
     }
   }
 
@@ -359,6 +359,19 @@
     font-size: 24px;
     line-height: 120%;
     color: var(--foundation-darkblue-darkblue-13);
+
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    display: -webkit-box;
+    display: box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
 
     @media (max-width: $breakpoint1450) {
       font-size: 18px;

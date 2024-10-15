@@ -186,3 +186,9 @@
     }
   }
 }
+
+.footer__item--mob-hidden {
+  @media (max-width: $breakpoint580) {
+    display: none;
+  }
+}

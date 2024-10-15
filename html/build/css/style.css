@@ -822,6 +822,56 @@ section.visible .picture-animation {
   transition: filter 0.2s linear, -webkit-filter 0.2s linear;
 }
 
+.form__checkbox-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -100;
+}
+
+.form__checkbox-input:checked ~ .form__checkbox-label .form__checkbox-square {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='4' fill='white' /%3E%3Crect x='0.5' y='0.5' width='15' height='15' rx='3.5' fill='%232F54EB' stroke='%23597EF7' /%3E%3Cpath d='M7.10536 12.6041L7.08774 12.6217L2.6879 8.22185L4.12057 6.78917L7.10542 9.77402L11.8794 5L13.3121 6.43268L7.12304 12.6218L7.10536 12.6041Z' fill='white' /%3E%3C/svg%3E");
+}
+
+.form__checkbox-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  cursor: pointer;
+}
+
+.form__checkbox-square {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='16' height='16' rx='4' fill='white' /%3E%3Crect x='0.5' y='0.5' width='15' height='15' rx='3.5' fill='%232F54EB' stroke='%23597EF7' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+
+.form__checkbox-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--white-10);
+}
+
+.form__checkbox-text a {
+  color: var(--white-10);
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
 .prices {
   position: relative;
   overflow: hidden;
@@ -2638,7 +2688,6 @@ section.visible .picture-animation {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 8px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -2647,7 +2696,8 @@ section.visible .picture-animation {
   height: fit-content;
   max-width: 380px;
   min-width: 380px;
-  min-height: 170px;
+  min-height: 210px;
+  max-height: 210px;
   padding: 20px;
   border-radius: 26px;
   background-color: var(--white-10);
@@ -2706,6 +2756,18 @@ section.visible .picture-animation {
   font-size: 24px;
   line-height: 120%;
   color: var(--foundation-darkblue-darkblue-13);
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -ms-line-clamp: 3;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  display: -webkit-box;
+  display: box;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
 }
 
 .also-offer__cards.smooth-scroll {
@@ -3334,6 +3396,10 @@ section.visible .picture-animation {
 
 .confa .section-head {
   margin-bottom: 72px;
+}
+
+.confa__inner {
+  padding-bottom: 200px;
 }
 
 .confa__title-wrappers {
@@ -4940,7 +5006,8 @@ section.visible .picture-animation {
   .also-offer__info {
     max-width: 280px;
     min-width: 280px;
-    min-height: 120px;
+    min-height: 180px;
+    max-height: 180px;
   }
 
   .also-offer__label {
@@ -6247,6 +6314,11 @@ section.visible .picture-animation {
     margin-right: -36px;
   }
 
+  .serv__list::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+
   .serv__item {
     -webkit-column-gap: 16px;
        -moz-column-gap: 16px;
@@ -7192,6 +7264,10 @@ section.visible .picture-animation {
     margin-left: -140px;
   }
 
+  .prices {
+    margin: 40px 0 20px;
+  }
+
   .contact-us-answer__picture img {
     width: 100%;
   }
@@ -7202,6 +7278,10 @@ section.visible .picture-animation {
 
   .hall {
     height: 320px;
+  }
+
+  .confa__inner {
+    padding-bottom: 100px;
   }
 
   .cookies {
@@ -7229,6 +7309,10 @@ section.visible .picture-animation {
 
   .footer__link--big {
     font-size: 30px;
+  }
+
+  .footer__item--mob-hidden {
+    display: none;
   }
 }
 
@@ -7333,6 +7417,8 @@ section.visible .picture-animation {
     padding: 10px;
     max-width: 220px;
     min-width: 220px;
+    min-height: 142px;
+    max-height: 142px;
   }
 
   .also-offer__num {
@@ -7406,14 +7492,6 @@ section.visible .picture-animation {
 
   .additional-services__item-text {
     font-size: 13px;
-  }
-}
-
-@media (max-width: 389px) {
-  .also-offer__info {
-    padding: 10px;
-    max-width: 220px;
-    min-width: 180px;
   }
 }
 

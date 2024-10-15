@@ -455,10 +455,14 @@ class Sticker {
   }
 }
 
-new Sticker({
-  inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
-  spring: 0.5    // And change this                   //  0.3 - 1
-});
+
+if (window.matchMedia("(max-width: 580px)").matches) {
+  new Sticker({
+    inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
+    spring: 0.5    // And change this                   //  0.3 - 1
+  });
+
+}
 
 // анимация для скролла и для скроллбара
 
@@ -745,7 +749,7 @@ function scrollPic() {
       end: "bottom+=100% top", // когда нижняя часть секции .hall выходит за экран
       pin: true, // фиксирует элемент
       pinSpacing: false, // отключаем отступ, чтобы остальные секции перемещались поверх
-      scrub: true, // синхронизация с прокруткой
+      scrub: 3, // синхронизация с прокруткой
     }
   });
 

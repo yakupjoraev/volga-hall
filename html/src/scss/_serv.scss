@@ -93,6 +93,12 @@
       overflow-x: auto;
       scrollbar-width: none;
       margin-right: -36px;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        display: none;
+      }
+
     }
 
   }

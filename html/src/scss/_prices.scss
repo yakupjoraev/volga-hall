@@ -8,6 +8,10 @@
     margin: 40px 0 60px;
   }
 
+  @media (max-width: $breakpoint580) {
+    margin: 40px 0 20px;
+  }
+
   // &.visible {
   //   .prices__main {
   //     opacity: 1;
