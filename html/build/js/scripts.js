@@ -456,7 +456,7 @@ class Sticker {
 }
 
 
-if (window.matchMedia("(max-width: 580px)").matches) {
+if (window.matchMedia("(min-width: 580px)").matches) {
   new Sticker({
     inertion: 0.4, // Change this for cool effects :) //  0.3 - 1
     spring: 0.5    // And change this                   //  0.3 - 1
