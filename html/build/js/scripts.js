@@ -228,16 +228,20 @@ function preventScroll(e) {
 function disableScroll() {
   window.addEventListener('wheel', preventScroll, { passive: false });
   window.addEventListener('touchmove', preventScroll, { passive: false });
+  document.body.addEventListener('wheel', preventScroll, { passive: false });
+  document.body.addEventListener('touchmove', preventScroll, { passive: false });
 }
 
 function enableScroll() {
   window.removeEventListener('wheel', preventScroll);
   window.removeEventListener('touchmove', preventScroll);
+  document.body.removeEventListener('wheel', preventScroll);
+  document.body.removeEventListener('touchmove', preventScroll);
 }
 
 function setScrollTimeout(time) {
   disableScroll();
-  console.log('Init setScrollTimeout()', time)
+  // console.log('Init setScrollTimeout()', time)
   setTimeout(() => {
     enableScroll();
   }, time);
@@ -295,8 +299,8 @@ document.addEventListener("DOMContentLoaded", function () {
     pinSpacing: true,
     scrub: 0.1,
     anticipatePin: 1,
-    onEnter: () => { swapContent(banquetsContent), setScrollTimeout(3000) },
-    onEnterBack: () => { swapContent(conferencesContent), setScrollTimeout(3000) },
+    onEnter: () => { swapContent(banquetsContent), setScrollTimeout(2600) },
+    onEnterBack: () => { swapContent(conferencesContent), setScrollTimeout(2600) },
     //onLeaveBack: () => {swapContent(conferencesContent), setScrollTimeout()}
   });
 
