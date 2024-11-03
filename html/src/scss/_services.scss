@@ -149,6 +149,13 @@
     row-gap: 12px;
     overflow: hidden;
 
+    a {
+      &:hover {
+        color: var(--geekblue-6);
+        text-decoration: underline;
+      }
+    }
+
     &:nth-child(1) {
       flex: 0 1 520px;
 
@@ -184,11 +191,11 @@
     display: flex;
     width: fit-content;
     font-size: 16px;
-    line-height: 120%;
+    line-height: 140%;
     color: var(--geekblue-5);
 
     text-decoration-line: underline;
-    text-underline-offset: 5px;
+    text-underline-offset: 3px;
     text-decoration-thickness: 1px;
   }
 

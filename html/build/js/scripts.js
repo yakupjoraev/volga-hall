@@ -219,6 +219,31 @@ document.addEventListener("DOMContentLoaded", function () {
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 
 
+// Scroll disable functions
+
+function preventScroll(e) {
+  e.preventDefault();
+}
+
+function disableScroll() {
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+}
+
+function enableScroll() {
+  window.removeEventListener('wheel', preventScroll);
+  window.removeEventListener('touchmove', preventScroll);
+}
+
+function setScrollTimeout(time) {
+  disableScroll();
+  console.log('Init setScrollTimeout()', time)
+  setTimeout(() => {
+    enableScroll();
+  }, time);
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const sectionContainer = document.querySelector('.services');
@@ -270,9 +295,9 @@ document.addEventListener("DOMContentLoaded", function () {
     pinSpacing: true,
     scrub: 0.1,
     anticipatePin: 1,
-    onEnter: () => swapContent(banquetsContent),
-    onEnterBack: () => swapContent(conferencesContent),
-    onLeaveBack: () => swapContent(conferencesContent)
+    onEnter: () => { swapContent(banquetsContent), setScrollTimeout(3000) },
+    onEnterBack: () => { swapContent(conferencesContent), setScrollTimeout(3000) },
+    //onLeaveBack: () => {swapContent(conferencesContent), setScrollTimeout()}
   });
 
   function swapContent(content) {
@@ -761,6 +786,48 @@ scrollPic()
 
 
 
+
+
+
+
+
+
+
+
+function hiddenSocials() {
+  // Находим элемент hero__contacts
+  const heroContacts = document.querySelector('.hero__contacts');
+  if (!heroContacts) {
+    return null
+  }
+
+  // Функция для добавления/удаления класса hidden
+  const toggleHeroContacts = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heroContacts.classList.add('hidden');
+      } else {
+        heroContacts.classList.remove('hidden');
+      }
+    });
+  };
+
+  // Настройки для Intersection Observer
+  const observerOptions = {
+    root: null, // наблюдаем в пределах видимого экрана
+    threshold: 0.1 // процент пересечения, при котором срабатывает
+  };
+
+  // Создаем наблюдатель
+  const observer = new IntersectionObserver(toggleHeroContacts, observerOptions);
+
+  // Находим элементы contact-us и footer и добавляем их в наблюдатель
+  document.querySelectorAll('.contact-us, .footer').forEach((section) => {
+    observer.observe(section);
+  });
+}
+
+hiddenSocials();
 
 
 
