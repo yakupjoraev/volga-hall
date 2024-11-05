@@ -341,6 +341,10 @@
     }
 
     @media (max-width: $breakpoint992) {
+      margin-top: 120px;
+    }
+
+    @media (max-width: $breakpoint768) {
       margin-top: 0;
     }
   }

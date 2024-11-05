@@ -245,6 +245,10 @@
       color: var(--white-10);
       text-decoration: underline;
       text-decoration-skip-ink: none;
+
+      &:hover {
+        color: var(--geekblue-3);
+      }
     }
   }
 
