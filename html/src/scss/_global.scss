@@ -50,6 +50,10 @@ body {
   &.locked {
     overflow: hidden;
   }
+
+  &.scroll-to-anchor {
+    overflow: visible !important;
+  }
 }
 
 // Animations

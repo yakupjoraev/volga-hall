@@ -119,111 +119,27 @@
 
     <!-- Main Page -->
     <main>
-      <section class="contact-us contact-us-animation animation-section" id="contacts">
+      <div class="page">
   <div class="container">
-    <div class="contact-us__inner">
-      <div class="section-head">
-        <div class="section-titles">
-          <span class="section-circkle"></span>
-          <h3 class="section-title">Контакты</h3>
-        </div>
-
-        <div class="section-line"></div>
-      </div>
-
-      <div class="contact-us__main">
-        <div class="contact-us__info">
-          <h4 class="contact-us__title">
-            <span class="contact-us__title-normal text-animation">Свяжитесь с нами</span>
-            <span class="contact-us__title-italic text-animation">для аренды залов</span>
-            <span class="contact-us__title-italic text-animation">Volga Hall</span>
-          </h4>
-        </div>
-
-        <form class="contact-us__form form" action="#">
-          <div class="form__inner">
-            <div class="form__rows">
-              <div class="form__row">
-                <input class="form__input" type="text" placeholder="Фамилия">
-                <input class="form__input" type="text" placeholder="Имя">
-              </div>
-
-              <div class="form__row">
-                <input class="form__input" type="tel" placeholder="+7">
-                <input class="form__input" type="email" placeholder="E-mail">
-              </div>
-
-              <div class="form__row">
-                <textarea class="form__input form__input--textarea" placeholder="Напишите сообщение"></textarea>
-              </div>
-
-              <div class="form__row">
-                <div class="form__checkbox">
-                  <input class="form__checkbox-input" type="checkbox" id="form-checkbox-1" checked>
-
-                  <label class="form__checkbox-label" for="form-checkbox-1">
-                    <div class="form__checkbox-square"></div>
-                    <p class="form__checkbox-text">Вы даете согласие на обработку <a href="#">своих персональных
-                        данных</a></p>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form__footer">
-
-                <button type="submit" data-sticky="3" class="form__btn btn sticky_w">Отправить</button>
-
-                <div class="form__file btn sticky_w" data-sticky="3">
-                  <a href="page.html" download="Машинное обучение.pptx" class="form__file-label">
-                    <img class="form__file-icon" src="./img/icons/file-downloud.svg" alt="file-downloud icon">
-                    <span class="btn-text sticky_t">Скачать прайс лист</span>
-                  </a>
-                </div>
-
-              </div>
-            </div>
+    <form class="contact-us__form form form--mini-center" action="#">
+      <div class="form__inner">
+        <div class="form__rows">
+          <div class="form__row">
+            <input class="form__input" type="text" placeholder="Имя">
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-      <div class="contact-us-answer active">
-  <div class="contact-us-answer__inner">
-    <div class="contact-us-answer__title-wrapper">
-      <h1 class="contact-us-answer__title"><i>Спасибо за заявку!</i></h1>
-    </div>
 
-    <div class="contact-us-answer__picture picture-animation">
-      <picture>
-        <source srcset="./img/contact-us-answer/pic.webp 1x, ./img/contact-us-answer/pic@2x.webp 2x" type="image/webp">
-        <source srcset="./img/contact-us-answer/pic.jpg 1x, ./img/contact-us-answer/pic@2x.jpg 2x" type="image/jpeg">
-        <img src="./img/contact-us-answer/pic.jpg" width="520" srcset="./img/contact-us-answer/pic@2x.jpg" alt="Alt">
-      </picture>
-    </div>
-
-    <div class="contact-us-answer__footer">
-      <div class="contact-us-answer__text-wrappers">
-        <div class="contact-us-answer__text-wrapper">
-          <p class="contact-us-answer__text">Наш менеджер</p>
-        </div>
-        <div class="contact-us-answer__text-wrapper">
-          <p class="contact-us-answer__text"> скоро свяжется с вами</p>
+          <div class="form__row">
+            <input class="form__input" type="email" placeholder="E-mail">
+          </div>
         </div>
       </div>
-
-      <a data-sticky="3" class="contact-us-answer__btn btn sticky_w picture-animation" href="#">
-        <span class="btn-text sticky_t">На <br /> главную</span>
-      </a>
-    </div>
+    </form>
   </div>
 </div>
     </main>
 
-
-
     <!-- Footer -->
-    <footer class="footer footer-animation">
+    <footer class="footer">
   <div class="container">
     <div class="footer__inner">
       <div class="footer__top">
@@ -287,7 +203,6 @@
   </div>
 
 </body>
-
 <!-- GSAP основная библиотека -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 
@@ -299,7 +214,6 @@
 
 <!-- ScrollToPlugin плагин -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
-
 
 <!-- <script src="./js/sticker.js"></script> -->
 <!-- <script src="./js/TweenMax.min.js"></script> -->

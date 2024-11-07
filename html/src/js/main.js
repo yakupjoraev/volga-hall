@@ -26,15 +26,6 @@ function burgerMenu() {
       body.classList.remove('locked')
     })
   });
-
-  // // Вот тут мы ставим брейкпоинт навбара
-  // window.addEventListener('resize', () => {
-  //   if (window.innerWidth > 991.98) {
-  //     menu.classList.remove('active')
-  //     burger.classList.remove('active-burger')
-  //     body.classList.remove('locked')
-  //   }
-  // })
 }
 burgerMenu()
 
@@ -470,15 +461,6 @@ class Sticker {
           ease: "power1.out"
         });
       });
-
-      // // Prevent default click behavior on anchor tags if the mouse is moving
-      // if (el.tagName.toLowerCase() === 'a') {
-      //   el.addEventListener('click', (e) => {
-      //     if (el.offsetX !== 0 || el.offsetY !== 0) {
-      //       e.preventDefault();
-      //     }
-      //   });
-      // }
     });
   }
 }
@@ -569,6 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Ширина окна меньше 1000px. Анимации не будут выполнены.');
     return;
   }
+
 
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -744,22 +727,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function scrollPic() {
-  // const container = document.querySelector('.hall')
-  /*Анимация - след блоки наезжают на картинку начало */
-
-  // gsap.registerPlugin(ScrollTrigger);
-
-  // gsap.to(".hall", {
-  //   scrollTrigger: {
-  //     trigger: ".hall",
-  //     start: "top top", // когда верх .hall касается верха окна
-  //     end: "bottom+=100% top", // когда нижняя часть секции .hall выходит за экран
-  //     pin: true, // фиксирует элемент
-  //     pinSpacing: false, // отключаем отступ, чтобы остальные секции перемещались поверх
-  //     scrub: true, // синхронизация с прокруткой
-  //   }
-  // });
-
   /*Анимация - след блоки наезжают на картинку конец */
 
   const container = document.querySelector('.scroll-sections')
@@ -782,7 +749,11 @@ function scrollPic() {
   });
 
 }
-scrollPic()
+
+if (window.matchMedia("(min-width: 767px)").matches) {
+  scrollPic()
+}
+
 
 
 
@@ -837,6 +808,42 @@ hiddenSocials();
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Находим все элементы с классом 'btn' и атрибутом 'href', который начинается с '#'
+  const buttons = document.querySelectorAll('a.btn[href^="#"]');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+
+      // Получаем ID целевого элемента
+      const targetID = button.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetID);
+
+      if (targetElement) {
+        // Добавляем класс 'scroll-to-anchor' для отслеживания перехода к якорю
+        document.body.classList.add('scroll-to-anchor');
+
+        // Плавно скроллим к целевому элементу
+        gsap.to(window, {
+          scrollTo: targetElement,
+          duration: 0.1,
+          ease: "power1.out",
+          onComplete: () => {
+            // Убираем класс 'scroll-to-anchor' через 1 секунду
+            setTimeout(() => {
+              document.body.classList.remove('scroll-to-anchor');
+            }, 6000); // 1000 миллисекунд = 1 секунда
+          }
+        });
+      }
+    });
+  });
+});
+
+
+
+
 
 // Функция для запуска счетчика
 function sumsVal(element) {
@@ -884,4 +891,3 @@ const elements = document.querySelectorAll('.section-head, .services__main, .sum
 elements.forEach(block => {
   observer.observe(block);
 });
-// });

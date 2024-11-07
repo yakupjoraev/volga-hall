@@ -1,5 +1,10 @@
 .form {
 
+  &--mini-center {
+    max-width: 800px;
+    margin: 100px auto;
+  }
+
   // .form__inner
 
   &__inner {}
@@ -253,3 +258,5 @@
   }
 
 }
+
+.page {}

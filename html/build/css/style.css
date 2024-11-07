@@ -184,6 +184,10 @@ body.locked {
   overflow: hidden;
 }
 
+body.scroll-to-anchor {
+  overflow: visible !important;
+}
+
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
@@ -641,6 +645,11 @@ section.visible .picture-animation {
 .header-second .navbar {
   -webkit-animation: slide-up 1.6s cubic-bezier(0.165, 0.84, 0.44, 1) both 0.2s;
           animation: slide-up 1.6s cubic-bezier(0.165, 0.84, 0.44, 1) both 0.2s;
+}
+
+.form--mini-center {
+  max-width: 800px;
+  margin: 100px auto;
 }
 
 .form__rows {
@@ -7377,7 +7386,7 @@ section.visible .picture-animation {
   }
 
   .confa__inner {
-    padding-bottom: 100px;
+    padding-bottom: 0;
   }
 
   .cookies {
