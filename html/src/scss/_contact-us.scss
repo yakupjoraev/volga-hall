@@ -328,3 +328,22 @@
 
 
 }
+
+.contact-us__text {
+  font-family: var(--font-family);
+  font-size: 24px;
+  line-height: 120%;
+  color: var(--white-10);
+
+  @media (max-width: 1200px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $breakpoint992) {
+    font-size: 16px;
+
+    br {
+      display: none;
+    }
+  }
+}

@@ -1652,6 +1652,13 @@ section.visible .picture-animation {
   transition: 0.2s linear 0.2s linear;
 }
 
+.contact-us__text {
+  font-family: var(--font-family);
+  font-size: 24px;
+  line-height: 120%;
+  color: var(--white-10);
+}
+
 .hero {
   position: relative;
   z-index: 3;
@@ -5756,6 +5763,10 @@ section.visible .picture-animation {
     opacity: 1;
   }
 
+  .contact-us__text {
+    font-size: 18px;
+  }
+
   .services.banquets {
     display: block;
   }
@@ -5893,7 +5904,7 @@ section.visible .picture-animation {
   }
 
   .form__footer {
-    margin-top: 36px;
+    margin-top: 10px;
   }
 
   .form__btn {
@@ -6120,6 +6131,14 @@ section.visible .picture-animation {
 
   .contact-us-answer__text {
     font-size: 18px;
+  }
+
+  .contact-us__text {
+    font-size: 16px;
+  }
+
+  .contact-us__text br {
+    display: none;
   }
 
   .hero {

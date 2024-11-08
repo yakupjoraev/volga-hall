@@ -211,31 +211,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Scroll disable functions
 
-function preventScroll(e) {
-  e.preventDefault();
-}
+// function preventScroll(e) {
+//   e.preventDefault();
+// }
 
-function disableScroll() {
-  window.addEventListener('wheel', preventScroll, { passive: false });
-  window.addEventListener('touchmove', preventScroll, { passive: false });
-  document.body.addEventListener('wheel', preventScroll, { passive: false });
-  document.body.addEventListener('touchmove', preventScroll, { passive: false });
-}
+// function disableScroll() {
+//   window.addEventListener('wheel', preventScroll, { passive: false });
+//   window.addEventListener('touchmove', preventScroll, { passive: false });
+//   document.body.addEventListener('wheel', preventScroll, { passive: false });
+//   document.body.addEventListener('touchmove', preventScroll, { passive: false });
+// }
 
-function enableScroll() {
-  window.removeEventListener('wheel', preventScroll);
-  window.removeEventListener('touchmove', preventScroll);
-  document.body.removeEventListener('wheel', preventScroll);
-  document.body.removeEventListener('touchmove', preventScroll);
-}
+// function enableScroll() {
+//   window.removeEventListener('wheel', preventScroll);
+//   window.removeEventListener('touchmove', preventScroll);
+//   document.body.removeEventListener('wheel', preventScroll);
+//   document.body.removeEventListener('touchmove', preventScroll);
+// }
 
-function setScrollTimeout(time) {
-  disableScroll();
-  // console.log('Init setScrollTimeout()', time)
-  setTimeout(() => {
-    enableScroll();
-  }, time);
-}
+// function setScrollTimeout(time) {
+//   disableScroll();
+//   // console.log('Init setScrollTimeout()', time)
+//   setTimeout(() => {
+//     enableScroll();
+//   }, time);
+// }
 
 
 
@@ -280,29 +280,47 @@ document.addEventListener("DOMContentLoaded", function () {
     imgSrcsetWebp: "./img/services/banquets-pic@2x.webp"
   };
 
+  let contentChangeTimeout;
+  let isSecondSlideShown = false;
+
   // Основной ScrollTrigger для секции конференций
   ScrollTrigger.create({
     trigger: ".services.conferences",
     start: "top top",
-    end: "bottom top",
+    end: "bottom+=1500 top",
     pin: true,
     pinSpacing: true,
-    scrub: 0.1,
+    scrub: 1,
     anticipatePin: 1,
-    onEnter: () => { swapContent(banquetsContent), setScrollTimeout(2600) },
-    onEnterBack: () => { swapContent(conferencesContent), setScrollTimeout(2600) },
+    onEnter: () => {
+      if (!contentChangeTimeout) {
+        blockScrollWithAnimationDelay(banquetsContent, 2000);
+        isSecondSlideShown = true;
+      }
+    },
+    onEnterBack: () => {
+      if (!contentChangeTimeout && isSecondSlideShown) {
+        blockScrollWithAnimationDelay(conferencesContent, 2000);
+        isSecondSlideShown = false;
+      }
+    }
     //onLeaveBack: () => {swapContent(conferencesContent), setScrollTimeout()}
   });
 
-  function swapContent(content) {
-    // Анимация исчезновения старого контента
+  function blockScrollWithAnimationDelay(content, delayTime) {
+    disableScroll();
+    contentChangeTimeout = setTimeout(() => {
+      swapContent(content, delayTime);
+    }, delayTime);
+  }
+
+  function swapContent(content, delayTime) {
     gsap.to(".services__title, .services__title-bg, .services__text, .services__pic, .services__link", {
       y: 150,
       opacity: 0,
       duration: 0.2,
       stagger: 0.1,
       onComplete: () => {
-        // Замена контента
         document.querySelector(".services__title").textContent = content.title;
         document.querySelector(".services__title-bg").textContent = content.titleBg;
         document.querySelector(".services__text:first-of-type").textContent = content.text1;
@@ -314,13 +332,31 @@ document.addEventListener("DOMContentLoaded", function () {
         picture.querySelector("img").src = content.imgSrc;
         picture.querySelector("img").srcset = content.imgSrcset;
 
-        // Анимация появления нового контента
         gsap.fromTo(".services__title, .services__title-bg, .services__text, .services__pic, .services__link",
           { y: 150, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.2, stagger: 0.1 }
+          { y: 0, opacity: 1, duration: 0.2, stagger: 0.1, onComplete: enableScroll }
         );
       }
     });
+  }
+
+  function preventScroll(e) {
+    e.preventDefault();
+  }
+
+  function disableScroll() {
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
+    document.body.addEventListener('wheel', preventScroll, { passive: false });
+    document.body.addEventListener('touchmove', preventScroll, { passive: false });
+  }
+
+  function enableScroll() {
+    window.removeEventListener('wheel', preventScroll);
+    window.removeEventListener('touchmove', preventScroll);
+    document.body.removeEventListener('wheel', preventScroll);
+    document.body.removeEventListener('touchmove', preventScroll);
+    contentChangeTimeout = null;
   }
 
 });

@@ -119,23 +119,65 @@
 
     <!-- Main Page -->
     <main>
-      <div class="page">
+      <section class="contact-us animation-section" id="contacts">
   <div class="container">
-    <form class="contact-us__form form form--mini-center" action="#">
-      <div class="form__inner">
-        <div class="form__rows">
-          <div class="form__row">
-            <input class="form__input" type="text" placeholder="Имя">
-          </div>
-
-          <div class="form__row">
-            <input class="form__input" type="email" placeholder="E-mail">
-          </div>
+    <div class="contact-us__inner">
+      <div class="section-head">
+        <div class="section-titles">
+          <span class="section-circkle"></span>
+          <h3 class="section-title">Контакты</h3>
         </div>
+
+        <div class="section-line"></div>
       </div>
-    </form>
+
+      <div class="contact-us__main">
+        <div class="contact-us__info">
+          <h4 class="contact-us__title">
+            <span class="contact-us__title-normal text-animation">Получите прайс-лист</span>
+            <span class="contact-us__title-italic text-animation">на электронную почту</span>
+          </h4>
+
+          <p class="contact-us__text text-animation">
+            Укажите свою электронную почту, <br />
+            и прайс-лист будет отправлен на неё автоматически
+          </p>
+        </div>
+
+        <form class="contact-us__form form" action="#">
+          <div class="form__inner">
+            <div class="form__rows">
+              <div class="form__row">
+                <input class="form__input" type="text" placeholder="Имя">
+              </div>
+
+              <div class="form__row">
+                <input class="form__input" type="email" placeholder="E-mail">
+              </div>
+
+              <div class="form__row">
+                <div class="form__checkbox">
+                  <input class="form__checkbox-input" type="checkbox" id="form-checkbox-1" checked>
+
+                  <label class="form__checkbox-label" for="form-checkbox-1">
+                    <div class="form__checkbox-square"></div>
+                    <p class="form__checkbox-text">Вы даете согласие на обработку <a href="#">своих персональных
+                        данных</a></p>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form__footer">
+
+                <button type="submit" data-sticky="3" class="form__btn btn sticky_w">Отправить</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
+</section>
     </main>
 
     <!-- Footer -->
