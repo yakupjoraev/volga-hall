@@ -52,17 +52,35 @@
   // .hero__bg
 
   &__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-    opacity: 0;
-    transform: scale(2);
-    animation: showBg 1s forwards 1.8s;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(2);
+      animation: showBg 1s forwards 1.8s;
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(2);
+      animation: showBg 1s forwards 1.8s;
+    }
+
   }
 
   // .hero__top
@@ -252,6 +270,10 @@
       // animation: none;
     }
 
+    &.show-visible {
+      animation: showContactsVisible 0s forwards;
+    }
+
     @media (max-width: $breakpoint1650) {
       right: 96px;
     }
@@ -370,5 +392,12 @@
   to {
     opacity: 0;
     transform: translateY(100%);
+  }
+}
+
+@keyframes showContactsVisible {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

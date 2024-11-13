@@ -210,49 +210,20 @@ document.addEventListener("DOMContentLoaded", function () {
 // //////////////////////////////////////// animations /////////////////////////////////////////////
 
 
-// Scroll disable functions
-
-// function preventScroll(e) {
-//   e.preventDefault();
-// }
-
-// function disableScroll() {
-//   window.addEventListener('wheel', preventScroll, { passive: false });
-//   window.addEventListener('touchmove', preventScroll, { passive: false });
-//   document.body.addEventListener('wheel', preventScroll, { passive: false });
-//   document.body.addEventListener('touchmove', preventScroll, { passive: false });
-// }
-
-// function enableScroll() {
-//   window.removeEventListener('wheel', preventScroll);
-//   window.removeEventListener('touchmove', preventScroll);
-//   document.body.removeEventListener('wheel', preventScroll);
-//   document.body.removeEventListener('touchmove', preventScroll);
-// }
-
-// function setScrollTimeout(time) {
-//   disableScroll();
-//   // console.log('Init setScrollTimeout()', time)
-//   setTimeout(() => {
-//     enableScroll();
-//   }, time);
-// }
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
   const sectionContainer = document.querySelector('.services');
   if (!sectionContainer) {
-    return null
+    return null;
   }
-  // Функция для проверки ширины окна
+
   function checkWidth() {
     return window.innerWidth >= 1200;
   }
 
-  // Проверяем ширину окна
   if (!checkWidth()) {
-    // Если ширина меньше 1200px, прерываем выполнение
     console.log('Ширина окна меньше 1200px. Анимации не будут выполнены.');
     return;
   }
@@ -284,7 +255,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let contentChangeTimeout;
   let isSecondSlideShown = false;
 
-  // Основной ScrollTrigger для секции конференций
   ScrollTrigger.create({
     trigger: ".services.conferences",
     start: "top top",
@@ -294,18 +264,17 @@ document.addEventListener("DOMContentLoaded", function () {
     scrub: 1,
     anticipatePin: 1,
     onEnter: () => {
-      if (!contentChangeTimeout) {
+      if (ScrollTrigger.isInViewport(sectionContainer, 0.9) && !contentChangeTimeout) {
         blockScrollWithAnimationDelay(banquetsContent, 2000);
         isSecondSlideShown = true;
       }
     },
     onEnterBack: () => {
-      if (!contentChangeTimeout && isSecondSlideShown) {
+      if (ScrollTrigger.isInViewport(sectionContainer, 0.9) && !contentChangeTimeout && isSecondSlideShown) {
         blockScrollWithAnimationDelay(conferencesContent, 2000);
         isSecondSlideShown = false;
       }
     }
-    //onLeaveBack: () => {swapContent(conferencesContent), setScrollTimeout()}
   });
 
   function blockScrollWithAnimationDelay(content, delayTime) {
@@ -359,7 +328,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.removeEventListener('touchmove', preventScroll);
     contentChangeTimeout = null;
   }
-
 });
 
 
@@ -748,6 +716,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Enable scrolling if user manually reaches the footer section
+  window.addEventListener('scroll', () => {
+    const footerPosition = document.querySelector('.footer-animation').getBoundingClientRect().top;
+    if (footerPosition <= window.innerHeight && document.body.classList.contains('no-scroll')) {
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
   // Проверка текущей позиции страницы при загрузке
   window.addEventListener('load', () => {
     if (document.querySelector(".contact-us-animation").getBoundingClientRect().top < window.innerHeight) {
@@ -806,39 +782,45 @@ if (window.matchMedia("(min-width: 767px)").matches) {
 
 
 function hiddenSocials() {
-  // Находим элемент hero__contacts
   const heroContacts = document.querySelector('.hero__contacts');
   if (!heroContacts) {
-    return null
+    return null;
   }
 
-  // Функция для добавления/удаления класса hidden
+  // Function to toggle the 'hidden' class based on intersection
   const toggleHeroContacts = (entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Add 'hidden' when the section is in view
         heroContacts.classList.add('hidden');
+        heroContacts.classList.remove('show-visible');
       } else {
-        heroContacts.classList.remove('hidden');
+        // Remove 'hidden' and add 'show-visible' only when hidden is removed
+
+        if (heroContacts.classList.contains('hidden')) {
+          heroContacts.classList.remove('hidden');
+          heroContacts.classList.add('show-visible');
+        }
       }
     });
   };
 
-  // Настройки для Intersection Observer
+  // Intersection Observer settings
   const observerOptions = {
-    root: null, // наблюдаем в пределах видимого экрана
-    threshold: 0.1 // процент пересечения, при котором срабатывает
+    root: null,
+    threshold: 0.1
   };
 
-  // Создаем наблюдатель
+  // Create and apply observer
   const observer = new IntersectionObserver(toggleHeroContacts, observerOptions);
-
-  // Находим элементы contact-us и footer и добавляем их в наблюдатель
   document.querySelectorAll('.contact-us, .footer').forEach((section) => {
     observer.observe(section);
   });
 }
 
 hiddenSocials();
+
+
 
 
 
