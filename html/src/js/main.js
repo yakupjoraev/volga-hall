@@ -263,21 +263,28 @@ document.addEventListener("DOMContentLoaded", function () {
     scrub: 1,
     anticipatePin: 1,
     onEnter: () => {
-      if (ScrollTrigger.isInViewport(sectionContainer, 0.9) && !contentChangeTimeout) {
+      if (!contentChangeTimeout) {
+        disableScroll();
         blockScrollWithAnimationDelay(banquetsContent, 2000);
         isSecondSlideShown = true;
       }
     },
     onEnterBack: () => {
-      if (ScrollTrigger.isInViewport(sectionContainer, 0.9) && !contentChangeTimeout && isSecondSlideShown) {
+      if (!contentChangeTimeout && isSecondSlideShown) {
+        disableScroll();
         blockScrollWithAnimationDelay(conferencesContent, 2000);
         isSecondSlideShown = false;
       }
+    },
+    onLeave: () => {
+      enableScroll(); // Re-enable scrolling when leaving the section
+    },
+    onLeaveBack: () => {
+      enableScroll(); // Re-enable scrolling when re-entering from the top
     }
   });
 
   function blockScrollWithAnimationDelay(content, delayTime) {
-    disableScroll();
     contentChangeTimeout = setTimeout(() => {
       swapContent(content, delayTime);
     }, delayTime);
