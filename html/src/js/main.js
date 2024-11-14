@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
           duration: 1,
           scale: 50,
         });
-        document.body.classList.add('no-scroll');
+        document.body.classList.add('non-scroll');
         // Запускаем оставшуюся анимацию через 1 секунду
         gsap.delayedCall(1, completeCircleAnimation);
       }
@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 duration: 1,
                 onComplete: () => {
                   // Включение скролла
-                  document.body.classList.remove('no-scroll');
+                  document.body.classList.remove('non-scroll');
                 }
               });
             }, 100);
@@ -718,8 +718,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Enable scrolling if user manually reaches the footer section
   window.addEventListener('scroll', () => {
     const footerPosition = document.querySelector('.footer-animation').getBoundingClientRect().top;
-    if (footerPosition <= window.innerHeight && document.body.classList.contains('no-scroll')) {
-      document.body.classList.remove('no-scroll');
+    if (footerPosition <= window.innerHeight && document.body.classList.contains('non-scroll')) {
+      document.body.classList.remove('non-scroll');
     }
   });
 
