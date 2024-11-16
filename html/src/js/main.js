@@ -789,42 +789,50 @@ if (window.matchMedia("(min-width: 767px)").matches) {
 
 function hiddenSocials() {
   const heroContacts = document.querySelector('.hero__contacts');
-  if (!heroContacts) {
-    return null;
-  }
+  if (!heroContacts) return;
 
-  // Function to toggle the 'hidden' class based on intersection
+  let visibleSections = new Set(); // Храним видимые секции
+
   const toggleHeroContacts = (entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add 'hidden' when the section is in view
-        heroContacts.classList.add('hidden');
-        heroContacts.classList.remove('show-visible');
-      } else {
-        // Remove 'hidden' and add 'show-visible' only when hidden is removed
+      const sectionClass = entry.target.classList.contains('contact-us') ? 'contact-us' : 'footer';
 
-        if (heroContacts.classList.contains('hidden')) {
-          heroContacts.classList.remove('hidden');
-          heroContacts.classList.add('show-visible');
-        }
+      if (entry.isIntersecting) {
+        // Добавляем секцию в Set, если она видна
+        visibleSections.add(sectionClass);
+      } else {
+        // Убираем секцию из Set, если она больше не видна
+        visibleSections.delete(sectionClass);
       }
     });
+
+    // Если хотя бы одна секция видна, добавляем класс hidden
+    if (visibleSections.size > 0) {
+      heroContacts.classList.add('hidden');
+      heroContacts.classList.remove('show-visible');
+    } else {
+      // Если ни одна секция не видна, убираем класс hidden
+      heroContacts.classList.remove('hidden');
+      heroContacts.classList.add('show-visible');
+    }
   };
 
-  // Intersection Observer settings
   const observerOptions = {
     root: null,
-    threshold: 0.1
+    threshold: 0.01,
   };
 
-  // Create and apply observer
   const observer = new IntersectionObserver(toggleHeroContacts, observerOptions);
+
   document.querySelectorAll('.contact-us, .footer').forEach((section) => {
     observer.observe(section);
   });
 }
 
 hiddenSocials();
+
+
+
 
 
 
