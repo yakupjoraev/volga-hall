@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ScrollTrigger.create({
     trigger: ".services.conferences",
     start: "top top",
-    end: "bottom+=1500 top",
+    end: "bottom+=200 top",
     pin: true,
     pinSpacing: true,
     scrub: 1,

@@ -1,4 +1,6 @@
 .rent {
+  position: relative;
+  z-index: 1;
   padding: 80px 0 140px;
   background: var(--white-10);
   // min-height: 100vh;
@@ -274,6 +276,7 @@
 
   .rent__item-text:last-child {
     margin-left: auto;
+    text-align: right;
   }
 
   @media (max-width: $breakpoint992) {
@@ -290,6 +293,8 @@
 
     .rent__item-text:last-child {
       margin-left: 0;
+      flex-basis: 100%;
+      text-align: left;
     }
 
   }
